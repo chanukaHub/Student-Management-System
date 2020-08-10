@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static  int SPLASH_SCREEN = 5000;
+    private static  int SPLASH_SCREEN = 3000;
 
     //Variables
     Animation topAnimation, bottomAnimation;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         //Hide time battery icons etc...
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_main);
+       setContentView(R.layout.activity_main);
 
         //Set Animations
         topAnimation = AnimationUtils.loadAnimation(this, R.anim.top_animation);
