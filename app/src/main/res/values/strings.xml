@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">e-Student</string>
+    <string name="todo">TODO</string>
+    <string name="student_information_management_system">Student Information Management System</string>
+    <string name="relience">Relience</string>
+    <string name="password">" Password"</string>
+    <string name="user_name">" User Name"</string>
+    <string name="student_management_system">Student Management System</string>
+    <string name="login">Login</string>
+    <string name="username">UserName</string>
+    <string name="password1">Password1</string>
+
 </resources>
