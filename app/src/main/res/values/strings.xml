@@ -9,5 +9,9 @@
     <string name="login">Login</string>
     <string name="username">UserName</string>
     <string name="password1">Password1</string>
+    <string name="message">Message</string>
+    <string name="communicate">Communicate</string>
+    <string name="close_navi">Close</string>
+    <string name="open_navi">Open</string>
 
 </resources>

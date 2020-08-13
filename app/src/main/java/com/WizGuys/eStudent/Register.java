@@ -35,8 +35,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 String password = etPassword.getText().toString();
                 int age = Integer.parseInt(etAge.getText().toString());
 
-                User userRegistrationDetails = new User(name,age,userName,password);
-
                 break;
 
         }
