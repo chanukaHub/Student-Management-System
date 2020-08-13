@@ -2,6 +2,7 @@ package com.WizGuys.eStudent;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
@@ -29,13 +30,14 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_dashboard);
+
 //        //Hide time battery icons etc...
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_dashboard);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-        textView = findViewById(R.id.textViewHeader);
+
         toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
@@ -68,6 +70,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(intent);
                 break;
             case R.id.nav_message3:
+                Intent intent1 = new Intent(Dashboard.this, MainActivity4.class);
+                startActivity(intent1);
 //                menu.findItem(R.id.nav_message3).setVisible(true);
 //                menu.findItem(R.id.nav_share211).setVisible(true);
 //                menu.findItem(R.id.nav_share2111).setVisible(false);
