@@ -4,12 +4,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_message"
-            android:icon="@drawable/ic_mail"
+            android:icon="@drawable/ic_home"
             android:title="Message" />
         <item
             android:id="@+id/nav_message1"
             android:icon="@drawable/ic_mail"
-            android:title="Message" />
+            android:title="Message333333" />
         <item
             android:id="@+id/nav_message2"
             android:icon="@drawable/ic_mail"
@@ -17,13 +17,14 @@
         <item
             android:id="@+id/nav_message3"
             android:icon="@drawable/ic_mail"
-            android:title="Message" />
+            android:title="Messaga3" />
 
     </group>
 
-    <group android:checkableBehavior="single">
-        <item android:title="Message">
-            <menu>
+
+    <item android:title="Message">
+        <menu>
+            <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_share"
                     android:icon="@drawable/ic_mail"
@@ -32,11 +33,13 @@
                     android:id="@+id/nav_share1"
                     android:icon="@drawable/ic_mail"
                     android:title="@string/message" />
+            </group>
+        </menu>
+    </item>
 
-            </menu>
-        </item>
-    </group>
     <item android:title="Communicate">
+        <menu>
+        <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_share2"
             android:icon="@drawable/ic_mail"
@@ -45,5 +48,15 @@
             android:id="@+id/nav_share21"
             android:icon="@drawable/ic_mail"
             android:title="@string/message" />
+        <item
+            android:id="@+id/nav_share2111"
+            android:icon="@drawable/ic_mail"
+            android:title="@string/message" />
+        <item
+            android:id="@+id/nav_share211"
+            android:icon="@drawable/ic_mail"
+            android:title="@string/message" />
+        </group></menu>
     </item>
+
 </menu>
