@@ -6,6 +6,6 @@
 
     <!-- body and background color-->
     <color name="home_background">#f2f5f8</color>
-    <color name="result_Primary">#D3D7D7</color>
+    <color name="result_Primary">#1ABC9C</color>
 </resources>
 
