@@ -3,4 +3,9 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <!-- body and background color-->
+    <color name="home_background">#f2f5f8</color>
+    <color name="result_Primary">#D3D7D7</color>
 </resources>
+

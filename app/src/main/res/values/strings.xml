@@ -9,9 +9,33 @@
     <string name="login">Login</string>
     <string name="username">UserName</string>
     <string name="password1">Password1</string>
+<<<<<<< HEAD
     <string name="message">Message</string>
     <string name="communicate">Communicate</string>
     <string name="close_navi">Close</string>
     <string name="open_navi">Open</string>
+=======
+    <string name="result_title">My Results</string>
+    <string name="result_student_name">Chanuka Dilhara</string>
+    <string name="result_student_no">IT19166070</string>
+    <string name="result_student_grade">Grade 12</string>
+    <string name="result_student_rank">Rank</string>
+    <string name="result_student_rank_value">2</string>
+    <string name="result_student_avg">Average Mark</string>
+    <string name="result_student_avg_value">70.00</string>
+    <string name="result_assignment_desc">Assignments</string>
+    <string name="result_grade_desc">Grade</string>
+    <string name="result_assignment1_desc">Assignment 1</string>
+    <string name="result_assignment2_desc">Assignment 2</string>
+    <string name="result_grade">A</string>
+    <string name="result_exam_desc">Exam</string>
+    <string name="result_exam_mark_desc">Marks</string>
+    <string name="exam_subject1_desc">Mathematics</string>
+    <string name="result_subject2_desc">Physics</string>
+    <string name="result_subject3_desc">Chemistry</string>
+    <string name="result_mark">70%</string>
+    <string name="result_mark_total_desc">Total Exam Marks</string>
+    <string name="result_mark_total">210</string>
+>>>>>>> d3e48008f1e47b2caa6b6ed6108d9cbe590399c9
 
 </resources>
