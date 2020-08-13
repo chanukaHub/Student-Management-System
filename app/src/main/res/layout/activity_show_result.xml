@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:titleTextColor="@android:color/white"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/tool_bar_background">
 
         <TextView
             android:id="@+id/toolbar_title"
@@ -29,7 +29,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/result_Primary"
+        android:background="@color/header_background"
         android:padding="20dp">
         
         <ImageView
@@ -89,7 +89,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:layout_width="0dp"
-            app:cardBackgroundColor="@color/result_Primary"
+            app:cardBackgroundColor="@color/header_background"
             app:cardElevation="10dp">
 
             <RelativeLayout
@@ -126,7 +126,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:layout_width="0dp"
-            app:cardBackgroundColor="@color/result_Primary"
+            app:cardBackgroundColor="@color/header_background"
             app:cardElevation="10dp">
 
             <RelativeLayout
@@ -169,7 +169,7 @@
         android:layout_marginRight="20dp"
         >
         <TableRow
-            android:background="@color/result_Primary">
+            android:background="@color/header_background">
                 <TextView
                     android:layout_column="1"
                     android:text="@string/result_assignment_desc"
@@ -229,7 +229,7 @@
         android:layout_marginRight="20dp"
         >
         <TableRow
-            android:background="@color/result_Primary">
+            android:background="@color/header_background">
             <TextView
                 android:layout_column="1"
                 android:text="@string/result_exam_desc"
@@ -292,7 +292,7 @@
         </TableRow>
 
         <TableRow
-            android:background="@color/result_Primary">
+            android:background="@color/header_background">
             <TextView
                 android:layout_column="1"
                 android:text="@string/result_mark_total_desc"

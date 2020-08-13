@@ -9,12 +9,12 @@
     <string name="login">Login</string>
     <string name="username">UserName</string>
     <string name="password1">Password1</string>
-<<<<<<< HEAD
+
     <string name="message">Message</string>
     <string name="communicate">Communicate</string>
     <string name="close_navi">Close</string>
     <string name="open_navi">Open</string>
-=======
+
     <string name="result_title">My Results</string>
     <string name="result_student_name">Chanuka Dilhara</string>
     <string name="result_student_no">IT19166070</string>
@@ -36,6 +36,6 @@
     <string name="result_mark">70%</string>
     <string name="result_mark_total_desc">Total Exam Marks</string>
     <string name="result_mark_total">210</string>
->>>>>>> d3e48008f1e47b2caa6b6ed6108d9cbe590399c9
+
 
 </resources>
