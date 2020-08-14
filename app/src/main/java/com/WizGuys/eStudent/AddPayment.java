@@ -20,6 +20,7 @@ public class AddPayment extends AppCompatActivity implements NavigationView.OnNa
     TextView textView;
     Menu menu;
     NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
