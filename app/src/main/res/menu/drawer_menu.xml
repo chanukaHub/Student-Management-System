@@ -31,8 +31,8 @@
                     android:title="@string/contact" />
                 <item
                     android:id="@+id/nav_share1"
-                    android:icon="@drawable/ic_about"
-                    android:title="@string/about" />
+                    android:icon="@drawable/ic_baseline_monetization_on_24"
+                    android:title="Finance" />
             </group>
         </menu>
     </item>

@@ -90,11 +90,15 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 //                menu.findItem(R.id.nav_share2111).setVisible(false);
                 break;
 
-            case R.id.nav_share1:
+            case R.id.nav_share:
                 Intent intent2 = new Intent(Dashboard.this, Notice.class);
                 startActivity(intent2);
                 break;
-            case R.id.nav_share:
+            case R.id.nav_share1:
+                Intent intent4 = new Intent(Dashboard.this, AddPayment.class);
+                startActivity(intent4);
+                break;
+            case R.id.nav_share2:
                 Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
                 break;
         }
