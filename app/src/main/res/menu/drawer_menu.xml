@@ -5,19 +5,19 @@
         <item
             android:id="@+id/nav_message"
             android:icon="@drawable/ic_home"
-            android:title="Message" />
+            android:title="@string/home" />
         <item
             android:id="@+id/nav_message1"
-            android:icon="@drawable/ic_mail"
-            android:title="Message333333" />
+            android:icon="@drawable/ic_person"
+            android:title="@string/profile" />
         <item
             android:id="@+id/nav_message2"
-            android:icon="@drawable/ic_mail"
-            android:title="Message" />
+            android:icon="@drawable/ic_notifications"
+            android:title="@string/notifications" />
         <item
             android:id="@+id/nav_message3"
-            android:icon="@drawable/ic_mail"
-            android:title="Messaga3" />
+            android:icon="@drawable/ic_time_tables"
+            android:title="@string/time_tables" />
 
     </group>
 
@@ -27,12 +27,12 @@
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_share"
-                    android:icon="@drawable/ic_mail"
-                    android:title="@string/message" />
+                    android:icon="@drawable/ic_baseline_contacts"
+                    android:title="@string/contact" />
                 <item
                     android:id="@+id/nav_share1"
-                    android:icon="@drawable/ic_mail"
-                    android:title="@string/message" />
+                    android:icon="@drawable/ic_about"
+                    android:title="@string/about" />
             </group>
         </menu>
     </item>
@@ -42,20 +42,9 @@
         <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_share2"
-            android:icon="@drawable/ic_mail"
-            android:title="@string/message" />
-        <item
-            android:id="@+id/nav_share21"
-            android:icon="@drawable/ic_mail"
-            android:title="@string/message" />
-        <item
-            android:id="@+id/nav_share2111"
-            android:icon="@drawable/ic_mail"
-            android:title="@string/message" />
-        <item
-            android:id="@+id/nav_share211"
-            android:icon="@drawable/ic_mail"
-            android:title="@string/message" />
+            android:icon="@drawable/ic_power"
+            android:title="@string/logout" />
+
         </group></menu>
     </item>
 

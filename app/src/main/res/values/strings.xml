@@ -36,6 +36,13 @@
     <string name="result_mark">70%</string>
     <string name="result_mark_total_desc">Total Exam Marks</string>
     <string name="result_mark_total">210</string>
+    <string name="logout">Logout</string>
+    <string name="about">About</string>
+    <string name="contact">Contact</string>
+    <string name="time_tables">Time Tables</string>
+    <string name="notifications">Notifications</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 
 
 </resources>
