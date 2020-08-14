@@ -126,44 +126,43 @@
                         android:layout_height="35dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginTop="395dp"
+                        android:layout_marginTop="364dp"
                         android:layout_marginEnd="26dp"
                         android:ems="10"
                         android:inputType="textPersonName" />
 
                     <TextView
-                        android:id="@+id/textView27"
+                        android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginStart="23dp"
-                        android:layout_marginTop="455dp"
-                        android:text="Description"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="175dp"
+                        android:text="Student Name"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_width="147dp"
-                        android:layout_height="44dp"
-                        android:layout_alignParentStart="true"
+                    <EditText
+                        android:id="@+id/editTextTextPersonName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_alignParentTop="true"
-                        android:layout_marginStart="19dp"
-                        android:layout_marginTop="387dp"
-                        android:text="Due Date of Balance Payment"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="167dp"
+                        android:layout_marginEnd="34dp"
+                        android:ems="10"
+                        android:inputType="textPersonName" />
 
                     <TextView
-                        android:id="@+id/textView29"
+                        android:id="@+id/textView18"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="348dp"
-                        android:text="Balance Amount"
+                        android:layout_marginStart="22dp"
+                        android:layout_marginTop="223dp"
+                        android:text="Email"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -174,78 +173,31 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="300dp"
+                        android:layout_marginTop="269dp"
                         android:text="Amount Received"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView18"
+                        android:id="@+id/textView29"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginStart="22dp"
-                        android:layout_marginTop="255dp"
-                        android:text="Total Amount"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="207dp"
-                        android:text="Student Name"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView31"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="25dp"
-                        android:layout_marginTop="159dp"
-                        android:text="Student Id"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="317dp"
+                        android:text="Balance Amount"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName"
-                        android:layout_width="wrap_content"
-                        android:backgroundTint="@android:color/holo_red_dark"
-                        android:layout_height="35dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="151dp"
-                        android:layout_marginEnd="32dp"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-
-                    <EditText
-                        android:id="@+id/editTextTextPersonName2"
+                        android:id="@+id/editTextTextPersonName5"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginTop="199dp"
-                        android:layout_marginEnd="34dp"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-
-                    <EditText
-                        android:id="@+id/editTextTextPersonName3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="247dp"
-                        android:layout_marginEnd="32dp"
+                        android:layout_marginTop="308dp"
+                        android:layout_marginEnd="26dp"
                         android:ems="10"
                         android:inputType="textPersonName" />
 
@@ -255,10 +207,45 @@
                         android:layout_height="35dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginTop="292dp"
+                        android:layout_marginTop="261dp"
                         android:layout_marginEnd="29dp"
                         android:ems="10"
                         android:inputType="textPersonName" />
+
+                    <EditText
+                        android:id="@+id/editTextTextPersonName3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="215dp"
+                        android:layout_marginEnd="32dp"
+                        android:ems="10"
+                        android:inputType="textPersonName" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="147dp"
+                        android:layout_height="44dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="19dp"
+                        android:layout_marginTop="356dp"
+                        android:text="Due Date of Balance Payment"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView41"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="461dp"
+                        android:text="Total"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/editTextTextPersonName7"
@@ -266,32 +253,68 @@
                         android:layout_height="35dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginTop="447dp"
+                        android:layout_marginTop="457dp"
                         android:layout_marginEnd="24dp"
                         android:ems="10"
                         android:inputType="textPersonName" />
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName5"
+                        android:id="@+id/editTextTextPersonName8"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginTop="339dp"
-                        android:layout_marginEnd="26dp"
+                        android:layout_marginTop="415dp"
+                        android:layout_marginEnd="24dp"
+                        android:ems="10"
+                        android:inputType="textPersonName" />
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="19dp"
+                        android:layout_marginTop="423dp"
+                        android:text="Description"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView31"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="27dp"
+                        android:layout_marginTop="130dp"
+                        android:text="Student Id"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editTextTextPersonName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="123dp"
+                        android:layout_marginEnd="33dp"
+                        android:backgroundTint="@android:color/holo_red_dark"
                         android:ems="10"
                         android:inputType="textPersonName" />
 
                     <ImageView
                         android:id="@+id/imageView3"
                         android:layout_width="wrap_content"
-                        android:layout_height="122dp"
+                        android:layout_height="107dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="163dp"
                         android:layout_marginTop="13dp"
-                        android:layout_marginEnd="149dp"
+                        android:layout_marginEnd="164dp"
                         app:srcCompat="@drawable/cash" />
 
                     <Button
