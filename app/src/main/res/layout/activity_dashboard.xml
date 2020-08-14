@@ -31,7 +31,7 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_width="422dp"
+                android:layout_width="match_parent"
                 android:layout_height="53dp"
                 android:background="@drawable/dash_bach"
                 android:minHeight="?attr/actionBarSize"
