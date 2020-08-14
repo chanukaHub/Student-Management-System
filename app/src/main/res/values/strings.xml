@@ -9,12 +9,10 @@
     <string name="login">Login</string>
     <string name="username">UserName</string>
     <string name="password1">Password1</string>
-
     <string name="message">Message</string>
     <string name="communicate">Communicate</string>
     <string name="close_navi">Close</string>
     <string name="open_navi">Open</string>
-
     <string name="result_title">My Results</string>
     <string name="result_student_name">Chanuka Dilhara</string>
     <string name="result_student_no">IT19166070</string>
@@ -45,7 +43,6 @@
     <string name="home">Home</string>
     <string name="wijayarathna_p_g_r_c">Wijayarathna P.G.R.C.</string>
     <string name="notice_id">Notice Id:</string>
-
 
 
 </resources>
