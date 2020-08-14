@@ -91,7 +91,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 break;
 
             case R.id.nav_share:
-                Intent intent2 = new Intent(Dashboard.this, Notice.class);
+                Intent intent2 = new Intent(Dashboard.this, Teachers.class);
                 startActivity(intent2);
                 break;
             case R.id.nav_share1:

@@ -46,6 +46,7 @@
                 app:layout_constraintVertical_bias="0.0"
                 app:subtitleTextColor="#977F7F"
                 app:titleTextColor="#FFFFFF"
+                app:title="Lecturers"
                 tools:ignore="MissingConstraints" />
 
 
@@ -120,72 +121,9 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginStart="37dp"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginBottom="351dp"
-                        android:background="#CFCFCF"
-                        app:srcCompat="@drawable/user" />
-
-                    <ImageButton
-                        android:id="@+id/imageView11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="89dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="176dp"
-                        android:layout_marginTop="207dp"
-                        android:layout_marginBottom="169dp"
-                        android:background="#CFCFCF"
-                        app:srcCompat="@drawable/user" />
-
-                    <ImageButton
-                        android:id="@+id/imageView10"
-                        android:layout_width="100dp"
-                        android:layout_height="88dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="38dp"
-                        android:layout_marginTop="206dp"
-                        android:layout_marginBottom="172dp"
-                        android:background="#CFCFCF"
-                        app:srcCompat="@drawable/images" />
-
-                    <Button
-                        android:id="@+id/button6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="50dp"
-                        android:background="#34376A"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginTop="325dp"
-                        android:text="View" />
-
-                    <Button
-                        android:id="@+id/button7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="182dp"
-                        android:background="#34376A"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginTop="325dp"
-                        android:text="View" />
-
-                    <ImageButton
-                        android:id="@+id/imageView8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="92dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="163dp"
-                        android:layout_marginTop="27dp"
-                        android:layout_marginBottom="347dp"
+                        android:layout_marginStart="34dp"
+                        android:layout_marginTop="54dp"
+                        android:layout_marginBottom="322dp"
                         android:background="#CFCFCF"
                         app:srcCompat="@drawable/user" />
 
@@ -196,57 +134,21 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginStart="290dp"
-                        android:layout_marginTop="27dp"
-                        android:layout_marginBottom="347dp"
+                        android:layout_marginStart="287dp"
+                        android:layout_marginTop="56dp"
+                        android:layout_marginBottom="318dp"
                         android:background="#CFCFCF"
                         app:srcCompat="@drawable/user" />
 
-                    <Button
-                        android:id="@+id/button5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="298dp"
-                        android:background="#34376A"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginTop="143dp"
-                        android:text="View" />
-
-                    <Button
-                        android:id="@+id/button3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="36dp"
-                        android:layout_marginTop="144dp"
-                        android:background="#34376A"
-                        android:textColor="#FFFFFF"
-                        android:text="View" />
-
-                    <Button
-                        android:id="@+id/button4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="175dp"
-                        android:layout_marginTop="144dp"
-                        android:background="#34376A"
-                        android:textColor="#FFFFFF"
-                        android:text="View" />
-
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/textView33"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginStart="41dp"
-                        android:layout_marginTop="123dp"
-                        android:text="Josep"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="154dp"
+                        android:layout_marginEnd="93dp"
+                        android:text="Ajith"
                         android:textStyle="bold" />
 
                     <TextView
@@ -255,21 +157,86 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginTop="123dp"
-                        android:layout_marginEnd="204dp"
+                        android:layout_marginTop="152dp"
+                        android:layout_marginEnd="207dp"
                         android:text="Nimal"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView33"
+                        android:id="@+id/textView12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="124dp"
-                        android:layout_marginEnd="90dp"
-                        android:text="Ajith"
+                        android:layout_marginStart="38dp"
+                        android:layout_marginTop="152dp"
+                        android:text="Josep"
                         android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/imageView10"
+                        android:layout_width="100dp"
+                        android:layout_height="88dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="181dp"
+                        android:layout_marginBottom="197dp"
+                        android:background="#CFCFCF"
+                        app:srcCompat="@drawable/images" />
+
+                    <ImageButton
+                        android:id="@+id/imageView14"
+                        android:layout_width="100dp"
+                        android:layout_height="88dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="169dp"
+                        android:layout_marginTop="309dp"
+                        android:layout_marginBottom="69dp"
+                        android:background="#CFCFCF"
+                        app:srcCompat="@drawable/images" />
+
+                    <ImageButton
+                        android:id="@+id/imageView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="89dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="165dp"
+                        android:layout_marginTop="182dp"
+                        android:layout_marginBottom="194dp"
+                        android:background="#CFCFCF"
+                        app:srcCompat="@drawable/user" />
+
+                    <ImageButton
+                        android:id="@+id/imageView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="89dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="37dp"
+                        android:layout_marginTop="307dp"
+                        android:layout_marginBottom="69dp"
+                        android:background="#CFCFCF"
+                        app:srcCompat="@drawable/user" />
+
+                    <ImageButton
+                        android:id="@+id/imageView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="89dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="293dp"
+                        android:layout_marginTop="178dp"
+                        android:layout_marginBottom="198dp"
+                        android:background="#CFCFCF"
+                        app:srcCompat="@drawable/user" />
 
                     <TextView
                         android:id="@+id/textView35"
@@ -277,9 +244,42 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="188dp"
-                        android:layout_marginBottom="143dp"
+                        android:layout_marginEnd="202dp"
+                        android:layout_marginBottom="170dp"
                         android:text="Kamal"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView38"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="76dp"
+                        android:layout_marginBottom="165dp"
+                        android:text="Andre"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView39"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="185dp"
+                        android:layout_marginBottom="45dp"
+                        android:text="Muditha"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView40"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="331dp"
+                        android:layout_marginBottom="42dp"
+                        android:text="Sugath"
                         android:textStyle="bold" />
 
                     <TextView
@@ -288,10 +288,46 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginStart="40dp"
-                        android:layout_marginBottom="145dp"
+                        android:layout_marginStart="37dp"
+                        android:layout_marginBottom="170dp"
                         android:text="Namali"
                         android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/imageView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="92dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="160dp"
+                        android:layout_marginTop="56dp"
+                        android:layout_marginBottom="318dp"
+                        android:background="#CFCFCF"
+                        app:srcCompat="@drawable/user" />
+
+                    <TextView
+                        android:id="@+id/textView37"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="19dp"
+                        android:text="Click Image to View Profile"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/button8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="#3D418E"
+                        android:text="+Add New"
+                        android:textColor="#FFFFFF" />
 
                 </RelativeLayout>
             </RelativeLayout>
