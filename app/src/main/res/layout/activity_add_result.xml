@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddResult"
+    android:orientation="vertical"
+    android:background="@color/home_background">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/white"
+        android:background="@color/tool_bar_background">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/result_add_title"
+            android:textColor="@android:color/white" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="3"
+    android:layout_margin="20dp">
+
+        <TextView
+            android:padding="10dp"
+            android:text="@string/result_student_enter_desc"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:background="@color/header_background"
+            android:textStyle="bold"/>
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:padding="10dp"
+            android:text="@string/result_student_no_desc"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"></TextView>
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:ems="10"
+            android:inputType="number"
+            android:text="101"/>
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_margin="4dp"
+            android:background="@color/button_background"
+            android:text="Check Student"
+            android:textStyle="bold" />
+
+
+    </TableRow>
+
+</TableLayout>
+
+    <TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="2"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    >
+
+    <TextView
+        android:padding="10dp"
+        android:text="@string/result_student_details_desc"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:background="@color/header_background"
+        android:textStyle="bold"/>
+
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:padding="10dp"
+            android:text="@string/result_student_name_desc"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"></TextView>
+        <TextView
+            android:layout_column="1"
+            android:padding="10dp"
+            android:text="@string/result_student_name"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"></TextView>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:padding="10dp"
+            android:text="@string/result_student_email_desc"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"></TextView>
+        <TextView
+            android:layout_column="1"
+            android:padding="10dp"
+            android:text="@string/result_student_email"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"></TextView>
+    </TableRow>
+
+</TableLayout>
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="3"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+
+        <TextView
+            android:padding="10dp"
+            android:text="@string/result_subject_desc"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:background="@color/header_background"
+            android:textStyle="bold"/>
+
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:padding="10dp"
+                android:text="@string/result_sub1_desc"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"></TextView>
+            <TextView
+                android:layout_column="2"
+                android:padding="10dp"
+                android:text="@string/exam_subject1_desc"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"></TextView>
+            <EditText
+                android:id="@+id/sub1_marks"
+                android:layout_width="105dp"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="marks 01"
+                android:textAlignment="center"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:padding="10dp"
+                android:text="@string/result_sub2_desc"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"></TextView>
+            <TextView
+                android:layout_column="2"
+                android:padding="10dp"
+                android:text="@string/result_subject2_desc"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"></TextView>
+            <EditText
+                android:id="@+id/sub2_marks"
+                android:layout_width="105dp"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="marks 02"
+                android:textAlignment="center"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:padding="10dp"
+                android:text="@string/result_sub3_desc"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"></TextView>
+            <TextView
+                android:layout_column="2"
+                android:padding="10dp"
+                android:text="@string/result_subject3_desc"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"></TextView>
+
+            <EditText
+                android:id="@+id/sub3_marks"
+                android:layout_width="105dp"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="marks 03"
+                android:textAlignment="center"/>
+        </TableRow>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/button_background"
+            android:text="Submit Result"
+            android:outlineProvider="bounds"
+            android:textStyle="bold"
+            style="?attr/materialButtonOutlinedStyle"
+            android:shadowRadius="100"/>
+
+    </TableLayout>
+
+</LinearLayout>

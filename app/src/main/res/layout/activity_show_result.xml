@@ -41,20 +41,20 @@
             android:layout_marginRight="10dp"
             android:layout_marginLeft="20dp"/>
         <TextView
-            android:id="@+id/username_field"
+            android:id="@+id/grade_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/profile_image"
-            android:text="@string/result_student_no"
+            android:text="@string/result_student_email"
             android:textSize="16sp"
             android:textColor="@android:color/black"/>
         <TextView
             android:id="@+id/full_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/username_field"
+            android:layout_above="@id/grade_email"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/profile_image"
             android:fontFamily="@font/amaranth_bold"
@@ -64,13 +64,13 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/grade_field"
+            android:id="@+id/username_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/username_field"
+            android:layout_below="@id/grade_email"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/profile_image"
-            android:text="@string/result_student_grade"
+            android:text="@string/result_student_no"
             android:textSize="16sp"
             android:textColor="@android:color/black"/>
 
@@ -101,7 +101,8 @@
                     android:fontFamily="@font/amaranth_bold"
                     android:id="@+id/student_rank"
                     android:includeFontPadding="false"
-                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:padding="5dp"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="@string/result_student_rank_value"
@@ -114,7 +115,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="Rank"
+                    android:text="@string/result_student_rank"
                     android:textSize="20sp" />
 
             </RelativeLayout>
@@ -138,7 +139,8 @@
                     android:fontFamily="@font/amaranth_bold"
                     android:id="@+id/student_avg"
                     android:includeFontPadding="false"
-                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:padding="5dp"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="@string/result_student_avg_value"

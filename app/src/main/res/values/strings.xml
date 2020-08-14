@@ -16,10 +16,10 @@
     <string name="result_title">My Results</string>
     <string name="result_student_name">Chanuka Dilhara</string>
     <string name="result_student_no">IT19166070</string>
-    <string name="result_student_grade">Grade 12</string>
-    <string name="result_student_rank">Rank</string>
-    <string name="result_student_rank_value">2</string>
-    <string name="result_student_avg">Average Mark</string>
+    <string name="result_student_email">chanuka77@gmail.com</string>
+    <string name="result_student_rank">CA Avg</string>
+    <string name="result_student_rank_value">80.00</string>
+    <string name="result_student_avg">Exam Avg</string>
     <string name="result_student_avg_value">70.00</string>
     <string name="result_assignment_desc">Assignments</string>
     <string name="result_grade_desc">Grade</string>
@@ -34,5 +34,15 @@
     <string name="result_mark">70%</string>
     <string name="result_mark_total_desc">Total Exam Marks</string>
     <string name="result_mark_total">210</string>
+    <string name="result_add_title">Add Result</string>
+    <string name="result_student_no_desc">Student No :</string>
+    <string name="result_student_name_desc">Student Name :</string>
+    <string name="result_student_email_desc">Student Email :</string>
+    <string name="result_student_details_desc">Student Details</string>
+    <string name="result_subject_desc">Subjects</string>
+    <string name="result_sub1_desc">Subject 1</string>
+    <string name="result_sub2_desc">Subject 2</string>
+    <string name="result_sub3_desc">Subject 3</string>
+    <string name="result_student_enter_desc">Enter Student No</string>
 
 </resources>
