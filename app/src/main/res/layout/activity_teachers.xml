@@ -9,15 +9,15 @@
     android:background="@drawable/dash_bach"
     tools:context=".Dashboard"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    >
+    tools:openDrawer="start">
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_gravity="start"
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
         app:headerLayout="@layout/header"
-        app:menu="@menu/drawer_menu" >
+        app:menu="@menu/drawer_menu">
 
     </com.google.android.material.navigation.NavigationView>
 

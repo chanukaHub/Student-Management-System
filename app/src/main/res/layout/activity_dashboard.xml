@@ -9,17 +9,17 @@
     android:background="@drawable/dash_bach"
     tools:context=".Dashboard"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    >
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_gravity="start"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            app:headerLayout="@layout/header"
-            app:menu="@menu/drawer_menu" >
+    tools:openDrawer="start">
 
-        </com.google.android.material.navigation.NavigationView>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_gravity="start"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/drawer_menu">
+
+    </com.google.android.material.navigation.NavigationView>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -90,8 +90,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginBottom="0dp"
                         android:background="#CFCFCF"
-                        app:srcCompat="@drawable/capture4"
-                        />
+                        app:srcCompat="@drawable/capture4" />
 
                     <ImageButton
                         android:id="@+id/imageView6"

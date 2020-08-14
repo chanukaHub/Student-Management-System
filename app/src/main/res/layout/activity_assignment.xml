@@ -10,15 +10,16 @@
     tools:context=".Dashboard"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
-      <com.google.android.material.navigation.NavigationView
-          android:id="@+id/nav_view"
-          android:layout_gravity="start"
-          android:layout_height="match_parent"
-          android:layout_width="wrap_content"
-          app:headerLayout="@layout/header"
-          app:menu="@menu/drawer_menu" >
 
-      </com.google.android.material.navigation.NavigationView>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_gravity="start"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/drawer_menu">
+
+    </com.google.android.material.navigation.NavigationView>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -221,7 +222,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="296dp"
                     android:background="#CFCFCF"
-                    android:layout_marginEnd="0dp" >
+                    android:layout_marginEnd="0dp">
 
                     <TextView
                         android:id="@+id/textView16"
@@ -288,7 +289,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="430dp"
                     android:background="#A1A0A0"
-                    android:layout_marginEnd="0dp" >
+                    android:layout_marginEnd="0dp">
 
                     <TextView
                         android:id="@+id/textView22"
