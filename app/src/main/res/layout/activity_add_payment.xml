@@ -304,13 +304,27 @@
                         android:layout_marginStart="128dp"
                         android:layout_marginEnd="126dp"
                         android:layout_marginBottom="16dp"
-                        android:background="#050A7E"
                         android:fontFamily="serif"
                         android:text="Submit"
                         android:textColor="#FFFFFF"
+                        android:background="@drawable/button"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.498" />
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="#4E5078"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="View All"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
 
