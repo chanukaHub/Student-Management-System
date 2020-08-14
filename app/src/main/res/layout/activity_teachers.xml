@@ -11,7 +11,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
     >
-<!--    <com.google.android.material.navigation.NavigationView
+    <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_gravity="start"
         android:layout_height="match_parent"
@@ -19,7 +19,7 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/drawer_menu" >
 
-    </com.google.android.material.navigation.NavigationView>-->
+    </com.google.android.material.navigation.NavigationView>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -159,6 +159,8 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="50dp"
+                        android:background="#34376A"
+                        android:textColor="#FFFFFF"
                         android:layout_marginTop="325dp"
                         android:text="View" />
 
@@ -169,6 +171,8 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="182dp"
+                        android:background="#34376A"
+                        android:textColor="#FFFFFF"
                         android:layout_marginTop="325dp"
                         android:text="View" />
 
@@ -205,6 +209,8 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="298dp"
+                        android:background="#34376A"
+                        android:textColor="#FFFFFF"
                         android:layout_marginTop="143dp"
                         android:text="View" />
 
@@ -216,6 +222,8 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="36dp"
                         android:layout_marginTop="144dp"
+                        android:background="#34376A"
+                        android:textColor="#FFFFFF"
                         android:text="View" />
 
                     <Button
@@ -226,6 +234,8 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="175dp"
                         android:layout_marginTop="144dp"
+                        android:background="#34376A"
+                        android:textColor="#FFFFFF"
                         android:text="View" />
 
                     <TextView
