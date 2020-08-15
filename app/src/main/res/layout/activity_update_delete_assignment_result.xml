@@ -204,7 +204,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/button_background"
-                android:text="Update Result"
+                android:text="Update Marks"
                 android:outlineProvider="bounds"
 
                 android:textStyle="bold"
@@ -219,7 +219,7 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/button_background"
-                android:text="Delete Result"
+                android:text="Delete Marks"
                 android:outlineProvider="bounds"
 
                 android:textStyle="bold"
