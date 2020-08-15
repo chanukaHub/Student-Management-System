@@ -46,5 +46,6 @@
     <string name="result_student_enter_desc">Enter Student No</string>
     <string name="result_assignment_add__title">Add Assignment Result</string>
     <string name="result_update_delete_title">Update or Delete Result</string>
+    <string name="result_assignment_update_delete_title">Update or Delete Assignment Result</string>
 
 </resources>
