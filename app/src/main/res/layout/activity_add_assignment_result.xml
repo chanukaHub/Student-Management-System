@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateDeleteResult"
+    tools:context=".AddAssignmentResult"
     android:orientation="vertical"
     android:background="@color/home_background">
 
@@ -21,7 +21,7 @@
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/result_update_delete_title"
+            android:text="@string/result_assignment_add__title"
             android:textColor="@android:color/white" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -127,84 +127,49 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:stretchColumns="3"
+        android:stretchColumns="2"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         >
 
         <TextView
             android:padding="10dp"
-            android:text="@string/result_subject_desc"
+            android:text="@string/result_assignment_desc"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:background="@color/header_background"
             android:textStyle="bold"/>
 
 
+
+
         <TableRow>
+
 
             <TextView
                 android:layout_column="1"
                 android:padding="10dp"
-                android:text="@string/result_sub1_desc"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"></TextView>
-            <TextView
-                android:layout_column="2"
-                android:padding="10dp"
-                android:text="@string/exam_subject1_desc"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"></TextView>
-            <EditText
-                android:id="@+id/sub1_marks"
-                android:layout_width="105dp"
-                android:layout_height="wrap_content"
-                android:layout_column="3"
-                android:ems="10"
-                android:text="@string/result_mark"
-                android:inputType="number"
-                android:hint="marks 01"
-                android:textAlignment="center"/>
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="10dp"
-                android:text="@string/result_sub2_desc"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"></TextView>
-            <TextView
-                android:layout_column="2"
-                android:padding="10dp"
-                android:text="@string/result_subject2_desc"
+                android:text="@string/result_assignment1_desc"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
             <EditText
                 android:id="@+id/sub2_marks"
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
-                android:layout_column="3"
+                android:layout_column="2"
                 android:ems="10"
                 android:inputType="number"
-                android:hint="marks 02"
-                android:text="@string/result_mark"
+                android:hint="Enter marks"
                 android:textAlignment="center"/>
         </TableRow>
 
         <TableRow>
 
+
             <TextView
                 android:layout_column="1"
                 android:padding="10dp"
-                android:text="@string/result_sub3_desc"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"></TextView>
-            <TextView
-                android:layout_column="2"
-                android:padding="10dp"
-                android:text="@string/result_subject3_desc"
+                android:text="@string/result_assignment2_desc"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
 
@@ -212,58 +177,27 @@
                 android:id="@+id/sub3_marks"
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
-                android:layout_column="3"
+                android:layout_column="2"
                 android:ems="10"
                 android:inputType="number"
-                android:hint="marks 03"
-                android:text="@string/result_mark"
+                android:hint="Enter marks"
                 android:textAlignment="center"/>
         </TableRow>
 
-
-
-    </TableLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="2"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        >
-        <TableRow>
-            <Button
-            android:layout_column="1"
-            android:layout_width="150dp"
+        <Button
+            android:layout_width="100dp"
             android:layout_height="45dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
             android:layout_marginTop="10dp"
             android:background="@color/button_background"
-            android:text="Update Result"
+            android:text="Submit Marks"
             android:outlineProvider="bounds"
-
             android:textStyle="bold"
             style="?attr/materialButtonOutlinedStyle"
             android:shadowRadius="100"/>
 
-            <Button
-                android:layout_column="1"
-                android:layout_width="150dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/button_background"
-                android:text="Delete Result"
-                android:outlineProvider="bounds"
-
-                android:textStyle="bold"
-                style="?attr/materialButtonOutlinedStyle"
-                android:shadowRadius="100"/>
-
-        </TableRow>
-
     </TableLayout>
+
 
 </LinearLayout>

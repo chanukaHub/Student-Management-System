@@ -44,5 +44,7 @@
     <string name="result_sub2_desc">Subject 2</string>
     <string name="result_sub3_desc">Subject 3</string>
     <string name="result_student_enter_desc">Enter Student No</string>
+    <string name="result_assignment_add__title">Add Assignment Result</string>
+    <string name="result_update_delete_title">Update or Delete Result</string>
 
 </resources>
