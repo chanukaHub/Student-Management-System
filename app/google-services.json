@@ -1,36 +1,21 @@
 {
   "project_info": {
-<<<<<<< HEAD
     "project_number": "327058480216",
     "firebase_url": "https://e-student-ff4d9.firebaseio.com",
     "project_id": "e-student-ff4d9",
     "storage_bucket": "e-student-ff4d9.appspot.com"
-=======
-    "project_number": "142085209142",
-    "firebase_url": "https://student-management-syste-970d0.firebaseio.com",
-    "project_id": "student-management-syste-970d0",
-    "storage_bucket": "student-management-syste-970d0.appspot.com"
->>>>>>> finance
   },
   "client": [
     {
       "client_info": {
-<<<<<<< HEAD
         "mobilesdk_app_id": "1:327058480216:android:9dffaeb23ee0603b067e2d",
-=======
-        "mobilesdk_app_id": "1:142085209142:android:11362dc465a363e228ec97",
->>>>>>> finance
         "android_client_info": {
           "package_name": "com.WizGuys.eStudent"
         }
       },
       "oauth_client": [
         {
-<<<<<<< HEAD
           "client_id": "327058480216-ja8lqh35sf5v6sat4tp611818d002ktt.apps.googleusercontent.com",
-=======
-          "client_id": "142085209142-0kmi55s0l6gspvg04iguh79c9grpqdq5.apps.googleusercontent.com",
->>>>>>> finance
           "client_type": 1,
           "android_info": {
             "package_name": "com.WizGuys.eStudent",
@@ -38,32 +23,20 @@
           }
         },
         {
-<<<<<<< HEAD
           "client_id": "327058480216-p9f92ddija70dg3kk8fvucv6afp1uf8j.apps.googleusercontent.com",
-=======
-          "client_id": "142085209142-rp0d7kukfk6og5oplrp4mhb70bd16sum.apps.googleusercontent.com",
->>>>>>> finance
           "client_type": 3
         }
       ],
       "api_key": [
         {
-<<<<<<< HEAD
           "current_key": "AIzaSyAgbBW9Vo8bJZMIrytrjSZezWHAaeBUMvY"
-=======
-          "current_key": "AIzaSyAOgJhfgAptP0JuOAb4oZdVNK4bE7hvzYE"
->>>>>>> finance
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-<<<<<<< HEAD
               "client_id": "327058480216-p9f92ddija70dg3kk8fvucv6afp1uf8j.apps.googleusercontent.com",
-=======
-              "client_id": "142085209142-rp0d7kukfk6og5oplrp4mhb70bd16sum.apps.googleusercontent.com",
->>>>>>> finance
               "client_type": 3
             }
           ]
