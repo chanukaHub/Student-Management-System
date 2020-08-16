@@ -49,8 +49,17 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/bRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register" />
+        android:id="@+id/addBtn"
+        android:layout_width="381dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="355dp"
+        android:text="add_value_to_firebase"
+        android:textAlignment="center"
+        android:textColorHighlight="#912727"
+        android:textColorHint="#B53535"
+     />
 </LinearLayout>

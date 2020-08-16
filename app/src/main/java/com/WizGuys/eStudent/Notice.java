@@ -57,7 +57,7 @@ public class Notice extends AppCompatActivity implements NavigationView.OnNaviga
             case R.id.nav_message:
                 break;
             case R.id.nav_message1:
-                Intent intent = new Intent(Notice.this, MainActivity2.class);
+                Intent intent = new Intent(Notice.this, MainActivity4.class);
                 startActivity(intent);
                 break;
             case R.id.nav_message3:
