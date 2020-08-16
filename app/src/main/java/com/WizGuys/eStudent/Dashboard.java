@@ -2,11 +2,14 @@ package com.WizGuys.eStudent;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,93 +19,91 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.WizGuys.eStudent.helperClass.CategoriesAdapter;
+import com.WizGuys.eStudent.helperClass.CategoriesHelperClass;
+import com.WizGuys.eStudent.helperClass.FeaturedAdapter;
+import com.WizGuys.eStudent.helperClass.FeaturedHelper;
+import com.WizGuys.eStudent.helperClass.MostViewedAdpater;
+import com.WizGuys.eStudent.helperClass.MostViewedHelperClass;
 import com.google.android.material.navigation.NavigationView;
 
-public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.ArrayList;
 
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    Toolbar toolbar;
-    TextView textView;
-    ImageButton imageButton;
-    Menu menu;
+public class Dashboard extends AppCompatActivity {
 
+    RecyclerView recyclerView, mostViewedRecycler, categoriesRecycler;
+    RecyclerView.Adapter adapter;
+    private GradientDrawable gradient1, gradient2, gradient3, gradient4;
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dashboard);
 
-//        //Hide time battery icons etc...
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //Hooks
+        recyclerView = findViewById(R.id.featured_recycler);
+        mostViewedRecycler = findViewById(R.id.most_viewed_recycler);
+        categoriesRecycler = findViewById(R.id.categories_recycler);
+        featuredRecycler();
+        mostViewedRecycler();
+        categoriesRecycler();
+ 
 
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        imageButton = findViewById(R.id.imageView5);
-
-        toolbar = findViewById(R.id.toolbar);
-
-        setSupportActionBar(toolbar);
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_navi, R.string.close_navi);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_message);
-
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Dashboard.this, Notice.class);
-                startActivity(intent);
-            }
-        });
     }
 
+    private void categoriesRecycler() {
 
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        //All Gradients
+        gradient2 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffd4cbe5, 0xffd4cbe5});
+        gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xff7adccf, 0xff7adccf});
+        gradient3 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xfff7c59f, 0xFFf7c59f});
+        gradient4 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffb8d7f5, 0xffb8d7f5});
+
+
+        ArrayList<CategoriesHelperClass> categoriesHelperClasses = new ArrayList<>();
+        categoriesHelperClasses.add(new CategoriesHelperClass(gradient1, R.drawable.capture1, "Education"));
+        categoriesHelperClasses.add(new CategoriesHelperClass(gradient2, R.drawable.capture4, "HOSPITAL"));
+        categoriesHelperClasses.add(new CategoriesHelperClass(gradient3, R.drawable.capture4, "Restaurant"));
+        categoriesHelperClasses.add(new CategoriesHelperClass(gradient4, R.drawable.capture4, "Shopping"));
+        categoriesHelperClasses.add(new CategoriesHelperClass(gradient1, R.drawable.capture4, "Transport"));
+
+
+        categoriesRecycler.setHasFixedSize(true);
+        adapter = new CategoriesAdapter(categoriesHelperClasses);
+        categoriesRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        categoriesRecycler.setAdapter(adapter);
+
     }
 
+    private void mostViewedRecycler() {
+        mostViewedRecycler.setHasFixedSize(true);
+        mostViewedRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
+        ArrayList<MostViewedHelperClass> mostViewedLocations = new ArrayList<>();
+        mostViewedLocations.add(new MostViewedHelperClass(R.drawable.capture4,"333333333333", "McDonald's"));
+        mostViewedLocations.add(new MostViewedHelperClass(R.drawable.capture4, "33333333332","Edenrobe"));
+        mostViewedLocations.add(new MostViewedHelperClass(R.drawable.capture4, "J.","323"));
+        mostViewedLocations.add(new MostViewedHelperClass(R.drawable.capture4, "Walmart","43322"));
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case R.id.nav_message:
-                break;
-            case R.id.nav_message1:
-                Intent intent = new Intent(Dashboard.this, MainActivity2.class);
-                startActivity(intent);
-                break;
-            case R.id.nav_message3:
-                Intent intent1 = new Intent(Dashboard.this, MainActivity4.class);
-                startActivity(intent1);
-//                menu.findItem(R.id.nav_message3).setVisible(true);
-//                menu.findItem(R.id.nav_share211).setVisible(true);
-//                menu.findItem(R.id.nav_share2111).setVisible(false);
-                break;
+        adapter = new MostViewedAdpater(mostViewedLocations);
+        mostViewedRecycler.setAdapter(adapter);
 
-            case R.id.nav_share:
-                Intent intent2 = new Intent(Dashboard.this, Teachers.class);
-                startActivity(intent2);
-                break;
-            case R.id.nav_share1:
-                Intent intent4 = new Intent(Dashboard.this, AddPayment.class);
-                startActivity(intent4);
-                break;
-            case R.id.nav_share2:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
+    }
+    private void featuredRecycler() {
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        ArrayList<FeaturedHelper> featuredHelperArrayList = new ArrayList<>();
+        featuredHelperArrayList.add(new FeaturedHelper(R.drawable.images, "mcDonal", "666666666666666666666666666666666666"));
+        featuredHelperArrayList.add(new FeaturedHelper(R.drawable.capture1, "gfdgf", "666666666666666666666666666666666666"));
+        featuredHelperArrayList.add(new FeaturedHelper(R.drawable.capture4, "545345", "666666666666666666666666666666666666"));
+        adapter = new FeaturedAdapter(featuredHelperArrayList);
+        recyclerView.setAdapter(adapter);
+
+        GradientDrawable gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,new int[]{0xffeff400,0xffaff600});
     }
 }

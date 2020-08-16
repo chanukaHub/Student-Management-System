@@ -9,24 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TeachersProfile"></activity>
-        <activity android:name=".Teachers"></activity>
-        <activity android:name=".AddPayment"></activity>
+        <activity android:name=".AddTeachers">
+
+        </activity>
+        <activity android:name=".TeachersProfile" />
+        <activity android:name=".Teachers" />
+        <activity android:name=".AddPayment" />
         <activity android:name=".Notice" />
         <activity android:name=".ShowResult" />
         <activity android:name=".MainActivity4" />
         <activity android:name=".MainActivity3" />
         <activity android:name=".MainActivity2" />
         <activity android:name=".MainActivity">
+
+
+
+        </activity>
+        <activity android:name=".Register" />
+        <activity android:name=".Login" />
+        <activity android:name=".Dashboard" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Register"></activity>
-        <activity android:name=".Login"></activity>
-        <activity android:name=".Dashboard"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

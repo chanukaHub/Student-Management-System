@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="2dp"
+    android:elevation="8dp">
+
+    <RelativeLayout
+        android:layout_width="317dp"
+        android:layout_height="145dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/mv_image"
+            android:layout_width="100dp"
+            android:layout_height="135dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/images" />
+
+
+        <TextView
+            android:id="@+id/mv_title"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="15dp"
+            android:layout_toEndOf="@+id/mv_image"
+            android:layout_toRightOf="@+id/mv_image"
+            android:fontFamily="@font/abril_fatface"
+            android:text="macDonals"
+            android:textSize="20dp" />
+
+        <RatingBar
+            android:id="@+id/mv_rating"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="97dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mv_title"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="73dp"
+            android:layout_toEndOf="@+id/mv_image"
+            android:rating="4" />
+
+        <TextView
+            android:id="@+id/mv_desc"
+            android:layout_width="195dp"
+            android:layout_height="68dp"
+            android:layout_below="@id/mv_rating"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@+id/mv_image"
+            android:layout_toRightOf="@id/mv_image"
+            android:padding="10dp"
+            android:text="asbkd asudhlasn saudnas jasdjasl hisajdl asjdlnas" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
