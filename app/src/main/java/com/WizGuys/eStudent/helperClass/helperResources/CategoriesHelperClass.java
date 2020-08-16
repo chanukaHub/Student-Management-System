@@ -1,4 +1,4 @@
-package com.WizGuys.eStudent.helperClass;
+package com.WizGuys.eStudent.helperClass.helperResources;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;

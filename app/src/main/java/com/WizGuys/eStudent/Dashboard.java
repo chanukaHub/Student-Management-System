@@ -1,34 +1,20 @@
 package com.WizGuys.eStudent;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.WizGuys.eStudent.helperClass.CategoriesAdapter;
-import com.WizGuys.eStudent.helperClass.CategoriesHelperClass;
+import com.WizGuys.eStudent.helperClass.helperResources.CategoriesHelperClass;
 import com.WizGuys.eStudent.helperClass.FeaturedAdapter;
-import com.WizGuys.eStudent.helperClass.FeaturedHelper;
+import com.WizGuys.eStudent.helperClass.helperResources.FeaturedHelper;
 import com.WizGuys.eStudent.helperClass.MostViewedAdpater;
-import com.WizGuys.eStudent.helperClass.MostViewedHelperClass;
-import com.google.android.material.navigation.NavigationView;
+import com.WizGuys.eStudent.helperClass.helperResources.MostViewedHelperClass;
 
 import java.util.ArrayList;
 

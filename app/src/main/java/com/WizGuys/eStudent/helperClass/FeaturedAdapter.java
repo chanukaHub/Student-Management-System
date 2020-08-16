@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.WizGuys.eStudent.R;
+import com.WizGuys.eStudent.helperClass.helperResources.FeaturedHelper;
 
 import java.util.ArrayList;
 

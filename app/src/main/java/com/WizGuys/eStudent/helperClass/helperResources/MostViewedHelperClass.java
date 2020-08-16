@@ -1,4 +1,4 @@
-package com.WizGuys.eStudent.helperClass;
+package com.WizGuys.eStudent.helperClass.helperResources;
 
 public class MostViewedHelperClass {
 
