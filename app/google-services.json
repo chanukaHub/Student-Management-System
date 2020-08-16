@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "327058480216",
+    "firebase_url": "https://e-student-ff4d9.firebaseio.com",
+    "project_id": "e-student-ff4d9",
+    "storage_bucket": "e-student-ff4d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327058480216:android:9dffaeb23ee0603b067e2d",
+        "android_client_info": {
+          "package_name": "com.WizGuys.eStudent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327058480216-ja8lqh35sf5v6sat4tp611818d002ktt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.WizGuys.eStudent",
+            "certificate_hash": "99f6e192352c98577876a24a007ff11fbac71e5a"
+          }
+        },
+        {
+          "client_id": "327058480216-p9f92ddija70dg3kk8fvucv6afp1uf8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgbBW9Vo8bJZMIrytrjSZezWHAaeBUMvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327058480216-p9f92ddija70dg3kk8fvucv6afp1uf8j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

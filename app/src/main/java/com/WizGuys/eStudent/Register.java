@@ -3,41 +3,34 @@ package com.WizGuys.eStudent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
+import com.firebase.client.Firebase;
 
-public class Register extends AppCompatActivity implements View.OnClickListener {
+
+
+public class Register extends AppCompatActivity  {
 
     Button bRegister;
-    EditText etName, etAge, etUserName, etPassword;
+    private Firebase mRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        etName = (EditText) findViewById(R.id.etName);
-        etAge = (EditText) findViewById(R.id.etAge);
-        etUserName = (EditText) findViewById(R.id.etUserName);
-        etPassword = (EditText) findViewById(R.id.etPassword);
+        Firebase.setAndroidContext(this);
+
+        mRef = new Firebase("https://e-student-ff4d9.firebaseio.com/");
         bRegister = (Button) findViewById(R.id.bRegister);
 
-        bRegister.setOnClickListener(this);
-    }
+        bRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Firebase mc = mRef.child("Name");
+                mc.setValue("Kamalata1");
+            }
+        });
 
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.bRegister:
-                String name = etName.getText().toString();
-                String userName = etUserName.getText().toString();
-                String password = etPassword.getText().toString();
-                int age = Integer.parseInt(etAge.getText().toString());
-
-                break;
-
-        }
     }
 
 }
