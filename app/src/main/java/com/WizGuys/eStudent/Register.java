@@ -21,19 +21,15 @@ public class Register extends AppCompatActivity {
 
         Firebase.setAndroidContext(this);
         mRef = new Firebase("https://student-management-syste-970d0.firebaseio.com/");
-       bRegister = findViewById(R.id.addBtn);
+        bRegister = findViewById(R.id.addBtn);
 
-       bRegister.setOnClickListener(new View.OnClickListener(){
+        bRegister.setOnClickListener(new View.OnClickListener() {
 
-           @Override
-           public void onClick(View view) {
-               Firebase mRefChild = mRef.child("Name");
-               mRefChild.setValue("Rivindu");
-           }
-       });
+            @Override
+            public void onClick(View view) {
+                Firebase mRefChild = mRef.child("Name");
+                mRefChild.setValue("Rivindu");
+            }
+        });
     }
-
-
-
-
 }
