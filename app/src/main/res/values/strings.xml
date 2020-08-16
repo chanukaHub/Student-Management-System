@@ -46,5 +46,14 @@
     <string name="description">Enter Description</string>
     <string name="update_subject_head">Update Subject</string>
     <string name="manage_subjects_head">Manage Subjects</string>
+    <string name="logout">Logout</string>
+    <string name="about">About</string>
+    <string name="contact">Contact</string>
+    <string name="time_tables">Time Tables</string>
+    <string name="notifications">Notifications</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="wijayarathna_p_g_r_c">Wijayarathna P.G.R.C.</string>
+    <string name="notice_id">Notice Id:</string>
 
 </resources>

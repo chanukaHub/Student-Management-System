@@ -9,8 +9,7 @@
     android:background="@drawable/dash_bach"
     tools:context=".Dashboard"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    >
+    tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -18,15 +17,17 @@
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
         app:headerLayout="@layout/header"
-        app:menu="@menu/drawer_menu" />
+        app:menu="@menu/drawer_menu">
+
+    </com.google.android.material.navigation.NavigationView>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_height="match_parent"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="#ffff">
 
             <androidx.appcompat.widget.Toolbar
@@ -37,20 +38,142 @@
                 android:minHeight="?attr/actionBarSize"
                 android:textAlignment="viewStart"
                 android:theme="?attr/actionBarTheme"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:navigationIcon="@drawable/ic_mail"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
                 app:subtitleTextColor="#977F7F"
                 app:titleTextColor="#FFFFFF"
                 tools:ignore="MissingConstraints" />
 
-          <!--  <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Travel"
-                android:id="@+id/textViewHeader"
-                />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="175dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="55dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="55dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="193dp"
+                    android:layout_marginTop="360dp"
+                    android:layout_marginEnd="0dp">
+
+                    <ImageButton
+                        android:id="@+id/imageView5"
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="0dp"
+                        android:background="#CFCFCF"
+                        app:srcCompat="@drawable/capture4" />
+
+                    <ImageButton
+                        android:id="@+id/imageView6"
+                        android:layout_width="119dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="146dp"
+                        android:background="#CFCFCF"
+                        android:layout_marginBottom="0dp"
+                        app:srcCompat="@drawable/capture5" />
+
+                    <ImageButton
+                        android:id="@+id/imageView7"
+                        android:layout_width="126dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:background="#CFCFCF"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="271dp"
+                        android:layout_marginBottom="0dp"
+                        app:srcCompat="@drawable/capture6" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="143dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="203dp"
+                    android:layout_marginEnd="0dp">
+
+                    <ImageButton
+                        android:id="@+id/imageView4"
+                        android:layout_width="378dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="16dp"
+                        android:background="#CFCFCF"
+                        android:layout_marginTop="0dp"
+                        app:srcCompat="@drawable/capture3" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="188dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="0dp">
+
+                    <ImageButton
+                        android:id="@+id/imageView"
+                        android:layout_width="190dp"
+                        android:layout_height="149dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="14dp"
+                        android:background="#CFCFCF"
+                        android:layout_marginTop="34dp"
+                        android:layout_marginBottom="5dp"
+                        app:srcCompat="@drawable/capture1" />
+
+                    <ImageButton
+                        android:id="@+id/imageView2"
+                        android:layout_width="176dp"
+                        android:layout_height="151dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="12dp"
+                        android:background="#CFCFCF"
+                        android:layout_marginTop="34dp"
+                        android:layout_marginEnd="19dp"
+                        android:layout_toEndOf="@+id/imageView"
+                        app:srcCompat="@drawable/capture2" />
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
 </androidx.drawerlayout.widget.DrawerLayout>

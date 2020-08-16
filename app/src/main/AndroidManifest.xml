@@ -16,6 +16,10 @@
         <activity android:name=".UpdateTask" />
         <activity android:name=".ToDoForm" />
         <activity android:name=".ToDoList" />
+        <activity android:name=".TeachersProfile"></activity>
+        <activity android:name=".Teachers"></activity>
+        <activity android:name=".AddPayment"></activity>
+        <activity android:name=".Notice" />
         <activity android:name=".ShowResult" />
         <activity android:name=".MainActivity4" />
         <activity android:name=".MainActivity3" />
@@ -42,7 +46,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
