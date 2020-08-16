@@ -11,7 +11,7 @@ import com.firebase.client.Firebase;
 
 public class Register extends AppCompatActivity {
     Button bRegister;
-    EditText etName, etAge, etUserName, etPassword;
+
     private Firebase mRef;
 
     @Override
