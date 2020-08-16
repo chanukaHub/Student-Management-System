@@ -9,7 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateDeleteAssignmentResult">
+
+        <activity android:name=".UpdateDeleteAssignmentResult"/>
+
+        <activity android:name=".AddTeachers"/>
+        <activity android:name=".TeachersProfile" />
+        <activity android:name=".Teachers" />
+        <activity android:name=".AddPayment" />
+
+        <activity android:name=".ManageSubjects"></activity>
+        <activity android:name=".UpdateSubject" />
+        <activity android:name=".AddSubject" />
+        <activity android:name=".SubjectList" />
+        <activity android:name=".UpdateTask" />
+        <activity android:name=".ToDoForm" />
+        <activity android:name=".ToDoList" />
+
+        <activity android:name=".Notice" />
+        <activity android:name=".ShowResult" />
+        <activity android:name=".MainActivity4" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,29 +38,11 @@
         <activity android:name=".AddAssignmentResult" />
         <activity android:name=".UpdateDeleteResult" />
         <activity android:name=".AddResult" />
-        <activity android:name=".ShowResult" />
-        <activity android:name=".MainActivity4" />
-        <activity android:name=".MainActivity3" />
-        <activity android:name=".MainActivity2" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Register" />
+        <activity android:name=".Login" />
+        <activity android:name=".Dashboard" >
 
         </activity>
-        <activity android:name=".Register">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Login">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Dashboard">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -47,5 +47,26 @@
     <string name="result_assignment_add__title">Add Assignment Result</string>
     <string name="result_update_delete_title">Update or Delete Result</string>
     <string name="result_assignment_update_delete_title">Update or Delete Assignment Result</string>
+    <string name="todo_list_main_head">ToDo List</string>
+    <string name="todo_form_main_head">Add Task</string>
+    <string name="todo_form_task_txt">Enter task here</string>
+    <string name="todo_form_date_txt">Select date</string>
+    <string name="todo_form_update">Update Task</string>
+    <string name="subject_list_main_head">My Subjects</string>
+    <string name="add_subject_head">Add Subject</string>
+    <string name="enter_subject_name">Enter Subject Name</string>
+    <string name="teacher_name">Enter Teacher\'s Name</string>
+    <string name="description">Enter Description</string>
+    <string name="update_subject_head">Update Subject</string>
+    <string name="manage_subjects_head">Manage Subjects</string>
+    <string name="logout">Logout</string>
+    <string name="about">About</string>
+    <string name="contact">Contact</string>
+    <string name="time_tables">Time Tables</string>
+    <string name="notifications">Notifications</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="wijayarathna_p_g_r_c">Wijayarathna P.G.R.C.</string>
+    <string name="notice_id">Notice Id:</string>
 
 </resources>

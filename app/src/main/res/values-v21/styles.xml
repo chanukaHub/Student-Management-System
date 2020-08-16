@@ -8,6 +8,7 @@
     <item name="colorAccent">@color/design_default_color_secondary_variant</item>
     <item name="android:statusBarColor">#2B1919</item>
     <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
 </style>
 
     <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
