@@ -34,5 +34,17 @@
     <string name="result_mark">70%</string>
     <string name="result_mark_total_desc">Total Exam Marks</string>
     <string name="result_mark_total">210</string>
+    <string name="todo_list_main_head">ToDo List</string>
+    <string name="todo_form_main_head">Add Task</string>
+    <string name="todo_form_task_txt">Enter task here</string>
+    <string name="todo_form_date_txt">Select date</string>
+    <string name="todo_form_update">Update Task</string>
+    <string name="subject_list_main_head">My Subjects</string>
+    <string name="add_subject_head">Add Subject</string>
+    <string name="enter_subject_name">Enter Subject Name</string>
+    <string name="teacher_name">Enter Teacher\'s Name</string>
+    <string name="description">Enter Description</string>
+    <string name="update_subject_head">Update Subject</string>
+    <string name="manage_subjects_head">Manage Subjects</string>
 
 </resources>

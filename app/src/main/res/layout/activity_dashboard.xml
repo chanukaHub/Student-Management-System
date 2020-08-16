@@ -33,7 +33,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="53dp"
-                android:background="@drawable/dash_bach"
+                android:background="@color/tool_bar_background"
                 android:minHeight="?attr/actionBarSize"
                 android:textAlignment="viewStart"
                 android:theme="?attr/actionBarTheme"
@@ -41,7 +41,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:navigationIcon="@drawable/ic_mail"
                 app:subtitleTextColor="#977F7F"
-                app:titleTextColor="#1C1919"
+                app:titleTextColor="#FFFFFF"
                 tools:ignore="MissingConstraints" />
 
           <!--  <TextView
