@@ -8,13 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".helperClass.firebase.FireBase">
 
         <activity android:name=".AddTeachers">
         </activity>
-        <activity android:name=".TeachersProfile" />
-        <activity android:name=".Teachers" />
-        <activity android:name=".AddPayment" />
+        <activity android:name=".teachers.TeachersProfile" />
+        <activity android:name=".teachers.Teachers" />
+        <activity android:name=".finance.AddPayment" />
 
         <activity android:name=".ManageSubjects"></activity>
         <activity android:name=".UpdateSubject" />
@@ -24,7 +25,7 @@
         <activity android:name=".ToDoForm" />
         <activity android:name=".ToDoList" />
 
-        <activity android:name=".Notice" />
+        <activity android:name=".notice.Notice" />
         <activity android:name=".ShowResult" />
         <activity android:name=".MainActivity4" />
         <activity android:name=".MainActivity">

@@ -223,7 +223,7 @@
                         android:layout_marginTop="50dp"
                         android:layout_width="wrap_content"
                         android:lineHeight="24sp"
-                        android:text="featured locations"
+                        android:text="e-Student"
                         android:textAllCaps="true"
                         android:textColor="@color/colorAccent"
                         android:textSize="25sp" />

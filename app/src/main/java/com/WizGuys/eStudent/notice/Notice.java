@@ -1,4 +1,4 @@
-package com.WizGuys.eStudent;
+package com.WizGuys.eStudent.notice;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.WizGuys.eStudent.MainActivity4;
+import com.WizGuys.eStudent.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class Notice extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

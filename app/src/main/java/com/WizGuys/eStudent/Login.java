@@ -33,6 +33,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         switch (view.getId()) {
             case R.id.bLogin:
+
+
                 startActivity(new Intent(this,Dashboard.class));
                 break;
                 case  R.id.tvRegisterLink:
