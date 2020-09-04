@@ -8,6 +8,7 @@
     <color name="home_background">#f2f5f8</color>
     <color name="header_background">#D0D5E1</color>
     <color name="tool_bar_background">#210463</color>
+    <color name="button_background">#BAC2C6 </color>
 
 </resources>
 

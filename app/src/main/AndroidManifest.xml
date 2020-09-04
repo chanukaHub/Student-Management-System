@@ -11,11 +11,16 @@
         android:theme="@style/AppTheme"
         android:name=".helperClass.firebase.FireBase">
 
+
         <activity android:name=".AddTeachers">
         </activity>
         <activity android:name=".teachers.TeachersProfile" />
         <activity android:name=".teachers.Teachers" />
         <activity android:name=".finance.AddPayment" />
+
+        <activity android:name=".UpdateDeleteAssignmentResult"/>
+
+
 
         <activity android:name=".ManageSubjects"></activity>
         <activity android:name=".UpdateSubject" />
@@ -34,8 +39,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity android:name=".AddAssignmentResult" />
+        <activity android:name=".UpdateDeleteResult" />
+        <activity android:name=".AddResult" />
         <activity android:name=".Register" />
         <activity android:name=".Login" />
         <activity android:name=".Dashboard" >
