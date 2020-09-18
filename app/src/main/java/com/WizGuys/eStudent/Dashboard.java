@@ -3,28 +3,37 @@ package com.WizGuys.eStudent;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.WizGuys.eStudent.helperClass.CategoriesAdapter;
-import com.WizGuys.eStudent.helperClass.helperResources.CategoriesHelperClass;
 import com.WizGuys.eStudent.helperClass.FeaturedAdapter;
-import com.WizGuys.eStudent.helperClass.helperResources.FeaturedHelper;
 import com.WizGuys.eStudent.helperClass.MostViewedAdpater;
+import com.WizGuys.eStudent.helperClass.helperResources.CategoriesHelperClass;
+import com.WizGuys.eStudent.helperClass.helperResources.FeaturedHelper;
 import com.WizGuys.eStudent.helperClass.helperResources.MostViewedHelperClass;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
-public class Dashboard extends AppCompatActivity {
+public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    static final float END_SCALE = 0.7f;
     RecyclerView recyclerView, mostViewedRecycler, categoriesRecycler;
     RecyclerView.Adapter adapter;
     private GradientDrawable gradient1, gradient2, gradient3, gradient4;
+    ImageView menu_Icon;
+    LinearLayout contentView;
 
     //Drawer Menu
     DrawerLayout drawerLayout;
@@ -41,18 +50,60 @@ public class Dashboard extends AppCompatActivity {
         recyclerView = findViewById(R.id.featured_recycler);
         mostViewedRecycler = findViewById(R.id.most_viewed_recycler);
         categoriesRecycler = findViewById(R.id.categories_recycler);
+        menu_Icon = findViewById(R.id.menu_icon);
+        contentView = findViewById(R.id.content);
 
-//Menu Hooks
+        //Menu Hooks
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
+
+        navigationDrawer();
 
         featuredRecycler();
         mostViewedRecycler();
         categoriesRecycler();
- 
 
     }
 
+    private void navigationDrawer() {
+        //Navigation Drawer
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_message);
+
+        menu_Icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (drawerLayout.isDrawerVisible(GravityCompat.START))
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                else drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+        animateNavigationDrawer();
+    }
+    private void animateNavigationDrawer() {
+
+        drawerLayout.setScrimColor(getResources().getColor(
+             R.color.colorYellow
+        ));
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset){
+
+                final float diffScaleOffset = slideOffset* (1- END_SCALE);
+                final float offSetScale = 1 - diffScaleOffset;
+                contentView.setScaleX(offSetScale);
+                contentView.setScaleX(offSetScale);
+
+
+                final float xOffset = drawerLayout.getWidth() * slideOffset;
+                final float xOffsetDiff = contentView.getWidth() * diffScaleOffset/2;
+                final float xTranslation =xOffset - xOffsetDiff;
+                contentView.setTranslationX(xTranslation);
+            }
+        });
+    }
     private void categoriesRecycler() {
 
         //All Gradients
@@ -101,6 +152,11 @@ public class Dashboard extends AppCompatActivity {
         adapter = new FeaturedAdapter(featuredHelperArrayList);
         recyclerView.setAdapter(adapter);
 
-        GradientDrawable gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,new int[]{0xffeff400,0xffaff600});
+        GradientDrawable gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffeff400, 0xffaff600});
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return true;
     }
 }
