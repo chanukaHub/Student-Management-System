@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,7 @@ import com.WizGuys.eStudent.helperClass.FeaturedAdapter;
 import com.WizGuys.eStudent.helperClass.helperResources.FeaturedHelper;
 import com.WizGuys.eStudent.helperClass.MostViewedAdpater;
 import com.WizGuys.eStudent.helperClass.helperResources.MostViewedHelperClass;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
@@ -23,6 +25,10 @@ public class Dashboard extends AppCompatActivity {
     RecyclerView recyclerView, mostViewedRecycler, categoriesRecycler;
     RecyclerView.Adapter adapter;
     private GradientDrawable gradient1, gradient2, gradient3, gradient4;
+
+    //Drawer Menu
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -35,6 +41,11 @@ public class Dashboard extends AppCompatActivity {
         recyclerView = findViewById(R.id.featured_recycler);
         mostViewedRecycler = findViewById(R.id.most_viewed_recycler);
         categoriesRecycler = findViewById(R.id.categories_recycler);
+
+//Menu Hooks
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
+
         featuredRecycler();
         mostViewedRecycler();
         categoriesRecycler();

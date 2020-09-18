@@ -35,6 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
+
     <ImageView
         android:id="@+id/imageLogo"
         android:layout_width="114dp"
