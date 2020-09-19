@@ -334,6 +334,4 @@
 
         </androidx.cardview.widget.CardView>
     </LinearLayout>
-
-
 </androidx.drawerlayout.widget.DrawerLayout>

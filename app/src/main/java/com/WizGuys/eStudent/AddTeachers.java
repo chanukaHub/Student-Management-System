@@ -40,6 +40,7 @@ public class AddTeachers extends AppCompatActivity implements NavigationView.OnN
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
         return false;
     }
 

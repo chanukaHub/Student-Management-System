@@ -15,14 +15,18 @@
         <activity android:name=".AddTeachers">
         </activity>
         <activity android:name=".teachers.TeachersProfile" />
-        <activity android:name=".teachers.Teachers" />
+        <activity android:name=".teachers.Teachers" >
+
+        </activity>
         <activity android:name=".finance.AddPayment" />
 
         <activity android:name=".UpdateDeleteAssignmentResult"/>
 
 
 
-        <activity android:name=".ManageSubjects"></activity>
+        <activity android:name=".ManageSubjects">
+
+        </activity>
         <activity android:name=".UpdateSubject" />
         <activity android:name=".AddSubject" />
         <activity android:name=".SubjectList" />

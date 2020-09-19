@@ -1,6 +1,7 @@
 package com.WizGuys.eStudent;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +24,8 @@ import com.WizGuys.eStudent.helperClass.MostViewedAdpater;
 import com.WizGuys.eStudent.helperClass.helperResources.CategoriesHelperClass;
 import com.WizGuys.eStudent.helperClass.helperResources.FeaturedHelper;
 import com.WizGuys.eStudent.helperClass.helperResources.MostViewedHelperClass;
+import com.WizGuys.eStudent.notice.Notice;
+import com.WizGuys.eStudent.teachers.Teachers;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -157,6 +161,24 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_message:
+                break;
+            case R.id.nav_message1:
+                Intent intent = new Intent(Dashboard.this, MainActivity4.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_message3:
+                Intent intent1 = new Intent(Dashboard.this, MainActivity.class);
+                startActivity(intent1);
+                break;
+
+            case R.id.nav_share:
+                Intent intent3 = new Intent(Dashboard.this, Teachers.class);
+                startActivity(intent3);
+                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
+                break;
+        }
         return true;
     }
 }

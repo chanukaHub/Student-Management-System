@@ -11,10 +11,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.WizGuys.eStudent.AddTeachers;
+import com.WizGuys.eStudent.Dashboard;
+import com.WizGuys.eStudent.MainActivity;
 import com.WizGuys.eStudent.R;
+import com.firebase.client.Firebase;
 import com.google.android.material.navigation.NavigationView;
 
 public class Teachers extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,8 +27,10 @@ public class Teachers extends AppCompatActivity implements NavigationView.OnNavi
     Toolbar toolbar;
     TextView textView;
     Menu menu;
+    Button bRegister;
     NavigationView navigationView;
     ImageButton imageButton;
+    private Firebase mRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +47,19 @@ public class Teachers extends AppCompatActivity implements NavigationView.OnNavi
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_message);
+
+        mRef = new Firebase("https://mobileapp-41e97.firebaseio.com/");
+        bRegister = (Button) findViewById(R.id.button8);
+
+        bRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Firebase mc = mRef.child("Name");
+                mc.setValue("Rivinduuuuuu");
+                Intent intent1 = new Intent(Teachers.this, AddTeachers.class);
+                startActivity(intent1);
+            }
+        });
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
