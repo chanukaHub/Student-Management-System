@@ -30,7 +30,7 @@ public class Teachers extends AppCompatActivity implements NavigationView.OnNavi
     Button bRegister;
     NavigationView navigationView;
     ImageButton imageButton;
-    private Firebase mRef;
+     Firebase mRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -26,7 +26,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UserName"
+        android:text="Email"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/etUserName"
+        android:id="@+id/etEmail"
         android:layout_width="348dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_light"
@@ -65,7 +65,7 @@
         app:layout_constraintVertical_bias="0.658" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etPassword1"
         android:layout_width="352dp"
         android:layout_height="51dp"
         android:backgroundTint="@android:color/holo_green_light"

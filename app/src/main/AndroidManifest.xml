@@ -13,6 +13,7 @@
 
 
         <activity android:name=".AddTeachers">
+
         </activity>
         <activity android:name=".teachers.TeachersProfile" />
         <activity android:name=".teachers.Teachers" >
@@ -34,21 +35,25 @@
         <activity android:name=".ToDoForm" />
         <activity android:name=".ToDoList" />
 
-        <activity android:name=".notice.Notice" />
+        <activity android:name=".notice.Notice" >
+
+        </activity>
         <activity android:name=".ShowResult" />
         <activity android:name=".MainActivity4" />
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".AddAssignmentResult" />
+        <activity android:name=".UpdateDeleteResult" />
+        <activity android:name=".AddResult" />
+        <activity android:name=".Register" />
+        <activity android:name=".Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddAssignmentResult" />
-        <activity android:name=".UpdateDeleteResult" />
-        <activity android:name=".AddResult" />
-        <activity android:name=".Register" />
-        <activity android:name=".Login" />
         <activity android:name=".Dashboard" >
 
         </activity>

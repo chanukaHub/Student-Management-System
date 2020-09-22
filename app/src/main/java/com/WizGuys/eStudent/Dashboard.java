@@ -27,6 +27,7 @@ import com.WizGuys.eStudent.helperClass.helperResources.MostViewedHelperClass;
 import com.WizGuys.eStudent.notice.Notice;
 import com.WizGuys.eStudent.teachers.Teachers;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -36,7 +37,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     RecyclerView recyclerView, mostViewedRecycler, categoriesRecycler;
     RecyclerView.Adapter adapter;
     private GradientDrawable gradient1, gradient2, gradient3, gradient4;
-    ImageView menu_Icon;
+    ImageView menu_Icon,btnLogOut;
     LinearLayout contentView;
 
     //Drawer Menu
@@ -56,6 +57,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         categoriesRecycler = findViewById(R.id.categories_recycler);
         menu_Icon = findViewById(R.id.menu_icon);
         contentView = findViewById(R.id.content);
+        btnLogOut = findViewById(R.id.imgLogOut);
 
         //Menu Hooks
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -67,6 +69,14 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         mostViewedRecycler();
         categoriesRecycler();
 
+
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(Dashboard.this, Login.class));
+            }
+        });
     }
 
     private void navigationDrawer() {
