@@ -30,7 +30,7 @@ public class Notice extends AppCompatActivity implements NavigationView.OnNaviga
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    Firebase mRef = new Firebase("https://mobileapp-41e97.firebaseio.com/Name");
+    Firebase mRef = new Firebase("https://mobileapp-41e97.firebaseio.com/Lectures");
     private ListView mListView;
     private ArrayList<String> mNotice = new ArrayList<>();
 
