@@ -5,9 +5,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,12 +17,22 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.WizGuys.eStudent.AddTeachers;
-import com.WizGuys.eStudent.Dashboard;
-import com.WizGuys.eStudent.MainActivity;
 import com.WizGuys.eStudent.R;
+import com.WizGuys.eStudent.adapter.TeachersAdapter;
+import com.WizGuys.eStudent.model.TeachersObj;
+import com.google.firebase.database.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+ import com.google.firebase.database.ValueEventListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Teachers extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
@@ -30,7 +42,14 @@ public class Teachers extends AppCompatActivity implements NavigationView.OnNavi
     Button bRegister;
     NavigationView navigationView;
     ImageButton imageButton;
-     Firebase mRef;
+    Firebase mRef;
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = firebaseDatabase.getReference("Lectures");
+
+    FloatingActionButton buttonAdd;
+    RecyclerView recyclerView;
+    private List<TeachersObj> list = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +59,8 @@ public class Teachers extends AppCompatActivity implements NavigationView.OnNavi
         imageButton = findViewById(R.id.imageView);
         toolbar = findViewById(R.id.toolbar);
 
+
+
         setSupportActionBar(toolbar);
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_navi, R.string.close_navi);
@@ -48,18 +69,8 @@ public class Teachers extends AppCompatActivity implements NavigationView.OnNavi
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_message);
 
-        mRef = new Firebase("https://mobileapp-41e97.firebaseio.com/");
         bRegister = (Button) findViewById(R.id.button8);
 
-        bRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Firebase mc = mRef.child("Name");
-                mc.setValue("Rivinduuuuuu");
-                Intent intent1 = new Intent(Teachers.this, AddTeachers.class);
-                startActivity(intent1);
-            }
-        });
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,11 +79,35 @@ public class Teachers extends AppCompatActivity implements NavigationView.OnNavi
                 startActivity(intent);
             }
         });
+
+        loadTeachers();
+    }
+
+    private void loadTeachers() {
+        list.clear();
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    TeachersObj value = snapshot.getValue(TeachersObj.class);
+                    list.add(value);
+                }
+                recyclerView.setAdapter(new TeachersAdapter(Teachers.this,list));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.v("TAG","Value is",databaseError.toException());
+            }
+
+        });
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return false;
     }
+
+
 
 }
