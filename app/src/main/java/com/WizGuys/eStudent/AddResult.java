@@ -1,8 +1,8 @@
 package com.WizGuys.eStudent;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AddResult extends AppCompatActivity {
 
