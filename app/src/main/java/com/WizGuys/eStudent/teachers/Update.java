@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,8 +33,8 @@ import com.squareup.picasso.Picasso;
 
 
 
+public class Update extends AppCompatActivity {
 
-public class Upload extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button chooseImageBtn;
     private Button uploadBtn;
@@ -45,12 +46,27 @@ public class Upload extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
+    //////////////////////////////
+    private FirebaseStorage mStorage;
+
+    TextView nameDetailTextView,descriptionDetailTextView;
+    ImageView teacherDetailImageView;
+    private void initializeWidgets(){
+        nameDetailTextView= findViewById(R.id.nameEditText);
+        descriptionDetailTextView= findViewById(R.id.descriptionEditText);
+        teacherDetailImageView=findViewById(R.id.chosenImageView);
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate ( savedInstanceState );
-        setContentView ( R.layout.activity_upload );
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_upload);
+        initializeWidgets();
+        /////////////////////////////////////
+
+        mStorage = FirebaseStorage.getInstance();
+
         chooseImageBtn = findViewById(R.id.button_choose_image);
         uploadBtn = findViewById(R.id.uploadBtn);
         nameEditText = findViewById(R.id.nameEditText);
@@ -59,9 +75,40 @@ public class Upload extends AppCompatActivity {
         uploadProgressBar = findViewById(R.id.progress_bar);
         mStorageRef = FirebaseStorage.getInstance().getReference("teachers_uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("teachers_uploads");
+        ////////////////////
+        Intent i=this.getIntent();
+        String id=i.getExtras().getString("ID_KEY");
+        String name=i.getExtras().getString("NAME_KEY");
+        String description=i.getExtras().getString("DESCRIPTION_KEY");
+        String imageURL=i.getExtras().getString("IMAGE_KEY");
+
+
+        nameDetailTextView.setText(name);
+        descriptionDetailTextView.setText(description);
+        Picasso.with(this)
+                .load(imageURL)
+                .placeholder(R.drawable.amy)
+                .fit()
+                .centerCrop()
+                .into(teacherDetailImageView);
+
+
+        final String selectedKey  = id;
+        assert imageURL != null;
+        final StorageReference imageRef = mStorage.getReferenceFromUrl(imageURL);
+
+
         chooseImageBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+                imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(Update.this, "Item deleted", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 openFileChooser();
             }
         });
@@ -69,35 +116,20 @@ public class Upload extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(Upload.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Update.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
                 } else {
-                    uploadFile();
+                    updateUploadFile(selectedKey);
                 }
             }
         });
     }
-    private void openFileChooser() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null) {
-            mImageUri = data.getData();
-            Picasso.with(this).load(mImageUri).into(chosenImageView);
-        }
-    }
+
     private String getFileExtension(Uri uri) {
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
-    private void uploadFile() {
-
+    private void updateUploadFile(final String selectedKey) {
         if (mImageUri != null) {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(mImageUri));
@@ -116,7 +148,7 @@ public class Upload extends AppCompatActivity {
                                     uploadProgressBar.setProgress(0);
                                 }
                             }, 500);
-                            Toast.makeText(Upload.this, "Teacher Upload successful", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Update.this, "Teacher Update successful", Toast.LENGTH_LONG).show();
 
                             Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                             while (!urlTask.isSuccessful());
@@ -124,8 +156,8 @@ public class Upload extends AppCompatActivity {
 
                             Teacher upload = new Teacher(nameEditText.getText().toString().trim(),
                                     downloadUrl,
-                                    descriptionEditText.getText ().toString ());
-                            String uploadId = mDatabaseRef.push().getKey();
+                                    descriptionEditText.getText().toString ());
+                            String uploadId = selectedKey;
                             mDatabaseRef.child(uploadId).setValue(upload);
                             uploadProgressBar.setVisibility(View.INVISIBLE);
                             openImagesActivity ();
@@ -135,7 +167,7 @@ public class Upload extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             uploadProgressBar.setVisibility(View.INVISIBLE);
-                            Toast.makeText(Upload.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Update.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -152,5 +184,21 @@ public class Upload extends AppCompatActivity {
     private void openImagesActivity(){
         Intent intent = new Intent(this, TeachersDashboard.class);
         startActivity(intent);
+    }
+
+    private void openFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            mImageUri = data.getData();
+            Picasso.with(this).load(mImageUri).into(chosenImageView);
+        }
     }
 }

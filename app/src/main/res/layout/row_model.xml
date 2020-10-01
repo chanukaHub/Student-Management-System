@@ -23,41 +23,71 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Teacher Data"
-                android:id="@+id/nameTextView"
-                android:padding="5dp"
-                android:textColor="#D61139" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Date"
-                android:id="@+id/dateTextView"
-                android:padding="5dp"
-                android:textStyle="italic"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Description"
-                android:minLines="2"
-                android:textStyle="italic"
-                android:id="@+id/descriptionTextView"
-                android:padding="5dp"/>
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="35dp"
-                android:id="@+id/teacherDelete"
-                android:src="@drawable/ic_baseline_delete_24" />
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="35dp"
-                android:id="@+id/teacherUpdate"
-                android:src="@drawable/ic_about" />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/nameTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Teacher Data"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#D61139" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/dateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Date"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="italic" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/descriptionTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minLines="2"
+                        android:padding="5dp"
+                        android:text="Description"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="italic" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <ImageView
+                        android:id="@+id/teacherUpdate"
+                        android:layout_width="64dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_about" />
+
+                    <ImageView
+                        android:id="@+id/teacherDelete"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_baseline_delete_24" />
+                </TableRow>
+            </TableLayout>
+
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

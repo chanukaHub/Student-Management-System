@@ -24,6 +24,7 @@ import com.WizGuys.eStudent.helperClass.MostViewedAdpater;
 import com.WizGuys.eStudent.helperClass.helperResources.CategoriesHelperClass;
 import com.WizGuys.eStudent.helperClass.helperResources.FeaturedHelper;
 import com.WizGuys.eStudent.helperClass.helperResources.MostViewedHelperClass;
+import com.WizGuys.eStudent.teachers.TeachersDashboard;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -182,8 +183,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 break;
 
             case R.id.nav_share:
-//                Intent intent3 = new Intent(Dashboard.this, Teachers.class);
-//                startActivity(intent3);
+                Intent intent3 = new Intent(Dashboard.this, TeachersDashboard.class);
+                startActivity(intent3);
                 Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
                 break;
         }
