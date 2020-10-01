@@ -15,11 +15,6 @@
         <activity android:name=".AddTeachers">
 
         </activity>
-        <activity android:name=".teachers.TeachersProfile" />
-        <activity android:name=".teachers.Teachers" >
-
-
-        </activity>
         <activity android:name=".finance.AddPayment" />
 
         <activity android:name=".UpdateDeleteAssignmentResult"/>
@@ -49,14 +44,14 @@
         <activity android:name=".AddResult" />
         <activity android:name=".Register" />
         <activity android:name=".Login" >
-
-        </activity>
-        <activity android:name=".Dashboard" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Dashboard" >
+
         </activity>
         <meta-data
             android:name="preloaded_fonts"
