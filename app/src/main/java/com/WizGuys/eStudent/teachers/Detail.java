@@ -2,7 +2,7 @@ package com.WizGuys.eStudent.teachers;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
+
 
 
 public class Detail extends AppCompatActivity {
