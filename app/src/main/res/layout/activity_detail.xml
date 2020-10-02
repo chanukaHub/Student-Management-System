@@ -33,7 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:id="@+id/nameDetailTextView"
+                        android:id="@+id/teName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -41,32 +41,56 @@
                         android:maxLines="1"
                         android:textStyle="bold"
                         android:textColor="#DDBF19"
-                        android:text="Teacher" />
+                        android:text="Name" />
                     <TextView
-                        android:id="@+id/dateDetailTextView"
+                        android:id="@+id/teAddress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:padding="5dp"
                         android:maxLines="1"
-                        android:text="DATE" />
+                        android:text="Address" />
                     <TextView
-                        android:id="@+id/categoryDetailTextView"
+                        android:id="@+id/teContact"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:padding="5dp"
                         android:textStyle="italic"
-                        android:text="Category : Zen Quotes" />
+                        android:text="Contact" />
                     <TextView
-                        android:id="@+id/descriptionDetailTextView"
+                        android:id="@+id/teEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:padding="5dp"
+                        android:textStyle="italic"
+                        android:text="Email" />
+                    <TextView
+                        android:id="@+id/teQualification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:padding="5dp"
+                        android:textStyle="italic"
+                        android:text="Qualifications" />
+                    <TextView
+                        android:id="@+id/teSalary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:padding="5dp"
+                        android:textStyle="italic"
+                        android:text="Salary" />
+                    <TextView
+                        android:id="@+id/teDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:padding="5dp"
                         android:textColor="#0f0f0f"
                         android:minLines="4"
-                        android:text="Teacher Description Here........." />
+                        android:text="Description " />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

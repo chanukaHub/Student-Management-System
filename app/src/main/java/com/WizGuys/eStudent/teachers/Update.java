@@ -38,8 +38,9 @@ public class Update extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button chooseImageBtn;
     private Button uploadBtn;
-    private EditText nameEditText;
-    private EditText descriptionEditText;
+    private EditText nameEditText, techEmail,techAddress,
+            techContact,techSalary,
+            techQualification,techDescription;
     private ImageView chosenImageView;
     private ProgressBar uploadProgressBar;
     private Uri mImageUri;
@@ -53,7 +54,7 @@ public class Update extends AppCompatActivity {
     ImageView teacherDetailImageView;
     private void initializeWidgets(){
         nameDetailTextView= findViewById(R.id.nameEditText);
-        descriptionDetailTextView= findViewById(R.id.descriptionEditText);
+        descriptionDetailTextView= findViewById(R.id.techDescription);
         teacherDetailImageView=findViewById(R.id.chosenImageView);
     }
 
@@ -69,8 +70,17 @@ public class Update extends AppCompatActivity {
 
         chooseImageBtn = findViewById(R.id.button_choose_image);
         uploadBtn = findViewById(R.id.uploadBtn);
+
+        //ET Text
         nameEditText = findViewById(R.id.nameEditText);
-        descriptionEditText = findViewById ( R.id.descriptionEditText );
+        techEmail = findViewById ( R.id.techEmail );
+        techAddress = findViewById ( R.id.techAddress );
+        techContact = findViewById ( R.id.techContact );
+        techSalary = findViewById ( R.id.techSalary );
+        techQualification = findViewById ( R.id.techQualification );
+        techDescription = findViewById ( R.id.techDescription );
+        /*ED*/
+
         chosenImageView = findViewById(R.id.chosenImageView);
         uploadProgressBar = findViewById(R.id.progress_bar);
         mStorageRef = FirebaseStorage.getInstance().getReference("teachers_uploads");
@@ -79,11 +89,21 @@ public class Update extends AppCompatActivity {
         Intent i=this.getIntent();
         String id=i.getExtras().getString("ID_KEY");
         String name=i.getExtras().getString("NAME_KEY");
+        String email=i.getExtras().getString("EMAIL_KEY");
+        String address=i.getExtras().getString("ADDRESS_KEY");
+        String contact=i.getExtras().getString("CONTACT_KEY");
         String description=i.getExtras().getString("DESCRIPTION_KEY");
+        String qualification=i.getExtras().getString("QUALIFICATION_KEY");
+        String salary=i.getExtras().getString("SALARY_KEY");
         String imageURL=i.getExtras().getString("IMAGE_KEY");
 
 
         nameDetailTextView.setText(name);
+        techEmail.setText(email);
+        techContact.setText(contact);
+        techAddress.setText(address);
+        techSalary.setText(salary);
+        techQualification.setText(qualification);
         descriptionDetailTextView.setText(description);
         Picasso.with(this)
                 .load(imageURL)
@@ -156,7 +176,12 @@ public class Update extends AppCompatActivity {
 
                             Teacher upload = new Teacher(nameEditText.getText().toString().trim(),
                                     downloadUrl,
-                                    descriptionEditText.getText().toString ());
+                                    techDescription.getText ().toString (),
+                                    techAddress.getText().toString(),
+                                    techContact.getText().toString(),
+                                    techEmail.getText().toString(),
+                                    techQualification.getText().toString(),
+                                    techSalary.getText().toString());
                             String uploadId = selectedKey;
                             mDatabaseRef.child(uploadId).setValue(upload);
                             uploadProgressBar.setVisibility(View.INVISIBLE);

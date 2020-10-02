@@ -42,7 +42,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/descriptionEditText"
+                android:id="@+id/techEmail"
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -114,8 +114,8 @@
 
                 <ImageView
                     android:id="@+id/chosenImageView"
-                    android:layout_width="210dp"
-                    android:layout_height="match_parent" />
+                    android:layout_width="209dp"
+                    android:layout_height="110dp" />
             </LinearLayout>
 
             <Button

@@ -35,10 +35,20 @@
                 android:layout_height="match_parent" >
 
                 <Button
+                    android:id="@+id/openUploadActivityBtn"
+                    style="?android:attr/button"
+                    android:layout_width="339dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:text="Add New"
+                    android:textColor="#190E0E" />
+
+                <Button
                     android:id="@+id/openTeachersActivityBtn"
                     style="?android:attr/button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="329dp"
+                    android:layout_height="73dp"
                     android:layout_weight="1"
                     android:text="View All"
                     android:textColor="#190E0E" />
@@ -48,15 +58,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-                <Button
-                    android:id="@+id/openUploadActivityBtn"
-                    style="?android:attr/button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:text="Add New"
-                    android:textColor="#190E0E" />
             </TableRow>
 
             <TableRow

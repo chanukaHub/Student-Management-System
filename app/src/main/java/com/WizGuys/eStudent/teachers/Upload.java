@@ -37,8 +37,9 @@ public class Upload extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button chooseImageBtn;
     private Button uploadBtn;
-    private EditText nameEditText;
-    private EditText descriptionEditText;
+    private EditText nameEditText, techEmail,techAddress,
+            techContact,techSalary,
+            techQualification,techDescription;
     private ImageView chosenImageView;
     private ProgressBar uploadProgressBar;
     private Uri mImageUri;
@@ -51,12 +52,23 @@ public class Upload extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_upload );
+
         chooseImageBtn = findViewById(R.id.button_choose_image);
         uploadBtn = findViewById(R.id.uploadBtn);
+
+        //ET Text
         nameEditText = findViewById(R.id.nameEditText);
-        descriptionEditText = findViewById ( R.id.descriptionEditText );
+        techEmail = findViewById ( R.id.techEmail );
+        techAddress = findViewById ( R.id.techAddress );
+        techContact = findViewById ( R.id.techContact );
+        techSalary = findViewById ( R.id.techSalary );
+        techQualification = findViewById ( R.id.techQualification );
+        techDescription = findViewById ( R.id.techDescription );
+        /*ED*/
+
         chosenImageView = findViewById(R.id.chosenImageView);
         uploadProgressBar = findViewById(R.id.progress_bar);
+
         mStorageRef = FirebaseStorage.getInstance().getReference("teachers_uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("teachers_uploads");
         chooseImageBtn.setOnClickListener(new View.OnClickListener() {
@@ -124,7 +136,13 @@ public class Upload extends AppCompatActivity {
 
                             Teacher upload = new Teacher(nameEditText.getText().toString().trim(),
                                     downloadUrl,
-                                    descriptionEditText.getText ().toString ());
+                                    techDescription.getText ().toString (),
+                                    techAddress.getText().toString(),
+                                    techContact.getText().toString(),
+                                    techEmail.getText().toString(),
+                                    techQualification.getText().toString(),
+                                    techSalary.getText().toString()
+                                    );
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
                             uploadProgressBar.setVisibility(View.INVISIBLE);

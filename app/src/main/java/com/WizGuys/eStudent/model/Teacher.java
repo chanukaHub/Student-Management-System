@@ -13,12 +13,10 @@ public class Teacher {
     private String qualification;
     private String salary;
     public Teacher() {
-        //empty constructor needed
     }
 
-    public Teacher(String name, String address,
-                   String contact, String description, String email,
-                   String imageURL, String qualification,
+    public Teacher(String name,  String imageURL, String description,String address,
+                   String contact, String email, String qualification,
                    String salary) {
         if (name.trim().equals("")) {
             name = "No Name";

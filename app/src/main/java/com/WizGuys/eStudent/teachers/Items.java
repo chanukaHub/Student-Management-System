@@ -39,6 +39,11 @@ public class Items extends AppCompatActivity implements TeachersAdapter.OnItemCl
         intent.putExtra("NAME_KEY",data[0]);
         intent.putExtra("DESCRIPTION_KEY",data[1]);
         intent.putExtra("IMAGE_KEY",data[2]);
+        intent.putExtra("ADDRESS_KEY",data[3]);
+        intent.putExtra("CONTACT_KEY",data[4]);
+        intent.putExtra("EMAIL_KEY",data[5]);
+        intent.putExtra("QUALIFICATION_KEY",data[6]);
+        intent.putExtra("SALARY_KEY",data[7]);
         startActivity(intent);
     }
 
@@ -48,6 +53,11 @@ public class Items extends AppCompatActivity implements TeachersAdapter.OnItemCl
         intent.putExtra("NAME_KEY",data[1]);
         intent.putExtra("DESCRIPTION_KEY",data[2]);
         intent.putExtra("IMAGE_KEY",data[3]);
+        intent.putExtra("ADDRESS_KEY",data[4]);
+        intent.putExtra("CONTACT_KEY",data[5]);
+        intent.putExtra("EMAIL_KEY",data[6]);
+        intent.putExtra("QUALIFICATION_KEY",data[7]);
+        intent.putExtra("SALARY_KEY",data[8]);
         startActivity(intent);
     }
     @Override
@@ -86,7 +96,13 @@ public class Items extends AppCompatActivity implements TeachersAdapter.OnItemCl
     }
     public void onItemClick(int position) {
         Teacher clickedTeacher=mTeachers.get(position);
-        String[] teacherData={clickedTeacher.getName(),clickedTeacher.getDescription(),clickedTeacher.getImageURL()};
+        String[] teacherData={clickedTeacher.getName(),
+                clickedTeacher.getDescription(),
+                clickedTeacher.getImageURL(),
+                clickedTeacher.getAddress(),clickedTeacher.getContact(),
+                clickedTeacher.getEmail(),clickedTeacher.getQualification(),
+                clickedTeacher.getSalary()
+        };
 
         openDetailActivity(teacherData);
     }
@@ -94,7 +110,12 @@ public class Items extends AppCompatActivity implements TeachersAdapter.OnItemCl
     public void onShowItemClick(int position) {
         Teacher clickedTeacher=mTeachers.get(position);
         final String selectedKey = clickedTeacher.getKey();
-        String[] teacherData={selectedKey,clickedTeacher.getName(),clickedTeacher.getDescription(),clickedTeacher.getImageURL()};
+        String[] teacherData={selectedKey,clickedTeacher.getName(),
+                clickedTeacher.getDescription(),clickedTeacher.getImageURL(),
+                clickedTeacher.getAddress(),clickedTeacher.getContact(),
+                clickedTeacher.getEmail(),clickedTeacher.getQualification(),
+                clickedTeacher.getSalary()
+        };
         updateActivity(teacherData);
     }
     @Override
