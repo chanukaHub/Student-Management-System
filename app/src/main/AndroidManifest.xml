@@ -14,6 +14,7 @@
         <activity android:name=".students.StudentDetails" />
         <activity android:name=".finance.FinanceDashboard"></activity>
         <activity android:name=".finance.UploadFinance" />
+        <activity android:name=".finance.AllFinance" />
         <activity android:name=".UpdateDeleteAssignmentResult" />
         <activity android:name=".ManageSubjects" />
         <activity android:name=".UpdateSubject" />
