@@ -12,8 +12,7 @@
         android:name=".helperClass.firebase.FireBase">
 
 
-        <activity android:name=".AddTeachers"/>
-        <activity android:name=".finance.AddPayment" />
+        <activity android:name=".finance.UploadFinance" />
         <activity android:name=".UpdateDeleteAssignmentResult"/>
         <activity android:name=".ManageSubjects"/>
         <activity android:name=".UpdateSubject" />
@@ -24,7 +23,6 @@
         <activity android:name=".ToDoList" />
         <activity android:name=".notice.Notice" />
         <activity android:name=".ShowResult" />
-        <activity android:name=".MainActivity4" />
 
         <activity android:name=".AddAssignmentResult" />
         <activity android:name=".UpdateDeleteResult" />

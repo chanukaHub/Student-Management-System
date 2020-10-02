@@ -9,15 +9,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.WizGuys.eStudent.MainActivity4;
 import com.WizGuys.eStudent.R;
+import com.WizGuys.eStudent.teachers.TeachersDashboard;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -101,11 +99,11 @@ public class Notice extends AppCompatActivity implements NavigationView.OnNaviga
             case R.id.nav_message:
                 break;
             case R.id.nav_message1:
-                Intent intent = new Intent(Notice.this, MainActivity4.class);
+                Intent intent = new Intent(Notice.this, TeachersDashboard.class);
                 startActivity(intent);
                 break;
             case R.id.nav_message3:
-                Intent intent1 = new Intent(Notice.this, MainActivity4.class);
+                Intent intent1 = new Intent(Notice.this, TeachersDashboard.class);
                 startActivity(intent1);
 //                menu.findItem(R.id.nav_message3).setVisible(true);
 //                menu.findItem(R.id.nav_share211).setVisible(true);

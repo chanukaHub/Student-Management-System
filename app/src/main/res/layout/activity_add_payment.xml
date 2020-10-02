@@ -1,360 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbarSize="4dp"
-    android:background="@drawable/dash_bach"
-    tools:context=".Dashboard"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_gravity="start"
-        android:layout_height="match_parent"
-        android:layout_width="wrap_content"
-        app:headerLayout="@layout/header"
-        app:menu="@menu/drawer_menu">
-
-    </com.google.android.material.navigation.NavigationView>
+    tools:context=".finance.UploadFinance">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffff">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
+            android:layout_alignParentLeft="true">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="53dp"
-                android:background="@color/tool_bar_background"
-                android:minHeight="?attr/actionBarSize"
-                android:textAlignment="viewStart"
-                android:theme="?attr/actionBarTheme"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:subtitleTextColor="#977F7F"
-                app:titleTextColor="#FFFFFF"
-                app:title="Manage Payment"
-                tools:ignore="MissingConstraints" />
+                android:layout_height="31dp" />
+            <TextView
+                android:id="@+id/headerTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Add New Payment"
+                android:textSize="20dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="136dp">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="204dp"
+                    android:layout_height="122dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/cash" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/finName"
+                android:layout_width="367dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Student Name"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/finEmail"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Email"
+                android:inputType="text"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/finAmountReceived"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Amount Received"
+                android:inputType="text"
+                android:minLines="3" />
+            <EditText
+                android:id="@+id/finBalance"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Balance Amount"
+                android:inputType="text"
+                android:minLines="3" />
+            <EditText
+                android:id="@+id/finBalanceToPay"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Due Date of Balance Payment"
+                android:inputType="text"
+                android:minLines="3" />
+            <EditText
+                android:id="@+id/findate"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Date"
+                android:inputType="text"
+                android:minLines="3" />
+            <EditText
+                android:id="@+id/finDescription"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Description"
+                android:inputType="text"
+                android:minLines="3" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="28dp" />
+
+            <Button
+                android:id="@+id/uploadBtnFin"
+                android:layout_width="255dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+
+                android:background="#2C0367"
+                android:gravity="center"
+                android:text="Upload"
+                android:textColor="#fff" />
+        </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="175dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="55dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-
-        >
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="55dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginEnd="0dp">
-
-                    <TextView
-                        android:id="@+id/textView8"
-                        android:layout_width="197dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="202dp"
-                        android:text="Add/Update Payment"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView30"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginEnd="11dp"
-                        android:text="15/08/2020"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="598dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="43dp"
-                    android:layout_marginEnd="0dp"
-                    android:background="#E3E2E2">
-
-                    <EditText
-                        android:id="@+id/editTextTextPersonName6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="364dp"
-                        android:layout_marginEnd="26dp"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="175dp"
-                        android:text="Student Name"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/editTextTextPersonName2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="167dp"
-                        android:layout_marginEnd="34dp"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-
-                    <TextView
-                        android:id="@+id/textView18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="22dp"
-                        android:layout_marginTop="223dp"
-                        android:text="Email"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView28"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="269dp"
-                        android:text="Amount Received"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView29"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="317dp"
-                        android:text="Balance Amount"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/editTextTextPersonName5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="308dp"
-                        android:layout_marginEnd="26dp"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-
-                    <EditText
-                        android:id="@+id/editTextTextPersonName4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="261dp"
-                        android:layout_marginEnd="29dp"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-
-                    <EditText
-                        android:id="@+id/editTextTextPersonName3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="215dp"
-                        android:layout_marginEnd="32dp"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_width="147dp"
-                        android:layout_height="44dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="19dp"
-                        android:layout_marginTop="356dp"
-                        android:text="Due Date of Balance Payment"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView41"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginTop="461dp"
-                        android:text="Total"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/editTextTextPersonName7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="457dp"
-                        android:layout_marginEnd="24dp"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-
-                    <EditText
-                        android:id="@+id/editTextTextPersonName8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="415dp"
-                        android:layout_marginEnd="24dp"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-
-                    <TextView
-                        android:id="@+id/textView27"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="19dp"
-                        android:layout_marginTop="423dp"
-                        android:text="Description"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView31"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="27dp"
-                        android:layout_marginTop="130dp"
-                        android:text="Student Id"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/editTextTextPersonName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="123dp"
-                        android:layout_marginEnd="33dp"
-                        android:backgroundTint="@android:color/holo_red_dark"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="107dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="163dp"
-                        android:layout_marginTop="13dp"
-                        android:layout_marginEnd="164dp"
-                        app:srcCompat="@drawable/cash" />
-
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="224dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="128dp"
-                        android:layout_marginEnd="126dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="serif"
-                        android:text="Submit"
-                        android:textColor="#FFFFFF"
-                        android:background="@drawable/button"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.498" />
-
-                    <Button
-                        android:id="@+id/button2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="34dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="7dp"
-                        android:layout_marginEnd="8dp"
-                        android:background="#4E5078"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="View All"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-
-
-</androidx.drawerlayout.widget.DrawerLayout>
+</LinearLayout>
