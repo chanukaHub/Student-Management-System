@@ -10,6 +10,10 @@ public class Task {
     private String state;
     private String userEmail;
 
+    public Task() {
+
+    }
+
     public Task(String task, String date, String userEmail) {
         this.task = task;
         this.date = date;
