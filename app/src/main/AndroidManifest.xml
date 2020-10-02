@@ -12,33 +12,20 @@
         android:name=".helperClass.firebase.FireBase">
 
 
-        <activity android:name=".AddTeachers">
-
-        </activity>
+        <activity android:name=".AddTeachers"/>
         <activity android:name=".finance.AddPayment" />
-
         <activity android:name=".UpdateDeleteAssignmentResult"/>
-
-
-
-        <activity android:name=".ManageSubjects">
-
-        </activity>
+        <activity android:name=".ManageSubjects"/>
         <activity android:name=".UpdateSubject" />
         <activity android:name=".AddSubject" />
         <activity android:name=".SubjectList" />
         <activity android:name=".UpdateTask" />
         <activity android:name=".ToDoForm" />
         <activity android:name=".ToDoList" />
-
-        <activity android:name=".notice.Notice" >
-
-        </activity>
+        <activity android:name=".notice.Notice" />
         <activity android:name=".ShowResult" />
         <activity android:name=".MainActivity4" />
-        <activity android:name=".MainActivity">
 
-        </activity>
         <activity android:name=".AddAssignmentResult" />
         <activity android:name=".UpdateDeleteResult" />
         <activity android:name=".AddResult" />
@@ -53,6 +40,19 @@
         <activity android:name=".Dashboard" >
 
         </activity>
+        <activity android:name=".teachers.Upload"/>
+        <activity android:name=".teachers.Detail" />
+        <activity android:name=".teachers.Update" />
+        <activity android:name=".teachers.Items" />
+        <activity android:name=".teachers.TeachersDashboard"/>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

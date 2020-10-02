@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".teachers.Upload">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
+            android:layout_alignParentLeft="true">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="31dp" />
+            <TextView
+                android:id="@+id/headerTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Add New Teacher"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="367dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Name"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/techEmail"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Email"
+                android:inputType="text"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/techAddress"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Address"
+                android:inputType="text"
+                android:minLines="3" />
+            <EditText
+                android:id="@+id/techContact"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Contact"
+                android:inputType="text"
+                android:minLines="3" />
+            <EditText
+                android:id="@+id/techSalary"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Salary"
+                android:inputType="text"
+                android:minLines="3" />
+            <EditText
+                android:id="@+id/techQualification"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Qualification"
+                android:inputType="text"
+                android:minLines="3" />
+            <EditText
+                android:id="@+id/techDescription"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:hint="Description"
+                android:inputType="text"
+                android:minLines="3" />
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="124dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_choose_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:background="#251142"
+                    android:text="Choose"
+                    android:textColor="#fff" />
+
+                <ImageView
+                    android:id="@+id/chosenImageView"
+                    android:layout_width="209dp"
+                    android:layout_height="110dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/uploadBtn"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+
+                android:background="#2C0367"
+                android:gravity="center"
+                android:text="Upload"
+                android:textColor="#fff" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
