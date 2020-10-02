@@ -89,7 +89,7 @@
                 android:inputType="text"
                 android:minLines="3" />
             <EditText
-                android:id="@+id/finBalanceToPay"
+                android:id="@+id/finBalanceToPayDate"
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

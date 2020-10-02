@@ -1,34 +1,24 @@
 package com.WizGuys.eStudent.finance;
 
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
-import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.WizGuys.eStudent.R;
-import com.WizGuys.eStudent.model.Teacher;
+import com.WizGuys.eStudent.model.Finance;
 import com.WizGuys.eStudent.teachers.TeachersDashboard;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 
@@ -36,11 +26,11 @@ public class UploadFinance extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
 
     private Button uploadBtnFin;
-    private EditText finName, finEmail,finAmountReceived,
-            finBalance,finBalanceToPay,
-            date,finDescription;
+    private EditText finName, finEmail, finAmountReceived,
+            finBalance, finBalanceToPayDate,
+            date, finDescription;
     private ImageView chosenImageView;
-    private ProgressBar uploadProgressBar;
+
     private Uri mImageUri;
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
@@ -54,15 +44,14 @@ public class UploadFinance extends AppCompatActivity {
 
         uploadBtnFin = findViewById(R.id.uploadBtnFin);
 
-
         finName = findViewById(R.id.finName);
         finEmail = findViewById ( R.id.finEmail );
         finAmountReceived = findViewById ( R.id.finAmountReceived );
-        finBalance = findViewById ( R.id.finBalance );
-        finBalanceToPay = findViewById ( R.id.finBalanceToPay );
-        date = findViewById ( R.id.findate );
+        finBalance = findViewById(R.id.finBalance);
+        finBalanceToPayDate = findViewById(R.id.finBalanceToPayDate);
+        date = findViewById(R.id.findate);
         finDescription = findViewById ( R.id.finDescription );
-        uploadProgressBar = findViewById(R.id.progress_bar);
+
         mStorageRef = FirebaseStorage.getInstance().getReference("finance_uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("finance_uploads");
 
@@ -77,12 +66,7 @@ public class UploadFinance extends AppCompatActivity {
             }
         });
     }
-    private void openFileChooser() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
-    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -92,72 +76,27 @@ public class UploadFinance extends AppCompatActivity {
             Picasso.with(this).load(mImageUri).into(chosenImageView);
         }
     }
-    private String getFileExtension(Uri uri) {
-        ContentResolver cR = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cR.getType(uri));
-    }
+
     private void uploadFile() {
-/*
-        if (mImageUri != null) {
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
-                    + "." + getFileExtension(mImageUri));
-            uploadProgressBar.setVisibility(View.VISIBLE);
-            uploadProgressBar.setIndeterminate(true);
-            mUploadTask = fileReference.putFile(mImageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    uploadProgressBar.setVisibility(View.VISIBLE);
-                                    uploadProgressBar.setIndeterminate(false);
-                                    uploadProgressBar.setProgress(0);
-                                }
-                            }, 500);
-                            Toast.makeText(UploadFinance.this, "Teacher Upload successful", Toast.LENGTH_LONG).show();
 
-                            Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
-                            while (!urlTask.isSuccessful());
-                            String downloadUrl = String.valueOf(urlTask.getResult());
+        Finance upload = new Finance(
+                finName.getText().toString().trim(),
+                finEmail.getText().toString(),
+                finAmountReceived.getText().toString(),
+                finBalance.getText().toString(),
+                finBalanceToPayDate.getText().toString(),
+                date.getText().toString(),
+                finDescription.getText().toString()
+        );
+        String uploadId = mDatabaseRef.push().getKey();
+        mDatabaseRef.child(uploadId).setValue(upload);
 
-                            Teacher upload = new Teacher(finName.getText().toString().trim(),
-                                    downloadUrl,
-                                    techDescription.getText ().toString (),
-                                    techAddress.getText().toString(),
-                                    techContact.getText().toString(),
-                                    techEmail.getText().toString(),
-                                    techQualification.getText().toString(),
-                                    techSalary.getText().toString()
-                                    );
-                            String uploadId = mDatabaseRef.push().getKey();
-                            mDatabaseRef.child(uploadId).setValue(upload);
-                            uploadProgressBar.setVisibility(View.INVISIBLE);
-                            openImagesActivity ();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            uploadProgressBar.setVisibility(View.INVISIBLE);
-                            Toast.makeText(UploadFinance.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                            uploadProgressBar.setProgress((int) progress);
-                        }
-                    });
-        } else {
-            Toast.makeText(this, "You haven't Selected Any file selected", Toast.LENGTH_SHORT).show();
-        }*/
+        Toast.makeText(UploadFinance.this, "Upload Success", Toast.LENGTH_SHORT).show();
+
+        finName.setText("");finEmail.setText("");
+        finAmountReceived.setText("");finBalance.setText("");
+        finBalanceToPayDate.setText("");date.setText("");
+        finDescription.setText("");
     }
-    private void openImagesActivity(){
-        Intent intent = new Intent(this, TeachersDashboard.class);
-        startActivity(intent);
-    }
+
 }
