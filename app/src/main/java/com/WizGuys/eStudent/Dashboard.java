@@ -20,6 +20,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.WizGuys.eStudent.finance.FinanceDashboard;
+import com.WizGuys.eStudent.finance.UploadFinance;
 import com.WizGuys.eStudent.helperClass.CategoriesAdapter;
 import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.helperClass.FeaturedAdapter;
@@ -194,7 +196,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             case R.id.nav_message:
                 break;
             case R.id.nav_message1:
-                Intent intent = new Intent(Dashboard.this, MainActivity4.class);
+                Intent intent = new Intent(Dashboard.this, FinanceDashboard.class);
                 startActivity(intent);
                 break;
             case R.id.nav_message3:

@@ -3,19 +3,17 @@
     package="com.WizGuys.eStudent">
 
     <application
+        android:name=".helperClass.firebase.FireBase"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".helperClass.firebase.FireBase">
-
-
-        <activity android:name=".AddTeachers"/>
-        <activity android:name=".finance.AddPayment" />
-        <activity android:name=".UpdateDeleteAssignmentResult"/>
-        <activity android:name=".ManageSubjects"/>
+        android:theme="@style/AppTheme">
+        <activity android:name=".finance.FinanceDashboard"></activity>
+        <activity android:name=".finance.UploadFinance" />
+        <activity android:name=".UpdateDeleteAssignmentResult" />
+        <activity android:name=".ManageSubjects" />
         <activity android:name=".UpdateSubject" />
         <activity android:name=".AddSubject" />
         <activity android:name=".SubjectList" />
@@ -24,27 +22,17 @@
         <activity android:name=".todoList.ToDoList" />
         <activity android:name=".notice.Notice" />
         <activity android:name=".ShowResult" />
-        <activity android:name=".MainActivity4" />
-
         <activity android:name=".AddAssignmentResult" />
         <activity android:name=".UpdateDeleteResult" />
         <activity android:name=".AddResult" />
         <activity android:name=".Register" />
-        <activity android:name=".Login" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Dashboard" >
-
-        </activity>
-        <activity android:name=".teachers.Upload"/>
+        <activity android:name=".Login" />
+        <activity android:name=".Dashboard"></activity>
+        <activity android:name=".teachers.Upload" />
         <activity android:name=".teachers.Detail" />
         <activity android:name=".teachers.Update" />
         <activity android:name=".teachers.Items" />
-        <activity android:name=".teachers.TeachersDashboard"/>
+        <activity android:name=".teachers.TeachersDashboard" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
