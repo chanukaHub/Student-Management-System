@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:background="@color/tool_bar_background"
         android:minHeight="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@android:color/white"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:id="@+id/toolbar_title"
@@ -27,7 +27,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/task_date"
         android:layout_width="265dp"
         android:layout_height="38dp"
         android:layout_marginTop="48dp"
@@ -36,11 +36,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/task_data"
         app:layout_constraintVertical_bias="0.112" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/task_data"
         android:layout_width="265dp"
         android:layout_height="39dp"
         android:ems="10"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/task_data"
         app:layout_constraintVertical_bias="0.13" />
 
     <TextView
@@ -72,14 +72,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/todo_form_main_head"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@android:color/black"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="115dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.209" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/task_add"
         android:layout_width="211dp"
         android:layout_height="57dp"
         android:text="@string/todo_form_main_head"
@@ -91,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
+        app:layout_constraintTop_toBottomOf="@+id/task_date"
         app:layout_constraintVertical_bias="0.711" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
