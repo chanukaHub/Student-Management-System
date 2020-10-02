@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,12 +21,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.WizGuys.eStudent.helperClass.CategoriesAdapter;
+import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.helperClass.FeaturedAdapter;
 import com.WizGuys.eStudent.helperClass.MostViewedAdpater;
 import com.WizGuys.eStudent.helperClass.helperResources.CategoriesHelperClass;
 import com.WizGuys.eStudent.helperClass.helperResources.FeaturedHelper;
 import com.WizGuys.eStudent.helperClass.helperResources.MostViewedHelperClass;
 import com.WizGuys.eStudent.teachers.TeachersDashboard;
+import com.WizGuys.eStudent.todoList.ToDoList;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -42,6 +46,9 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     //Drawer Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+
+    //todo list button
+    RelativeLayout todoButton;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -62,6 +69,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
 
+        //todo list button
+        todoButton = findViewById(R.id.todoButton);
         navigationDrawer();
 
         featuredRecycler();
@@ -73,7 +82,18 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
+                Common.email = " ";
                 startActivity(new Intent(Dashboard.this, Login.class));
+            }
+        });
+
+        //todo button onclick listner
+        todoButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Dashboard.this, ToDoList.class);
+                startActivity(intent);
             }
         });
     }

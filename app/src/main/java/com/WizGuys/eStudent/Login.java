@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.WizGuys.eStudent.helperClass.Common;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -59,7 +61,7 @@ public class Login extends AppCompatActivity  {
     }
 
     private void startSignIn() {
-         String email = etEmail.getText().toString();
+         final String email = etEmail.getText().toString();
          String password = etPassword.getText().toString();
 
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
@@ -72,6 +74,7 @@ public class Login extends AppCompatActivity  {
                             if (!task.isSuccessful()) {
                                 Toast.makeText(Login.this, "Invalid Login", Toast.LENGTH_LONG).show();
                             }else {
+                                Common.email = email;
                                 startActivity(new Intent(Login.this, Dashboard.class));
                             }
                         }
