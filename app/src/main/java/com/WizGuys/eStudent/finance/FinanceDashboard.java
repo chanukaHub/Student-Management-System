@@ -14,7 +14,7 @@ import com.WizGuys.eStudent.teachers.Upload;
 
 public class FinanceDashboard extends AppCompatActivity {
 
-    private ImageButton addFinancePayment;
+    private ImageButton addFinancePayment,allFinance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +22,19 @@ public class FinanceDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_finance_dashboard);
 
         addFinancePayment = findViewById(R.id.addNewPayment);
+        allFinance = findViewById(R.id.allPayments);
 
         addFinancePayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(FinanceDashboard.this, UploadFinance.class);
+                startActivity(i);
+            }
+        });
+        allFinance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(FinanceDashboard.this, AllFinance.class);
                 startActivity(i);
             }
         });
