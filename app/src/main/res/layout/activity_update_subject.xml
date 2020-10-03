@@ -28,7 +28,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/task_data"
         android:layout_width="317dp"
         android:layout_height="41dp"
         android:ems="10"
@@ -57,7 +57,7 @@
         tools:text="@string/update_subject_head" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/task_add"
         android:layout_width="211dp"
         android:layout_height="57dp"
         android:background="@color/colorPrimaryDark"
@@ -82,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/task_data"
         app:layout_constraintVertical_bias="0.08" />
 
     <TextView
@@ -91,7 +91,7 @@
         android:layout_height="162dp"
         android:text="@string/description"
         android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="@+id/task_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

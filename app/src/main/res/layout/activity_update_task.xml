@@ -26,7 +26,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/task_date"
         android:layout_width="265dp"
         android:layout_height="38dp"
         android:layout_marginTop="48dp"
@@ -36,11 +36,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/task_data"
         app:layout_constraintVertical_bias="0.112" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/task_data"
         android:layout_width="265dp"
         android:layout_height="39dp"
         android:ems="10"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/task_data"
         app:layout_constraintVertical_bias="0.13" />
 
     <TextView
@@ -80,7 +80,7 @@
         tools:text="@string/todo_form_update" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/task_add"
         android:layout_width="211dp"
         android:layout_height="57dp"
         android:background="@color/colorPrimaryDark"
@@ -92,6 +92,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
+        app:layout_constraintTop_toBottomOf="@+id/task_date"
         app:layout_constraintVertical_bias="0.711" />
 </androidx.constraintlayout.widget.ConstraintLayout>
