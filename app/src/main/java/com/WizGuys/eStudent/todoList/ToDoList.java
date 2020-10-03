@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.adapter.TeachersAdapter;
 import com.WizGuys.eStudent.adapter.ToDoAdapter;
+import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.model.Task;
 import com.WizGuys.eStudent.model.Teacher;
 import com.WizGuys.eStudent.teachers.Detail;
@@ -72,7 +73,7 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(ToDoList.this);
         mStorage = FirebaseStorage.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Task");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(Common.TASK_TABLE);
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -83,12 +84,12 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
                     mTasks.add(upload);
                 }
                 mAdapter.notifyDataSetChanged();
-//                mProgressBar.setVisibility(View.GONE);
+                mProgressBar.setVisibility(View.GONE);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(ToDoList.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                //     mProgressBar.setVisibility(View.INVISIBLE);
+                     mProgressBar.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -113,7 +114,7 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
     public void onShowItemClick(int position) {
         Task task1=mTasks.get(position);
         final String selectedKey = task1.getTaskKey();
-        String[] teacherData={
+        String[] taskData={
                 selectedKey,
                 task1.getTask(),
                 task1.getDate(),
@@ -122,7 +123,7 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
 
         };
 
-        updateActivity(teacherData);
+        updateActivity(taskData);
     }
     @Override
     public void onDeleteItemClick(int position) {
@@ -130,7 +131,7 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
         final String selectedKey = selectedItem.getTaskKey();
 
         mDatabaseRef.child(selectedKey).removeValue();
-        Toast.makeText(ToDoList.this, "Item deleted", Toast.LENGTH_SHORT).show();
+        Toast.makeText(ToDoList.this, "Task deleted", Toast.LENGTH_SHORT).show();
 
 
     }

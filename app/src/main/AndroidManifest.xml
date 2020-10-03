@@ -22,10 +22,9 @@
         <activity android:name=".finance.AllFinance" />
         <activity android:name=".UpdateDeleteAssignmentResult" />
         <activity android:name=".ManageSubjects" />
-        <activity android:name=".UpdateSubject" />
-        <activity android:name=".AddSubject" />
-        <activity android:name=".SubjectList" />
-        <activity android:name=".UpdateTask" />
+        <activity android:name=".subjects.UpdateSubject" />
+        <activity android:name=".subjects.AddSubject" />
+        <activity android:name=".subjects.SubjectList" />
         <activity android:name=".todoList.ToDoForm" />
         <activity android:name=".todoList.ToDoList" />
         <activity android:name=".notice.Notice" />

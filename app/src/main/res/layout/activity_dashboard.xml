@@ -144,15 +144,15 @@
                         <RelativeLayout
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:elevation="8dp"
+                            android:layout_margin="10dp"
                             android:background="@color/header_background"
-                            android:layout_margin="10dp">
+                            android:elevation="8dp">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/ic_person"
-                                android:layout_centerInParent="true" />
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ic_person" />
                         </RelativeLayout>
 
                         <TextView
@@ -170,17 +170,18 @@
                         android:orientation="vertical">
 
                         <RelativeLayout
+                            android:id="@+id/subjectManager"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:elevation="8dp"
+                            android:layout_margin="10dp"
                             android:background="@color/header_background"
-                            android:layout_margin="10dp">
+                            android:elevation="8dp">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/ic_person"
-                                android:layout_centerInParent="true" />
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ic_person" />
                         </RelativeLayout>
 
                         <TextView
