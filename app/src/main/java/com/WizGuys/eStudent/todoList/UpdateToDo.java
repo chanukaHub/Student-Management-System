@@ -18,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.WizGuys.eStudent.R;
+import com.WizGuys.eStudent.finance.UploadFinance;
+import com.WizGuys.eStudent.model.Finance;
 import com.WizGuys.eStudent.model.Teacher;
 import com.WizGuys.eStudent.teachers.TeachersDashboard;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -69,14 +71,15 @@ public class UpdateToDo extends AppCompatActivity {
         //ET Text
         taskData = findViewById(R.id.task_data);
         taskDate = findViewById ( R.id.task_date);
-        /*ED*/
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Task");
+                mDatabaseRef = FirebaseDatabase.getInstance().getReference("Task");
         ////////////////////
         Intent i=this.getIntent();
         String id=i.getExtras().getString("ID_KEY");
         String task=i.getExtras().getString("NAME_KEY");
         String dateToDo=i.getExtras().getString("DATE_KEY");
+        String state=i.getExtras().getString("STATE_KEY");
+        String email=i.getExtras().getString("EMAIL_KEY");
 
 
         taskData.setText(task);
@@ -97,69 +100,32 @@ public class UpdateToDo extends AppCompatActivity {
         });
     }
 
-    private String getFileExtension(Uri uri) {
-        ContentResolver cR = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cR.getType(uri));
-    }
-    private void updateUploadFile(final String selectedKey) {
-        if (mImageUri != null) {
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
-                    + "." + getFileExtension(mImageUri));
-            uploadProgressBar.setVisibility(View.VISIBLE);
-            uploadProgressBar.setIndeterminate(true);
-            mUploadTask = fileReference.putFile(mImageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    uploadProgressBar.setVisibility(View.VISIBLE);
-                                    uploadProgressBar.setIndeterminate(false);
-                                    uploadProgressBar.setProgress(0);
-                                }
-                            }, 500);
-                            Toast.makeText(UpdateToDo.this, "Task Update successful", Toast.LENGTH_LONG).show();
 
-                            Task upload = new Task(taskData.getText().toString(), taskDate.getText().toString()) {
-                            };
-                            String uploadId = selectedKey;
-                            mDatabaseRef.child(uploadId).setValue(upload);
-                            uploadProgressBar.setVisibility(View.INVISIBLE);
-                            openImagesActivity ();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            uploadProgressBar.setVisibility(View.INVISIBLE);
-                            Toast.makeText(UpdateToDo.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                            uploadProgressBar.setProgress((int) progress);
-                        }
-                    });
-        } else {
-            Toast.makeText(this, "You haven't Selected Any file selected", Toast.LENGTH_SHORT).show();
-        }
+    private void updateUploadFile(final String selectedKey) {
+        Intent i=this.getIntent();
+
+        String state=i.getExtras().getString("STATE_KEY");
+        String email=i.getExtras().getString("EMAIL_KEY");
+        Task upload = new Task(
+                taskData.getText().toString().trim(),
+                taskDate.getText().toString(),email,state
+
+
+        );
+        String uploadId = selectedKey;
+        mDatabaseRef.child(uploadId).setValue(upload);
+        Toast.makeText(UpdateToDo.this, "Update Success", Toast.LENGTH_SHORT).show();
+
+        taskData.setText("");
+        taskDate.setText("");
+
     }
     private void openImagesActivity(){
         Intent intent = new Intent(this, TeachersDashboard.class);
         startActivity(intent);
     }
 
-    private void openFileChooser() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
-    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

@@ -34,6 +34,13 @@ public class Task {
         this.userEmail = userEmail;
     }
 
+    public Task(String trim, String toString, String email, String state) {
+        this.task = trim;
+        this.date = toString;
+        this.userEmail = email;
+        this.state = state;
+    }
+
     public String getTaskKey() {
         return taskKey;
     }

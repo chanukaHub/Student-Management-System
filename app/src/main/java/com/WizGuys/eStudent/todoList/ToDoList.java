@@ -48,13 +48,12 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
 
 
     private void updateActivity(String[] data){
-        Intent intent = new Intent(this, ToDoForm.class);
+        Intent intent = new Intent(this, UpdateToDo.class);
         intent.putExtra("ID_KEY",data[0]);
         intent.putExtra("NAME_KEY",data[1]);
         intent.putExtra("DATE_KEY",data[2]);
         intent.putExtra("STATE_KEY",data[3]);
         intent.putExtra("EMAIL_KEY",data[4]);
-
         startActivity(intent);
     }
     @Override
@@ -89,7 +88,7 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(ToDoList.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-           //     mProgressBar.setVisibility(View.INVISIBLE);
+                //     mProgressBar.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -120,7 +119,9 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
                 task1.getDate(),
                 task1.getState(),
                 task1.getUserEmail()
+
         };
+
         updateActivity(teacherData);
     }
     @Override
@@ -128,8 +129,8 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
         Task selectedItem = mTasks.get(position);
         final String selectedKey = selectedItem.getTaskKey();
 
-                mDatabaseRef.child(selectedKey).removeValue();
-                Toast.makeText(ToDoList.this, "Item deleted", Toast.LENGTH_SHORT).show();
+        mDatabaseRef.child(selectedKey).removeValue();
+        Toast.makeText(ToDoList.this, "Item deleted", Toast.LENGTH_SHORT).show();
 
 
     }
