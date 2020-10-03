@@ -29,7 +29,7 @@ public class ToDoForm extends AppCompatActivity {
 
         taskData = findViewById(R.id.task_data);
         taskDate = findViewById(R.id.task_date);
-        addTaskButton = findViewById(R.id.task_add);
+        addTaskButton = findViewById(R.id.task_addToDo);
 
         reff = FirebaseDatabase.getInstance().getReference().child("Task");
 

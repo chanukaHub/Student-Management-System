@@ -35,7 +35,7 @@ public  class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.RecyclerViewH
     }
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.row_model, parent, false);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.task_list_item, parent, false);
         return new RecyclerViewHolder(v);
     }
     @Override
@@ -58,11 +58,11 @@ public  class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.RecyclerViewH
         public TextView taskTextView, dateTextView;
         public RecyclerViewHolder(View itemView) {
             super(itemView);
-            taskTextView =itemView.findViewById ( R.id.task_data );
-            dateTextView = itemView.findViewById(R.id.task_date);
+            taskTextView =itemView.findViewById ( R.id.task_dataToDo );
+            dateTextView = itemView.findViewById(R.id.dateToDo);
             confirmButton = itemView.findViewById(R.id.confirm_task);
-            updateButton = itemView.findViewById(R.id.update_task);
-            deleteButton = itemView.findViewById(R.id.delete_task);
+            updateButton = itemView.findViewById(R.id.update_task_toDo);
+            deleteButton = itemView.findViewById(R.id.delete_task_toDo);
 
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
