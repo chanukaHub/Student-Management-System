@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.WizGuys.eStudent.R;
+import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.model.Task;
 import com.squareup.picasso.Picasso;
 
@@ -39,10 +40,13 @@ public  class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.RecyclerViewH
     }
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        Task currentTask = tasks.get(position);
 
-        holder.taskTextView.setText(currentTask.getTask());
-        holder.dateTextView.setText(currentTask.getDate());
+            Task currentTask = tasks.get(position);
+
+            holder.taskTextView.setText(currentTask.getTask());
+            holder.dateTextView.setText(Common.DATE_ + currentTask.getDate());
+            holder.stateTextView.setText(Common.STATE + currentTask.getState());
+
 
     }
 
@@ -54,12 +58,13 @@ public  class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.RecyclerViewH
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
-        public TextView taskTextView, dateTextView;
+        public TextView taskTextView, dateTextView, stateTextView;
         public RecyclerViewHolder(View itemView) {
             super(itemView);
 
             taskTextView =itemView.findViewById ( R.id.task_data_ToDo );
             dateTextView = itemView.findViewById(R.id.date_ToDo);
+            stateTextView = itemView.findViewById(R.id.task_state_ToDo);
             confirmButton = itemView.findViewById(R.id.confirm_task_ToDo);
             updateButton = itemView.findViewById(R.id.update_task_ToDo);
             deleteButton = itemView.findViewById(R.id.delete_task_ToDo);

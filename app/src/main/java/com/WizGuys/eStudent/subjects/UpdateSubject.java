@@ -1,10 +1,12 @@
-package com.WizGuys.eStudent;
+package com.WizGuys.eStudent.subjects;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AddSubject extends AppCompatActivity {
+import com.WizGuys.eStudent.R;
+
+public class UpdateSubject extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -141,4 +141,19 @@ public class AllFinance extends AppCompatActivity implements FinanceAdapter.OnIt
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
     }
+
+    @Override
+    public void onItemClick(int position) {
+
+    }
+
+    @Override
+    public void onShowItemClick(int position) {
+
+    }
+
+    @Override
+    public void onDeleteItemClick(int position) {
+
+    }
 }

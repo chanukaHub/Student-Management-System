@@ -1,12 +1,9 @@
 package com.WizGuys.eStudent.todoList;
 
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
-import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,23 +11,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.WizGuys.eStudent.R;
-import com.WizGuys.eStudent.finance.UploadFinance;
-import com.WizGuys.eStudent.model.Finance;
-import com.WizGuys.eStudent.model.Teacher;
 import com.WizGuys.eStudent.teachers.TeachersDashboard;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 import com.WizGuys.eStudent.model.Task;
 
@@ -52,7 +41,7 @@ public class UpdateToDo extends AppCompatActivity {
     TextView task_data,task_date;
 
     private void initializeWidgets(){
-        task_data = findViewById(R.id.task_data);
+        task_data = findViewById(R.id.subject_name_add);
         task_date= findViewById(R.id.task_date);
     }
 
@@ -66,10 +55,10 @@ public class UpdateToDo extends AppCompatActivity {
 
         mStorage = FirebaseStorage.getInstance();
 
-        uploadBtn = findViewById(R.id.task_add);
+        uploadBtn = findViewById(R.id.add_task_img_ToDo);
 
         //ET Text
-        taskData = findViewById(R.id.task_data);
+        taskData = findViewById(R.id.task_data_ToDo_add);
         taskDate = findViewById ( R.id.task_date);
 
                 mDatabaseRef = FirebaseDatabase.getInstance().getReference("Task");

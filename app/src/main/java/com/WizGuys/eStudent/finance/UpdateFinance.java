@@ -41,7 +41,7 @@ public class UpdateFinance extends AppCompatActivity {
     TextView task_data,task_date;
 
     private void initializeWidgets(){
-        task_data = findViewById(R.id.task_data);
+      //  task_data = findViewById(R.id.task_data);
         task_date= findViewById(R.id.task_date);
     }
 
@@ -55,10 +55,10 @@ public class UpdateFinance extends AppCompatActivity {
 
         mStorage = FirebaseStorage.getInstance();
 
-        uploadBtn = findViewById(R.id.task_add);
+     //   uploadBtn = findViewById(R.id.task_add);
 
         //ET Text
-        taskData = findViewById(R.id.task_data);
+       // taskData = findViewById(R.id.task_data);
         taskDate = findViewById ( R.id.task_date);
 
                 mDatabaseRef = FirebaseDatabase.getInstance().getReference("Task");
