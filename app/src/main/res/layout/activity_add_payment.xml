@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroup"
     tools:context=".finance.UploadFinance">
 
     <ScrollView
@@ -28,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="#000000"
                 android:textStyle="bold"
                 android:text="Add New Payment"
                 android:textSize="20dp" />
@@ -38,8 +40,8 @@
 
                 <ImageView
                     android:id="@+id/imageView4"
-                    android:layout_width="204dp"
-                    android:layout_height="122dp"
+                    android:layout_width="174dp"
+                    android:layout_height="121dp"
                     android:layout_marginTop="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -55,8 +57,8 @@
                 android:id="@+id/finName"
                 android:layout_width="367dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginLeft="26dp"
                 android:hint="Student Name"
                 android:inputType="text" />
 
@@ -64,8 +66,8 @@
                 android:id="@+id/finEmail"
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginLeft="26dp"
                 android:hint="Email"
                 android:inputType="text"
                 android:minLines="3" />
@@ -74,44 +76,48 @@
                 android:id="@+id/finAmountReceived"
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginLeft="26dp"
                 android:hint="Amount Received"
                 android:inputType="text"
                 android:minLines="3" />
+
             <EditText
                 android:id="@+id/finBalance"
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginLeft="26dp"
                 android:hint="Balance Amount"
                 android:inputType="text"
                 android:minLines="3" />
+
             <EditText
                 android:id="@+id/finBalanceToPayDate"
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginLeft="26dp"
                 android:hint="Due Date of Balance Payment"
                 android:inputType="text"
                 android:minLines="3" />
+
             <EditText
                 android:id="@+id/findate"
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginLeft="26dp"
                 android:hint="Date"
                 android:inputType="text"
                 android:minLines="3" />
+
             <EditText
                 android:id="@+id/finDescription"
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginLeft="26dp"
                 android:hint="Description"
                 android:inputType="text"
                 android:minLines="3" />
@@ -126,9 +132,9 @@
                 android:layout_width="255dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/amaranth_bold"
 
-
-                android:background="#2C0367"
+                android:background="#0B6D9A"
                 android:gravity="center"
                 android:text="Upload"
                 android:textColor="#fff" />
