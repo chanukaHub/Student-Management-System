@@ -124,7 +124,7 @@
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_person" />
+                                android:src="@drawable/ic_about" />
                         </RelativeLayout>
 
                         <TextView
@@ -142,6 +142,7 @@
                         android:orientation="vertical">
 
                         <RelativeLayout
+                            android:id="@+id/teachersDashboard"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:elevation="8dp"
