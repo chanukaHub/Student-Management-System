@@ -41,7 +41,7 @@ public class UpdateToDo extends AppCompatActivity {
     TextView task_data,task_date;
 
     private void initializeWidgets(){
-        task_data = findViewById(R.id.subject_name_add);
+        task_data = findViewById(R.id.task_data_ToDo_add);
         task_date= findViewById(R.id.task_date);
     }
 
