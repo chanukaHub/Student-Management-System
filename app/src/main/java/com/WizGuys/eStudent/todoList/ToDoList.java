@@ -43,31 +43,30 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
     private DatabaseReference mDatabaseRef;
     private ValueEventListener mDBListener;
     private List<Task> mTasks;
+
     private ImageView addTaskImgToDo;
 
 
     private void updateActivity(String[] data){
-        Intent intent = new Intent(this, Update.class);
+        Intent intent = new Intent(this, UpdateToDo.class);
         intent.putExtra("ID_KEY",data[0]);
         intent.putExtra("NAME_KEY",data[1]);
-        intent.putExtra("DESCRIPTION_KEY",data[2]);
-        intent.putExtra("IMAGE_KEY",data[3]);
-        intent.putExtra("ADDRESS_KEY",data[4]);
-        intent.putExtra("CONTACT_KEY",data[5]);
-        intent.putExtra("EMAIL_KEY",data[6]);
-        intent.putExtra("QUALIFICATION_KEY",data[7]);
-        intent.putExtra("SALARY_KEY",data[8]);
+        intent.putExtra("DATE_KEY",data[2]);
+        intent.putExtra("STATE_KEY",data[3]);
+        intent.putExtra("EMAIL_KEY",data[4]);
         startActivity(intent);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_to_do_list );
+
         mRecyclerView = findViewById(R.id.task_list_ToDo);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mProgressBar = findViewById(R.id.progressbar_ToDo);
         mProgressBar.setVisibility(View.VISIBLE);
+
         mTasks = new ArrayList<> ();
         mAdapter = new ToDoAdapter (ToDoList.this, mTasks);
         mRecyclerView.setAdapter(mAdapter);
@@ -84,12 +83,12 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
                     mTasks.add(upload);
                 }
                 mAdapter.notifyDataSetChanged();
-                mProgressBar.setVisibility(View.GONE);
+//                mProgressBar.setVisibility(View.GONE);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(ToDoList.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                mProgressBar.setVisibility(View.INVISIBLE);
+                //     mProgressBar.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -117,8 +116,12 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
         String[] teacherData={
                 selectedKey,
                 task1.getTask(),
-                task1.getDate()
+                task1.getDate(),
+                task1.getState(),
+                task1.getUserEmail()
+
         };
+
         updateActivity(teacherData);
     }
     @Override
@@ -126,12 +129,14 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
         Task selectedItem = mTasks.get(position);
         final String selectedKey = selectedItem.getTaskKey();
 
+        mDatabaseRef.child(selectedKey).removeValue();
+        Toast.makeText(ToDoList.this, "Item deleted", Toast.LENGTH_SHORT).show();
+
+
     }
     protected void onDestroy() {
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
     }
-
-
 
 }

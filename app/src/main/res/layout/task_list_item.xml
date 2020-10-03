@@ -5,19 +5,27 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <TextView
+
         android:id="@+id/task_data_ToDo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:padding="5dp"
+
         android:text="TextView"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
+
         android:id="@+id/date_ToDo"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -29,7 +37,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+
         android:layout_height="48dp"
+
         android:layout_weight="1"
         android:background="@color/header_background">
 
@@ -42,21 +52,25 @@
             android:layout_marginStart="193dp"
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="4dp"
+
             android:layout_toStartOf="@+id/update_task_ToDo"
             android:src="@drawable/ic_baseline_done_24" />
 
         <ImageButton
             android:id="@+id/update_task_ToDo"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="17dp"
             android:layout_marginBottom="3dp"
+
             android:layout_toStartOf="@+id/delete_task_ToDo"
             android:src="@drawable/ic_baseline_update_24" />
 
         <ImageButton
             android:id="@+id/delete_task_ToDo"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
