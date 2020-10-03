@@ -1,7 +1,4 @@
-package com.WizGuys.eStudent.students;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.WizGuys.eStudent.todoList;
 
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -14,14 +11,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.WizGuys.eStudent.MainActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.WizGuys.eStudent.R;
-import com.WizGuys.eStudent.model.Student;
+import com.WizGuys.eStudent.model.Teacher;
+import com.WizGuys.eStudent.teachers.TeachersDashboard;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -30,79 +30,79 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+import com.WizGuys.eStudent.model.Task;
 
-public class StudentAdd extends AppCompatActivity {
+public class UpdateToDo extends AppCompatActivity {
+
     private static final int PICK_IMAGE_REQUEST = 1;
-    private Button chooseStudentImageBtn;
-    private Button addStudentBtn;
-    private EditText nameEditText, emailEditText,addressEditText,contactEditText,indexEditText;
-    private ImageView chosenStudentImageView;
+    private Button chooseImageBtn;
+    private Button uploadBtn;
+    private EditText taskData, taskDate;
+    private ImageView chosenImageView;
     private ProgressBar uploadProgressBar;
     private Uri mImageUri;
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
+    //////////////////////////////
+    private FirebaseStorage mStorage;
+
+    TextView task_data,task_date;
+
+    private void initializeWidgets(){
+        task_data = findViewById(R.id.task_data);
+        task_date= findViewById(R.id.task_date);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_add);
+        setContentView(R.layout.activity_to_do_form);
+        initializeWidgets();
+        /////////////////////////////////////
 
-        chooseStudentImageBtn = findViewById(R.id.button_choose_student_image);
-        addStudentBtn = findViewById(R.id.addStudentBtn);
+        mStorage = FirebaseStorage.getInstance();
 
-        nameEditText = findViewById(R.id.studentNameEditText);
-        emailEditText = findViewById ( R.id.studentEmailEditText );
-        addressEditText = findViewById ( R.id.studentAddressEditText );
-        contactEditText = findViewById ( R.id.studentContactEditText );
-        indexEditText = findViewById ( R.id.studentIndexEditText );
+        uploadBtn = findViewById(R.id.task_add);
+
+        //ET Text
+        taskData = findViewById(R.id.task_data);
+        taskDate = findViewById ( R.id.task_date);
+        /*ED*/
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Task");
+        ////////////////////
+        Intent i=this.getIntent();
+        String id=i.getExtras().getString("ID_KEY");
+        String task=i.getExtras().getString("NAME_KEY");
+        String dateToDo=i.getExtras().getString("DATE_KEY");
 
 
-        chosenStudentImageView = findViewById(R.id.chosenStudentImageView);
-        uploadProgressBar = findViewById(R.id.student_progress_bar);
+        taskData.setText(task);
+        taskDate.setText(dateToDo);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference("Student");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Student");
-        chooseStudentImageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openFileChooser();
-            }
-        });
-        addStudentBtn.setOnClickListener(new View.OnClickListener() {
+
+        final String selectedKey  = id;
+
+        uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(StudentAdd.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateToDo.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
                 } else {
-                    uploadFile();
+                    updateUploadFile(selectedKey);
                 }
             }
         });
     }
 
-    private void openFileChooser() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null) {
-            mImageUri = data.getData();
-            Picasso.with(this).load(mImageUri).into(chosenStudentImageView);
-        }
-    }
     private String getFileExtension(Uri uri) {
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
-    private void uploadFile() {
-
+    private void updateUploadFile(final String selectedKey) {
         if (mImageUri != null) {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(mImageUri));
@@ -121,20 +121,12 @@ public class StudentAdd extends AppCompatActivity {
                                     uploadProgressBar.setProgress(0);
                                 }
                             }, 500);
-                            Toast.makeText(StudentAdd.this, "Student Add successful", Toast.LENGTH_LONG).show();
+                            Toast.makeText(UpdateToDo.this, "Task Update successful", Toast.LENGTH_LONG).show();
 
-                            Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
-                            while (!urlTask.isSuccessful());
-                            String downloadUrl = String.valueOf(urlTask.getResult());
-
-                            Student student = new Student(nameEditText.getText().toString().trim(),
-                                    indexEditText.getText().toString().trim(),
-                                    addressEditText.getText().toString().trim(),
-                                    contactEditText.getText().toString().trim(),
-                                   emailEditText.getText().toString().trim(),
-                                    downloadUrl);
-                            //String uploadId = mDatabaseRef.push().getKey();
-                            mDatabaseRef.child(indexEditText.getText().toString().trim()).setValue(student);
+                            Task upload = new Task(taskData.getText().toString(), taskDate.getText().toString()) {
+                            };
+                            String uploadId = selectedKey;
+                            mDatabaseRef.child(uploadId).setValue(upload);
                             uploadProgressBar.setVisibility(View.INVISIBLE);
                             openImagesActivity ();
                         }
@@ -143,7 +135,7 @@ public class StudentAdd extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             uploadProgressBar.setVisibility(View.INVISIBLE);
-                            Toast.makeText(StudentAdd.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpdateToDo.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -158,7 +150,23 @@ public class StudentAdd extends AppCompatActivity {
         }
     }
     private void openImagesActivity(){
-        Intent intent = new Intent(this, StudentItems.class);
+        Intent intent = new Intent(this, TeachersDashboard.class);
         startActivity(intent);
+    }
+
+    private void openFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            mImageUri = data.getData();
+            Picasso.with(this).load(mImageUri).into(chosenImageView);
+        }
     }
 }

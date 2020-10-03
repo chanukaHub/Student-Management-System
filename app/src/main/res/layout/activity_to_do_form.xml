@@ -27,11 +27,10 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/task_date_toDoForm"
+        android:id="@+id/task_date"
         android:layout_width="265dp"
         android:layout_height="38dp"
         android:layout_marginTop="48dp"
-        android:layout_marginBottom="356dp"
         android:ems="10"
         android:inputType="date"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,33 +40,31 @@
         app:layout_constraintVertical_bias="0.112" />
 
     <EditText
-        android:id="@+id/task_data_toDoForm"
+        android:id="@+id/task_data"
         android:layout_width="265dp"
         android:layout_height="39dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/todo_form_task_txt"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.304" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.051" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="392dp"
         android:text="@string/todo_form_date_txt"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_data"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="0.103" />
 
     <TextView
         android:id="@+id/textView5"
@@ -84,19 +81,33 @@
         app:layout_constraintVertical_bias="0.209" />
 
     <Button
-        android:id="@+id/task_addToDo"
+        android:id="@+id/task_add"
         android:layout_width="211dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="260dp"
-        android:background="@color/colorPrimaryDark"
         android:text="@string/todo_form_main_head"
+        android:textStyle="bold"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_date"
         app:layout_constraintVertical_bias="0.711" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/todo_form_task_txt"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.33" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

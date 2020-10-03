@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.model.Task;
-import com.WizGuys.eStudent.model.Teacher;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
@@ -58,11 +57,13 @@ public  class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.RecyclerViewH
         public TextView taskTextView, dateTextView;
         public RecyclerViewHolder(View itemView) {
             super(itemView);
-            taskTextView =itemView.findViewById ( R.id.task_dataToDo );
-            dateTextView = itemView.findViewById(R.id.dateToDo);
-            confirmButton = itemView.findViewById(R.id.confirm_task);
-            updateButton = itemView.findViewById(R.id.update_task_toDo);
-            deleteButton = itemView.findViewById(R.id.delete_task_toDo);
+
+            taskTextView =itemView.findViewById ( R.id.task_data_ToDo );
+            dateTextView = itemView.findViewById(R.id.date_ToDo);
+            confirmButton = itemView.findViewById(R.id.confirm_task_ToDo);
+            updateButton = itemView.findViewById(R.id.update_task_ToDo);
+            deleteButton = itemView.findViewById(R.id.delete_task_ToDo);
+
 
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);

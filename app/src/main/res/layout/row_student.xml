@@ -26,9 +26,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
 
                     <TextView
                         android:id="@+id/textViewStudentIndex"
@@ -38,11 +35,7 @@
                         android:text="Student Index"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#D61139" />
-                </TableRow>
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
 
                     <TextView
                         android:id="@+id/textViewStudentName"
@@ -52,11 +45,7 @@
                         android:text="Name"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="italic" />
-                </TableRow>
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
 
                     <TextView
                         android:id="@+id/textViewStudentEmail"
@@ -67,7 +56,6 @@
                         android:text="Description"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="italic" />
-                </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"

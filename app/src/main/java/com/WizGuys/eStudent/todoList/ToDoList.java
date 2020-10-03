@@ -43,15 +43,9 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
     private DatabaseReference mDatabaseRef;
     private ValueEventListener mDBListener;
     private List<Task> mTasks;
-    private void openDetailActivity(String[] data){
-        Intent intent = new Intent(this, Detail.class);
 
-        intent.putExtra("NAME_KEY",data[0]);
-        intent.putExtra("DATE_KEY",data[1]);
-        intent.putExtra("STATE_KEY",data[2]);
-        intent.putExtra("EMAIL_KEY",data[3]);
-        startActivity(intent);
-    }
+    private ImageView addTaskImgToDo;
+
 
     private void updateActivity(String[] data){
         Intent intent = new Intent(this, ToDoForm.class);
@@ -67,11 +61,13 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_to_do_list );
-        mRecyclerView = findViewById(R.id.mRecyclerView);
+
+        mRecyclerView = findViewById(R.id.task_list_ToDo);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-   /*     mProgressBar = findViewById(R.id.myDataLoaderProgressBar);
-        mProgressBar.setVisibility(View.VISIBLE);*/
+        mProgressBar = findViewById(R.id.progressbar_ToDo);
+        mProgressBar.setVisibility(View.VISIBLE);
+
         mTasks = new ArrayList<> ();
         mAdapter = new ToDoAdapter (ToDoList.this, mTasks);
         mRecyclerView.setAdapter(mAdapter);
@@ -82,9 +78,9 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mTasks.clear();
-                for (DataSnapshot teacherSnapshot : dataSnapshot.getChildren()) {
-                    Task upload = teacherSnapshot.getValue(Task.class);
-                    upload.setTaskKey(teacherSnapshot.getKey());
+                for (DataSnapshot taskSnapshot : dataSnapshot.getChildren()) {
+                    Task upload = taskSnapshot.getValue(Task.class);
+                    upload.setTaskKey(taskSnapshot.getKey());
                     mTasks.add(upload);
                 }
                 mAdapter.notifyDataSetChanged();
@@ -96,16 +92,24 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
            //     mProgressBar.setVisibility(View.INVISIBLE);
             }
         });
-    }
-    public void onItemClick(int position) {
-        Task task1=mTasks.get(position);
-        String[] teacherData={
-                task1.getTask(),
-                task1.getDate()
-        };
 
-        openDetailActivity(teacherData);
+        //addButton
+        addTaskImgToDo = findViewById(R.id.add_task_img_ToDo);
+
+        addTaskImgToDo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ToDoList.this, ToDoForm.class);
+                startActivity(intent);
+            }
+        });
     }
+
+    @Override
+    public void onItemClick(int position) {
+
+    }
+
     @Override
     public void onShowItemClick(int position) {
         Task task1=mTasks.get(position);
@@ -133,4 +137,5 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
     }
+
 }

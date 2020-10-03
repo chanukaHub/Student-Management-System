@@ -1,7 +1,9 @@
 package com.WizGuys.eStudent.todoList;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +31,7 @@ public class ToDoForm extends AppCompatActivity {
 
         taskData = findViewById(R.id.task_data);
         taskDate = findViewById(R.id.task_date);
-        addTaskButton = findViewById(R.id.task_addToDo);
+        addTaskButton = findViewById(R.id.task_add);
 
         reff = FirebaseDatabase.getInstance().getReference().child("Task");
 
@@ -41,10 +43,44 @@ public class ToDoForm extends AppCompatActivity {
                 String date1 = taskDate.getText().toString();
                 Task newTask = new Task(task, date1, Common.email);
 
-                reff.push().setValue(newTask);
-                Toast.makeText(ToDoForm.this, "Task added successfully.", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(ToDoForm.this, ToDoList.class);
-                startActivity(intent);
+                if (newTask.getTask().isEmpty() || newTask.getDate().isEmpty()){
+                    Toast.makeText(ToDoForm.this, "Please fill the form.", Toast.LENGTH_LONG).show();
+                } else {
+                    reff.push().setValue(newTask);
+
+                    //success message
+                    Toast.makeText(ToDoForm.this, "Task added successfully.", Toast.LENGTH_LONG).show();
+
+
+                    //dialog box
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ToDoForm.this);
+
+                    builder.setMessage("Do you want to add another task?");
+                    builder.setTitle("Add another...");
+                    //user needs select choice
+                    builder.setCancelable(false);
+
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    });
+
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(ToDoForm.this, ToDoList.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    //create alert dialog
+                    AlertDialog alertDialog = builder.create();
+
+                    //show alert dialog
+                    alertDialog.show();
+                }
             }
         });
     }
