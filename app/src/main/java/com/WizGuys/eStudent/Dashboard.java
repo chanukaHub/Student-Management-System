@@ -29,6 +29,7 @@ import com.WizGuys.eStudent.helperClass.MostViewedAdpater;
 import com.WizGuys.eStudent.helperClass.helperResources.CategoriesHelperClass;
 import com.WizGuys.eStudent.helperClass.helperResources.FeaturedHelper;
 import com.WizGuys.eStudent.helperClass.helperResources.MostViewedHelperClass;
+import com.WizGuys.eStudent.subjects.SubjectList;
 import com.WizGuys.eStudent.teachers.TeachersDashboard;
 import com.WizGuys.eStudent.todoList.ToDoList;
 import com.google.android.material.navigation.NavigationView;
@@ -50,7 +51,11 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     NavigationView navigationView;
 
     //todo list button
-    RelativeLayout todoButton;
+
+    RelativeLayout todoButton,teachersDashboard;
+    //subjectButton
+    RelativeLayout subjectButton;
+
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -73,6 +78,13 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
         //todo list button
         todoButton = findViewById(R.id.todoButton);
+        teachersDashboard = findViewById(R.id.teachersDashboard);
+
+
+        //subjectButton
+        subjectButton = findViewById(R.id.subjectManager);
+
+
         navigationDrawer();
 
         featuredRecycler();
@@ -89,12 +101,30 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             }
         });
 
-        //todo button onclick listner
+        //todo button onclick listener
         todoButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Dashboard.this, ToDoList.class);
+                startActivity(intent);
+            }
+        });
+        teachersDashboard.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Dashboard.this, TeachersDashboard.class);
+                startActivity(intent);
+            }
+        });
+
+        //subjectButton onclick listener
+        subjectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Dashboard.this, SubjectList.class);
+
                 startActivity(intent);
             }
         });
@@ -195,7 +225,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         switch (item.getItemId()) {
             case R.id.nav_message:
                 break;
-            case R.id.nav_message1:
+            case R.id.nav_Payment:
                 Intent intent = new Intent(Dashboard.this, FinanceDashboard.class);
                 startActivity(intent);
                 break;
@@ -203,7 +233,6 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 Intent intent1 = new Intent(Dashboard.this, MainActivity.class);
                 startActivity(intent1);
                 break;
-
             case R.id.nav_share:
                 Intent intent3 = new Intent(Dashboard.this, TeachersDashboard.class);
                 startActivity(intent3);

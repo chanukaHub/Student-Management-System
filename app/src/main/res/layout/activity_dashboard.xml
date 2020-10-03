@@ -44,7 +44,7 @@
                 android:layout_height="40dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@color/colorPrimary"
+                android:background="@color/button_background"
                 android:padding="5dp"
                 android:src="@drawable/ic_power" />
         </RelativeLayout>
@@ -68,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:fontFamily="@font/abril_fatface"
-                        android:text="A App"
+                        android:text="e-Student"
                         android:textSize="24sp" />
 
                     <RelativeLayout
@@ -79,7 +79,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="40dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@color/button_background"
                         android:elevation="8dp">
 
                         <TextView
@@ -124,6 +124,64 @@
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
+                                android:src="@drawable/ic_about" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="Profile"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/teachersDashboard"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/header_background"
+                            android:elevation="8dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ic_person" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="Teachers"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/subjectManager"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/header_background"
+                            android:elevation="8dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
                                 android:src="@drawable/ic_person" />
                         </RelativeLayout>
 
@@ -151,7 +209,7 @@
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/ic_person"
+                                android:src="@drawable/ic_mail"
                                 android:layout_centerInParent="true" />
                         </RelativeLayout>
 
@@ -159,63 +217,7 @@
                             android:gravity="center_horizontal"
                             android:layout_height="wrap_content"
                             android:layout_width="match_parent"
-                            android:text="Profile"
-                            android:textAlignment="center" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:elevation="8dp"
-                            android:background="@color/header_background"
-                            android:layout_margin="10dp">
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/ic_person"
-                                android:layout_centerInParent="true" />
-                        </RelativeLayout>
-
-                        <TextView
-                            android:gravity="center_horizontal"
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            android:text="Profile"
-                            android:textAlignment="center" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:elevation="8dp"
-                            android:background="@color/header_background"
-                            android:layout_margin="10dp">
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/ic_person"
-                                android:layout_centerInParent="true" />
-                        </RelativeLayout>
-
-                        <TextView
-                            android:gravity="center_horizontal"
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            android:text="Profile"
+                            android:text="Notice"
                             android:textAlignment="center" />
 
                     </LinearLayout>

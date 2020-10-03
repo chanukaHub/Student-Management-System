@@ -30,47 +30,43 @@
         android:id="@+id/task_date"
         android:layout_width="265dp"
         android:layout_height="38dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:inputType="date"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/task_data"
-        app:layout_constraintVertical_bias="0.112" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/task_data"
+        android:id="@+id/task_data_ToDo_add"
         android:layout_width="265dp"
         android:layout_height="39dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="@string/todo_form_date_txt"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/task_data"
-        app:layout_constraintVertical_bias="0.103" />
+        app:layout_constraintTop_toBottomOf="@+id/task_data_ToDo_add" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/todo_form_main_head"
+        android:text="@string/manageTaskTital"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -81,20 +77,19 @@
         app:layout_constraintVertical_bias="0.209" />
 
     <Button
-        android:id="@+id/task_add"
+        android:id="@+id/add_task_img_ToDo"
         android:layout_width="211dp"
         android:layout_height="57dp"
-        android:text="@string/todo_form_main_head"
-        android:textStyle="bold"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/submitTask"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:background="@color/colorPrimaryDark"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_date"
-        app:layout_constraintVertical_bias="0.711" />
+        app:layout_constraintVertical_bias="0.68" />
 
     <TextView
         android:id="@+id/textView7"
@@ -108,6 +103,6 @@
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.33" />
+        app:layout_constraintVertical_bias="0.311" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

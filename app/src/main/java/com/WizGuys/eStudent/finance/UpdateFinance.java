@@ -1,4 +1,4 @@
-package com.WizGuys.eStudent.todoList;
+package com.WizGuys.eStudent.finance;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.WizGuys.eStudent.R;
+import com.WizGuys.eStudent.model.Task;
 import com.WizGuys.eStudent.teachers.TeachersDashboard;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,9 +22,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.squareup.picasso.Picasso;
-import com.WizGuys.eStudent.model.Task;
 
-public class UpdateToDo extends AppCompatActivity {
+public class UpdateFinance extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button chooseImageBtn;
@@ -41,7 +41,7 @@ public class UpdateToDo extends AppCompatActivity {
     TextView task_data,task_date;
 
     private void initializeWidgets(){
-        task_data = findViewById(R.id.subject_name_add);
+      //  task_data = findViewById(R.id.task_data);
         task_date= findViewById(R.id.task_date);
     }
 
@@ -55,10 +55,10 @@ public class UpdateToDo extends AppCompatActivity {
 
         mStorage = FirebaseStorage.getInstance();
 
-        uploadBtn = findViewById(R.id.add_task_img_ToDo);
+     //   uploadBtn = findViewById(R.id.task_add);
 
         //ET Text
-        taskData = findViewById(R.id.task_data_ToDo_add);
+       // taskData = findViewById(R.id.task_data);
         taskDate = findViewById ( R.id.task_date);
 
                 mDatabaseRef = FirebaseDatabase.getInstance().getReference("Task");
@@ -81,7 +81,7 @@ public class UpdateToDo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(UpdateToDo.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateFinance.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
                 } else {
                     updateUploadFile(selectedKey);
                 }
@@ -103,7 +103,7 @@ public class UpdateToDo extends AppCompatActivity {
         );
         String uploadId = selectedKey;
         mDatabaseRef.child(uploadId).setValue(upload);
-        Toast.makeText(UpdateToDo.this, "Update Success", Toast.LENGTH_SHORT).show();
+        Toast.makeText(UpdateFinance.this, "Update Success", Toast.LENGTH_SHORT).show();
 
         taskData.setText("");
         taskDate.setText("");
