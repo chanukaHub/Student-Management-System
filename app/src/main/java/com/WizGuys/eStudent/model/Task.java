@@ -14,6 +14,11 @@ public class Task {
 
     }
 
+    public Task(String task, String date) {
+        this.task = task;
+        this.date = date;
+    }
+
     public Task(String task, String date, String userEmail) {
         this.task = task;
         this.date = date;

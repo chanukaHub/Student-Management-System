@@ -43,18 +43,8 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
     private DatabaseReference mDatabaseRef;
     private ValueEventListener mDBListener;
     private List<Task> mTasks;
-    private void openDetailActivity(String[] data){
-        Intent intent = new Intent(this, Detail.class);
-        intent.putExtra("NAME_KEY",data[0]);
-        intent.putExtra("DESCRIPTION_KEY",data[1]);
-        intent.putExtra("IMAGE_KEY",data[2]);
-        intent.putExtra("ADDRESS_KEY",data[3]);
-        intent.putExtra("CONTACT_KEY",data[4]);
-        intent.putExtra("EMAIL_KEY",data[5]);
-        intent.putExtra("QUALIFICATION_KEY",data[6]);
-        intent.putExtra("SALARY_KEY",data[7]);
-        startActivity(intent);
-    }
+    private ImageView addTaskImgToDo;
+
 
     private void updateActivity(String[] data){
         Intent intent = new Intent(this, Update.class);
@@ -72,25 +62,25 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-        setContentView ( R.layout.activity_items );
-        mRecyclerView = findViewById(R.id.mRecyclerView);
+        setContentView ( R.layout.activity_to_do_list );
+        mRecyclerView = findViewById(R.id.task_list_ToDo);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mProgressBar = findViewById(R.id.myDataLoaderProgressBar);
+        mProgressBar = findViewById(R.id.progressbar_ToDo);
         mProgressBar.setVisibility(View.VISIBLE);
         mTasks = new ArrayList<> ();
         mAdapter = new ToDoAdapter (ToDoList.this, mTasks);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(ToDoList.this);
         mStorage = FirebaseStorage.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("teachers_uploads");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Task");
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mTasks.clear();
-                for (DataSnapshot teacherSnapshot : dataSnapshot.getChildren()) {
-                    Task upload = teacherSnapshot.getValue(Task.class);
-                    upload.setTaskKey(teacherSnapshot.getKey());
+                for (DataSnapshot taskSnapshot : dataSnapshot.getChildren()) {
+                    Task upload = taskSnapshot.getValue(Task.class);
+                    upload.setTaskKey(taskSnapshot.getKey());
                     mTasks.add(upload);
                 }
                 mAdapter.notifyDataSetChanged();
@@ -102,16 +92,24 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
                 mProgressBar.setVisibility(View.INVISIBLE);
             }
         });
-    }
-    public void onItemClick(int position) {
-        Task task1=mTasks.get(position);
-        String[] teacherData={
-                task1.getTask(),
-                task1.getDate()
-        };
 
-        openDetailActivity(teacherData);
+        //addButton
+        addTaskImgToDo = findViewById(R.id.add_task_img_ToDo);
+
+        addTaskImgToDo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ToDoList.this, ToDoForm.class);
+                startActivity(intent);
+            }
+        });
     }
+
+    @Override
+    public void onItemClick(int position) {
+
+    }
+
     @Override
     public void onShowItemClick(int position) {
         Task task1=mTasks.get(position);
@@ -133,4 +131,7 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
     }
+
+
+
 }
