@@ -98,7 +98,7 @@ public class AddResult extends AppCompatActivity {
                         openImagesActivity();
                     }
                 }catch (NumberFormatException e){
-                    Toast.makeText(getApplicationContext(),"Invalid contact number",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Invalid Marks",Toast.LENGTH_SHORT).show();
                 }
             }
         });//end save

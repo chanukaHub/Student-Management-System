@@ -50,15 +50,15 @@
                 android:textSize="18sp"></TextView>
 
             <EditText
-                android:id="@+id/indexEditText"
+                android:id="@+id/udrIndexEditText"
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:ems="10"
-                android:inputType="number"
-                android:text="101"/>
+                android:hint="index" />
 
             <Button
+                android:id="@+id/udrCheckStudentButton"
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="100dp"
                 android:layout_height="45dp"
@@ -98,9 +98,9 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
             <TextView
+                android:id="@+id/udrNameTexView"
                 android:layout_column="1"
                 android:padding="10dp"
-                android:text="@string/result_student_name"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
         </TableRow>
@@ -114,9 +114,9 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
             <TextView
+                android:id="@+id/udrEmailTexView"
                 android:layout_column="1"
                 android:padding="10dp"
-                android:text="@string/result_student_email"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
         </TableRow>
@@ -156,12 +156,11 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
             <EditText
-                android:id="@+id/sub1_marks"
+                android:id="@+id/udrsub1_marks"
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
                 android:ems="10"
-                android:text="@string/result_mark"
                 android:inputType="number"
                 android:hint="marks 01"
                 android:textAlignment="center"/>
@@ -182,14 +181,13 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
             <EditText
-                android:id="@+id/sub2_marks"
+                android:id="@+id/udrsub2_marks"
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
                 android:ems="10"
                 android:inputType="number"
                 android:hint="marks 02"
-                android:text="@string/result_mark"
                 android:textAlignment="center"/>
         </TableRow>
 
@@ -209,14 +207,13 @@
                 android:textSize="18sp"></TextView>
 
             <EditText
-                android:id="@+id/sub3_marks"
+                android:id="@+id/udrsub3_marks"
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
                 android:ems="10"
                 android:inputType="number"
                 android:hint="marks 03"
-                android:text="@string/result_mark"
                 android:textAlignment="center"/>
         </TableRow>
 
@@ -233,6 +230,7 @@
         >
         <TableRow>
             <Button
+            android:id="@+id/udrUpdateResultButton"
             android:layout_column="1"
             android:layout_width="150dp"
             android:layout_height="45dp"
@@ -248,6 +246,7 @@
             android:shadowRadius="100"/>
 
             <Button
+                android:id="@+id/udrDeleteResultButton"
                 android:layout_column="1"
                 android:layout_width="150dp"
                 android:layout_height="45dp"
