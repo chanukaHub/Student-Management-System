@@ -74,7 +74,7 @@ public  class FinanceAdapter extends RecyclerView.Adapter<FinanceAdapter.Recycle
                     if (mListener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                           // mListener.onDeleteItemClick(position);
+                           mListener.onDeleteItemClick(position);
                         }
                     }
                 }
@@ -85,7 +85,7 @@ public  class FinanceAdapter extends RecyclerView.Adapter<FinanceAdapter.Recycle
                     if (mListener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                         //   mListener.onShowItemClick(position);
+                           mListener.onShowItemClick(position);
                         }
                     }
                 }
@@ -97,7 +97,7 @@ public  class FinanceAdapter extends RecyclerView.Adapter<FinanceAdapter.Recycle
             if (mListener != null) {
                 int position = getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
-                  //  mListener.onItemClick(position);
+                     mListener.onItemClick(position);
                 }
             }
         }
@@ -116,10 +116,10 @@ public  class FinanceAdapter extends RecyclerView.Adapter<FinanceAdapter.Recycle
                 if (position != RecyclerView.NO_POSITION) {
                     switch (item.getItemId()) {
                         case 1:
-                          //  mListener.onShowItemClick(position);
+                           mListener.onShowItemClick(position);
                             return true;
                         case 2:
-                          //  mListener.onDeleteItemClick(position);
+                           mListener.onDeleteItemClick(position);
                             return true;
                     }
                 }
@@ -128,9 +128,9 @@ public  class FinanceAdapter extends RecyclerView.Adapter<FinanceAdapter.Recycle
         }
     }
     public interface OnItemClickListener {
-//        void onItemClick(int position);
-//        void onShowItemClick(int position);
-//        void onDeleteItemClick(int position);
+        void onItemClick(int position);
+        void onShowItemClick(int position);
+        void onDeleteItemClick(int position);
     }
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;

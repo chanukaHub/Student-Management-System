@@ -51,9 +51,11 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     NavigationView navigationView;
 
     //todo list button
+
     RelativeLayout todoButton;
     //subjectButton
     RelativeLayout subjectButton;
+
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -77,8 +79,10 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         //todo list button
         todoButton = findViewById(R.id.todoButton);
 
+
         //subjectButton
         subjectButton = findViewById(R.id.subjectManager);
+
 
         navigationDrawer();
 
@@ -106,11 +110,13 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             }
         });
 
+
         //subjectButton onclick listener
         subjectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Dashboard.this, SubjectList.class);
+
                 startActivity(intent);
             }
         });
@@ -211,7 +217,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         switch (item.getItemId()) {
             case R.id.nav_message:
                 break;
-            case R.id.nav_message1:
+            case R.id.nav_Payment:
                 Intent intent = new Intent(Dashboard.this, FinanceDashboard.class);
                 startActivity(intent);
                 break;
@@ -219,7 +225,6 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 Intent intent1 = new Intent(Dashboard.this, MainActivity.class);
                 startActivity(intent1);
                 break;
-
             case R.id.nav_share:
                 Intent intent3 = new Intent(Dashboard.this, TeachersDashboard.class);
                 startActivity(intent3);

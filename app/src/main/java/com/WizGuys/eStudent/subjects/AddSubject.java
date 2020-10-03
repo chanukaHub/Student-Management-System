@@ -33,7 +33,7 @@ public class AddSubject extends AppCompatActivity {
         subjChapterTextView = findViewById(R.id.subject_chapters_add);
         subjInfoTextView = findViewById(R.id.subject_info_add);
 
-        addSubjButton.findViewById(R.id.add_subject_Subject_Manager);
+        addSubjButton = findViewById(R.id.add_subject_Subject_Manager);
 
         addSubjButton.setOnClickListener(new View.OnClickListener() {
             @Override

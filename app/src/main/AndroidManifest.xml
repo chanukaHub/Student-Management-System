@@ -32,11 +32,7 @@
         <activity android:name=".AddAssignmentResult" />
         <activity android:name=".UpdateDeleteResult" />
         <activity android:name=".AddResult" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Register" />
         <activity android:name=".Login" />
