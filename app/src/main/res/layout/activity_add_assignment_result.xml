@@ -50,7 +50,7 @@
                 android:textSize="18sp"></TextView>
 
             <EditText
-                android:id="@+id/editTextNumber"
+                android:id="@+id/indexEditText"
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
