@@ -17,6 +17,7 @@ import com.WizGuys.eStudent.adapter.ToDoAdapter;
 import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.model.Subject;
 import com.WizGuys.eStudent.model.Task;
+import com.WizGuys.eStudent.todoList.ToDoList;
 import com.WizGuys.eStudent.todoList.UpdateToDo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,7 +29,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubjectList extends AppCompatActivity {
+public class SubjectList extends AppCompatActivity implements SubjectAdapter.OnItemClickListener {
     private RecyclerView mRecyclerView;
     private SubjectAdapter mAdapter;
     private ProgressBar mProgressBar;
@@ -96,5 +97,24 @@ public class SubjectList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onItemClick(int position) {
+
+    }
+
+    @Override
+    public void onShowItemClick(int position) {
+
+    }
+
+    @Override
+    public void onDeleteItemClick(int position) {
+        Subject selectedItem = mSubjects.get(position);
+        final String selectedKey = selectedItem.getId();
+
+        mDatabaseRef.child(selectedKey).removeValue();
+        Toast.makeText(SubjectList.this, "Subject deleted", Toast.LENGTH_SHORT).show();
     }
 }

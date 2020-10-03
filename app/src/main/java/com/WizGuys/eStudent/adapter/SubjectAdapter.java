@@ -140,12 +140,8 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Recycler
             void onDeleteItemClick(int position);
         }
         public void setOnItemClickListener(OnItemClickListener listener) {
+
             mListener = listener;
         }
-        private String getDateToday(){
-            DateFormat dateFormat=new SimpleDateFormat("yyyy/MM/dd");
-            Date date=new Date();
-            String today= dateFormat.format(date);
-            return today;
-        }
+
 }
