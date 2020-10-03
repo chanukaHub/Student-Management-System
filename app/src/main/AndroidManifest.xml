@@ -12,7 +12,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".students.StudentUpdate"></activity>
         <activity android:name=".students.StudentItems" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".students.StudentAdd" />
         <activity android:name=".students.StudentDetails" />
@@ -31,13 +35,7 @@
         <activity android:name=".notice.Notice" />
         <activity android:name=".ShowResult" />
         <activity android:name=".AddAssignmentResult" />
-        <activity android:name=".UpdateDeleteResult" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".UpdateDeleteResult" />
         <activity android:name=".AddResult" />
         <activity android:name=".Register" />
         <activity android:name=".Login" />
