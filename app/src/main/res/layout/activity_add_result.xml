@@ -50,19 +50,19 @@
             android:textSize="18sp"></TextView>
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/indexEditText"
             android:layout_width="105dp"
             android:layout_height="wrap_content"
             android:layout_column="2"
             android:ems="10"
-            android:inputType="number"
-            android:text="101"/>
+            android:hint="index" />
 
         <Button
+            android:id="@+id/checkStudentButton"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="100dp"
             android:layout_height="45dp"
-            android:layout_margin="4dp"
+            android:layout_margin="1dp"
             android:background="@color/button_background"
             android:text="Check Student"
             android:textStyle="bold" />
@@ -97,10 +97,11 @@
             android:text="@string/result_student_name_desc"
             android:textColor="@android:color/black"
             android:textSize="18sp"></TextView>
+
         <TextView
+            android:id="@+id/studentNameTextView"
             android:layout_column="1"
             android:padding="10dp"
-            android:text="@string/result_student_name"
             android:textColor="@android:color/black"
             android:textSize="18sp"></TextView>
     </TableRow>
@@ -108,15 +109,17 @@
     <TableRow>
 
         <TextView
+
             android:layout_column="1"
             android:padding="10dp"
             android:text="@string/result_student_email_desc"
             android:textColor="@android:color/black"
             android:textSize="18sp"></TextView>
+
         <TextView
+            android:id="@+id/studentEmailTextView"
             android:layout_column="1"
             android:padding="10dp"
-            android:text="@string/result_student_email"
             android:textColor="@android:color/black"
             android:textSize="18sp"></TextView>
     </TableRow>
@@ -218,6 +221,7 @@
         </TableRow>
 
         <Button
+            android:id="@+id/resultSubmitButton"
             android:layout_width="100dp"
             android:layout_height="45dp"
             android:layout_marginLeft="100dp"

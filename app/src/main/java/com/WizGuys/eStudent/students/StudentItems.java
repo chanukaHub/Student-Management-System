@@ -38,11 +38,9 @@ public class StudentItems extends AppCompatActivity implements StudentAdapter.On
     private void openDetailActivity(String[] data){
         Intent intent = new Intent(this, StudentDetails.class);
         intent.putExtra("NAME_KEY",data[0]);
-        intent.putExtra("DESCRIPTION_KEY",data[1]);
-        intent.putExtra("IMAGE_KEY",data[2]);
-        intent.putExtra("ADDRESS_KEY",data[3]);
-        intent.putExtra("CONTACT_KEY",data[4]);
-        intent.putExtra("EMAIL_KEY",data[5]);
+        intent.putExtra("INDEX_KEY",data[1]);
+        intent.putExtra("EMAIL_KEY",data[2]);
+        intent.putExtra("IMAGE_KEY",data[3]);
         startActivity(intent);
     }
 
@@ -103,8 +101,7 @@ public class StudentItems extends AppCompatActivity implements StudentAdapter.On
     public void onItemClick(int position) {
         Student clickedStudent=mStudents.get(position);
         String[] studentData={clickedStudent.getName(),
-                clickedStudent.getIndex(),clickedStudent.getAddress(),
-                clickedStudent.getContact(),clickedStudent.getEmail(),
+                clickedStudent.getIndex(),clickedStudent.getEmail(),
                 clickedStudent.getImageURL()
         };
 
@@ -112,7 +109,6 @@ public class StudentItems extends AppCompatActivity implements StudentAdapter.On
     }
     @Override
     public void onShowItemClick(int position) {
-        System.out.println(position+"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
         Student clickedStudent=mStudents.get(position);
         final String selectedKey = clickedStudent.getKey();
         String[] studentData={selectedKey,clickedStudent.getName(),
