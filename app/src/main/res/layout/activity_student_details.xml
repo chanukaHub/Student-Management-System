@@ -37,7 +37,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
-            android:src="@drawable/unnamed"
+            android:src="@drawable/unnamed2"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="20dp"/>
         <TextView
@@ -145,7 +145,7 @@
                     android:padding="5dp"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/result_student_avg_value"
+                    android:text="--"
                     android:textSize="26sp" />
 
                 <TextView
@@ -262,8 +262,9 @@
                 android:padding="3dip"
                 />
             <TextView
+                android:id="@+id/txtSub1"
                 android:layout_column="2"
-                android:text="@string/result_mark"
+                android:text="-"
                 android:gravity="right"
                 android:padding="3dip"
                 android:layout_marginRight="35dp"/>
@@ -275,8 +276,9 @@
                 android:text="@string/result_subject2_desc"
                 android:padding="3dip" />
             <TextView
+                android:id="@+id/txtSub2"
                 android:layout_column="2"
-                android:text="@string/result_mark"
+                android:text="-"
                 android:gravity="right"
                 android:padding="3dip"
                 android:layout_marginRight="35dp"/>
@@ -288,8 +290,9 @@
                 android:text="@string/result_subject3_desc"
                 android:padding="3dip" />
             <TextView
+                android:id="@+id/txtSub3"
                 android:layout_column="2"
-                android:text="@string/result_mark"
+                android:text="-"
                 android:gravity="right"
                 android:padding="3dip"
                 android:layout_marginRight="35dp"/>
@@ -305,8 +308,9 @@
                 android:textColor="@android:color/black">
             </TextView>
             <TextView
+                android:id="@+id/txtTotal"
                 android:layout_column="2"
-                android:text="@string/result_mark_total"
+                android:text="-"
                 android:padding="10dp"
                 android:textSize="18sp"
                 android:gravity="right"
