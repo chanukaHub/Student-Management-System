@@ -52,7 +52,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     //todo list button
 
-    RelativeLayout todoButton;
+    RelativeLayout todoButton,teachersDashboard;
     //subjectButton
     RelativeLayout subjectButton;
 
@@ -78,6 +78,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
         //todo list button
         todoButton = findViewById(R.id.todoButton);
+        teachersDashboard = findViewById(R.id.teachersDashboard);
 
 
         //subjectButton
@@ -109,7 +110,14 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(intent);
             }
         });
+        teachersDashboard.setOnClickListener(new View.OnClickListener(){
 
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Dashboard.this, TeachersDashboard.class);
+                startActivity(intent);
+            }
+        });
 
         //subjectButton onclick listener
         subjectButton.setOnClickListener(new View.OnClickListener() {
