@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.model.Task;
-import com.WizGuys.eStudent.model.Teacher;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
