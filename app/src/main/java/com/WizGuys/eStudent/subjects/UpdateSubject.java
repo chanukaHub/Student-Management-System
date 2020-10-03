@@ -116,10 +116,7 @@ public class UpdateSubject extends AppCompatActivity {
         subInfoTxt.setText("");
 
     }
-    private void openImagesActivity(){
-        Intent intent = new Intent(this, TeachersDashboard.class);
-        startActivity(intent);
-    }
+
 
 
     @Override

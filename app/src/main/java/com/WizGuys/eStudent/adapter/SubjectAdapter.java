@@ -17,6 +17,7 @@ import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.model.Subject;
 import com.WizGuys.eStudent.model.Task;
+import com.WizGuys.eStudent.teachers.Items;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -28,6 +29,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Recycler
         private ImageButton updateButton, deleteButton;
         private List<Subject> subjects;
         private OnItemClickListener mListener;
+
 
         public SubjectAdapter (Context context, List<Subject> uploads) {
             mContext = context;
@@ -139,9 +141,8 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Recycler
             void onShowItemClick(int position);
             void onDeleteItemClick(int position);
         }
-        public void setOnItemClickListener(OnItemClickListener listener) {
-
-            mListener = listener;
-        }
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
 
 }
