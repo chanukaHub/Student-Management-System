@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.model.Student;
+import com.WizGuys.eStudent.students.StudentItems;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
@@ -25,7 +26,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.Recycler
     private Context mContext;
     private ImageView btnDeleteStudent,studentUpdate;
     private List<Student> students;
-    private TeachersAdapter.OnItemClickListener mListener;
+    private StudentAdapter.OnItemClickListener mListener;
     public StudentAdapter(Context context, List<Student> uploads) {
         mContext = context;
         students = uploads;
@@ -40,8 +41,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.Recycler
         Student currentStudent = students.get(position);
 
         holder.nameTextView.setText(currentStudent.getName());
-        holder.indexTextView.setText(currentStudent.getEmail());
-        holder.emailTextView.setText(currentStudent.getIndex());
+        holder.indexTextView.setText(currentStudent.getIndex());
+        holder.emailTextView.setText(currentStudent.getEmail());
 
         Picasso.with(mContext)
                 .load(currentStudent.getImageURL())
@@ -54,6 +55,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.Recycler
     public int getItemCount() {
         return students.size();
     }
+
+
     public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
         public TextView nameTextView,indexTextView,emailTextView;
@@ -133,7 +136,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.Recycler
         void onShowItemClick(int position);
         void onDeleteItemClick(int position);
     }
-    public void setOnItemClickListener(TeachersAdapter.OnItemClickListener listener) {
+    public void setOnItemClickListener(StudentAdapter.OnItemClickListener listener) {
         mListener = listener;
     }
     private String getDateToday(){

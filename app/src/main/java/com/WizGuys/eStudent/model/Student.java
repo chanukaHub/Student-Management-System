@@ -1,13 +1,17 @@
 package com.WizGuys.eStudent.model;
-
+import com.google.firebase.database.Exclude;
 
 public class Student {
+    private String key;
     private String name;
     private String index;
     private String address;
     private String contact;
     private String email;
     private String imageURL;
+
+    public Student() {
+    }
 
     public Student(String name, String index, String address, String contact, String email, String imageURL) {
         this.name = name;
@@ -16,6 +20,14 @@ public class Student {
         this.contact = contact;
         this.email = email;
         this.imageURL = imageURL;
+    }
+    @Exclude
+    public String getKey() {
+        return key;
+    }
+    @Exclude
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getName() {
@@ -69,6 +81,7 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
+                "key='" + key + '\'' +
                 ", name='" + name + '\'' +
                 ", index='" + index + '\'' +
                 ", address='" + address + '\'' +

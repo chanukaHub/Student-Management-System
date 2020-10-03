@@ -10,9 +10,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".students.StudentAdd"/>
+        <activity android:name=".students.StudentUpdate"></activity>
+        <activity android:name=".students.StudentItems" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".students.StudentAdd" />
         <activity android:name=".students.StudentDetails" />
-        <activity android:name=".finance.FinanceDashboard"></activity>
+        <activity android:name=".finance.FinanceDashboard" />
         <activity android:name=".finance.UploadFinance" />
         <activity android:name=".UpdateDeleteAssignmentResult" />
         <activity android:name=".ManageSubjects" />
@@ -34,14 +42,11 @@
         <activity android:name=".teachers.Detail" />
         <activity android:name=".teachers.Update" />
         <activity android:name=".teachers.Items" />
-        <activity android:name=".teachers.TeachersDashboard"/>
+        <activity android:name=".teachers.TeachersDashboard" >
 
+        </activity>
         <activity android:name=".MainActivity">
-                <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
 
-                        <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
         </activity>
 
         <meta-data
