@@ -101,19 +101,19 @@
 
                 <TextView
                     android:fontFamily="@font/amaranth_bold"
-                    android:id="@+id/student_rank"
+                    android:id="@+id/assignmentAvg"
                     android:includeFontPadding="false"
                     android:layout_centerHorizontal="true"
                     android:padding="5dp"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/result_student_rank_value"
+                    android:text="--"
                     android:textSize="26sp" />
 
                 <TextView
                     android:id="@+id/rank_desc"
                     android:includeFontPadding="false"
-                    android:layout_below="@id/student_rank"
+                    android:layout_below="@id/assignmentAvg"
                     android:layout_centerHorizontal="true"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -201,8 +201,9 @@
                 android:padding="3dip"
                 />
             <TextView
+                android:id="@+id/assign1"
                 android:layout_column="2"
-                android:text="@string/result_grade"
+                android:text="-"
                 android:gravity="right"
                 android:padding="3dip"
                 android:layout_marginRight="45dp"/>
@@ -214,8 +215,9 @@
                 android:text="@string/result_assignment2_desc"
                 android:padding="3dip" />
             <TextView
+                android:id="@+id/assign2"
                 android:layout_column="2"
-                android:text="@string/result_grade"
+                android:text="-"
                 android:gravity="right"
                 android:padding="3dip"
                 android:layout_marginRight="45dp"/>
