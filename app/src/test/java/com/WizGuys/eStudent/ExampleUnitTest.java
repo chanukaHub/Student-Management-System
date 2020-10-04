@@ -19,7 +19,6 @@ public class ExampleUnitTest {
     public void setUp(){
         studentDetails = new StudentDetails();
     }
-
     @Test
     public void studentTotalMarks_isCorrect(){
         float result= studentDetails.getTotalMarks(90,50,70);
@@ -29,6 +28,11 @@ public class ExampleUnitTest {
     public void studentAvgMarks_isCorrect(){
         float result= studentDetails.getAvgMarks(65,63,60);
         assertEquals(62.666668,result,0.001);
+    }
+    @Test
+    public void studentAssignmentAvgMarks_isCorrect(){
+        float result= studentDetails.getAvgCAMarks(80,90);
+        assertEquals(85.0,result,0.001);
     }
 
 
