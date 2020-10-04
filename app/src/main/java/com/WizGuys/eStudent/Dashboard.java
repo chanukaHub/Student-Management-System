@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -21,7 +20,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.WizGuys.eStudent.finance.FinanceDashboard;
-import com.WizGuys.eStudent.finance.UploadFinance;
 import com.WizGuys.eStudent.helperClass.CategoriesAdapter;
 import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.helperClass.FeaturedAdapter;
@@ -230,7 +228,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(intent);
                 break;
             case R.id.nav_message3:
-                Intent intent1 = new Intent(Dashboard.this, MainActivity.class);
+                Intent intent1 = new Intent(Dashboard.this, TimeTablesDashboard.class);
                 startActivity(intent1);
                 break;
             case R.id.nav_share:
@@ -238,6 +236,9 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(intent3);
                 Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
                 break;
+
+
+
         }
         return true;
     }

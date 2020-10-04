@@ -80,6 +80,7 @@ public  class FinanceAdapter extends RecyclerView.Adapter<FinanceAdapter.Recycle
                 }
             });
             financeUpdate.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View v) {
                     if (mListener != null) {
@@ -135,10 +136,5 @@ public  class FinanceAdapter extends RecyclerView.Adapter<FinanceAdapter.Recycle
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
-    private String getDateToday(){
-        DateFormat dateFormat=new SimpleDateFormat("yyyy/MM/dd");
-        Date date=new Date();
-        String today= dateFormat.format(date);
-        return today;
-    }
+
 }
