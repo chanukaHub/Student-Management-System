@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroup"
     tools:context=".teachers.Upload">
 
     <ScrollView
@@ -15,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+
             android:orientation="vertical"
             android:layout_alignParentLeft="true">
 
@@ -23,84 +25,85 @@
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="31dp" />
+
             <TextView
                 android:id="@+id/headerTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textStyle="bold"
                 android:text="Add New Teacher"
-                android:textSize="20dp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/nameEditText"
-                android:layout_width="367dp"
+                android:layout_width="267dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
 
                 android:hint="Name"
                 android:inputType="text" />
 
             <EditText
                 android:id="@+id/techEmail"
-                android:layout_width="365dp"
+                android:layout_width="267dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
                 android:hint="Email"
                 android:inputType="text"
                 android:minLines="3" />
 
             <EditText
                 android:id="@+id/techAddress"
-                android:layout_width="365dp"
+                android:layout_width="267dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
                 android:hint="Address"
                 android:inputType="text"
                 android:minLines="3" />
             <EditText
                 android:id="@+id/techContact"
-                android:layout_width="365dp"
+                android:layout_width="267dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
                 android:hint="Contact"
                 android:inputType="text"
                 android:minLines="3" />
             <EditText
                 android:id="@+id/techSalary"
-                android:layout_width="365dp"
+                android:layout_width="267dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
                 android:hint="Salary"
                 android:inputType="text"
                 android:minLines="3" />
             <EditText
                 android:id="@+id/techQualification"
-                android:layout_width="365dp"
+                android:layout_width="267dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
                 android:hint="Qualification"
                 android:inputType="text"
                 android:minLines="3" />
             <EditText
                 android:id="@+id/techDescription"
-                android:layout_width="365dp"
+                android:layout_width="267dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
                 android:hint="Description"
                 android:inputType="text"
                 android:minLines="3" />
 
             <LinearLayout
-                android:layout_width="400dp"
-                android:layout_height="124dp"
+                android:layout_width="395dp"
+                android:layout_height="132dp"
                 android:orientation="horizontal">
 
                 <Button
@@ -109,7 +112,7 @@
                     android:layout_height="26dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
-                    android:background="#251142"
+                    android:background="#033E5A"
                     android:text="Choose"
                     android:textColor="#fff" />
 
@@ -121,15 +124,15 @@
 
             <Button
                 android:id="@+id/uploadBtn"
-                android:layout_width="333dp"
+                android:layout_width="196dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-
-
-                android:background="#2C0367"
+                android:background="#0B6D9A"
                 android:gravity="center"
                 android:text="Upload"
-                android:textColor="#fff" />
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
