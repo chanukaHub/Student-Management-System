@@ -67,14 +67,11 @@ public class StudentDetails extends AppCompatActivity {
                     sub2.setText(snapshot.child("mark2").getValue().toString());
                     sub3.setText(snapshot.child("mark3").getValue().toString());
                     Integer m1,m2,m3;
-                    float favg;
                     m1= Integer.parseInt(snapshot.child("mark1").getValue().toString());
                     m2= Integer.parseInt(snapshot.child("mark2").getValue().toString());
                     m3= Integer.parseInt(snapshot.child("mark3").getValue().toString());
-                    //total=m1+m2+m3;
-                    String total= String.valueOf(m1+m2+m3);
-                    favg= (float) ((m1+m2+m3)/3.0);
-                    String avg =String.valueOf(favg);
+                    String total= String.valueOf(getTotalMarks(m1,m2,m3));
+                    String avg =String.valueOf(getAvgMarks(m1,m2,m3));
 
                     txtTotalMarks.setText(total);
                     txtExamAvg.setText(avg);
@@ -89,5 +86,11 @@ public class StudentDetails extends AppCompatActivity {
             }
         });
 
+    }
+    public float getTotalMarks(float m1,float m2,float m3){
+        return (m1+m2+m3);
+    }
+    public float getAvgMarks(float m1,float m2,float m3){
+        return (float) ((m1+m2+m3)/3.0);
     }
 }
