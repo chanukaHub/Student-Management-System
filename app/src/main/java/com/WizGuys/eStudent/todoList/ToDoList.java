@@ -1,37 +1,27 @@
 package com.WizGuys.eStudent.todoList;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.WizGuys.eStudent.R;
-import com.WizGuys.eStudent.adapter.TeachersAdapter;
 import com.WizGuys.eStudent.adapter.ToDoAdapter;
 import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.model.Task;
-import com.WizGuys.eStudent.model.Teacher;
-import com.WizGuys.eStudent.teachers.Detail;
-import com.WizGuys.eStudent.teachers.Items;
-import com.WizGuys.eStudent.teachers.Update;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +40,16 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
 
     private void updateActivity(String[] data){
         Intent intent = new Intent(this, UpdateToDo.class);
+        intent.putExtra("ID_KEY",data[0]);
+        intent.putExtra("NAME_KEY",data[1]);
+        intent.putExtra("DATE_KEY",data[2]);
+        intent.putExtra("STATE_KEY",data[3]);
+        intent.putExtra("EMAIL_KEY",data[4]);
+        startActivity(intent);
+    }
+
+    private void confirmActivity(String[] data){
+        Intent intent = new Intent(ToDoList.this, ConfirmToDo.class);
         intent.putExtra("ID_KEY",data[0]);
         intent.putExtra("NAME_KEY",data[1]);
         intent.putExtra("DATE_KEY",data[2]);
@@ -78,13 +78,21 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mTasks.clear();
-                for (DataSnapshot taskSnapshot : dataSnapshot.getChildren()) {
-                    Task upload = taskSnapshot.getValue(Task.class);
-                    upload.setTaskKey(taskSnapshot.getKey());
-                    mTasks.add(upload);
+                if (!Common.email.equals(Common.loggedOut)){
+
+                    for (DataSnapshot taskSnapshot : dataSnapshot.getChildren()) {
+                        Task upload = taskSnapshot.getValue(Task.class);
+                        if (upload.getState().equals(Common.TASK_UNFINISHED) && upload.getUserEmail().equals(Common.email)){
+                            upload.setTaskKey(taskSnapshot.getKey());
+                            mTasks.add(upload);
+                        }
+                    }
+
+                    mAdapter.notifyDataSetChanged();
+                    mProgressBar.setVisibility(View.GONE);
+                } else {
+                    Toast.makeText(ToDoList.this, "Please log into your account.", Toast.LENGTH_SHORT).show();
                 }
-                mAdapter.notifyDataSetChanged();
-                mProgressBar.setVisibility(View.GONE);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -125,16 +133,62 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
 
         updateActivity(taskData);
     }
+
+    @Override
+    public void onConfirmItemClick(int position) {
+        Task selectedItem = mTasks.get(position);
+        final String selectedKey = selectedItem.getTaskKey();
+
+        //change state
+        selectedItem.setState(Common.TASK_FINISHED);
+
+        String[] taskdata = {
+                selectedKey,
+                selectedItem.getTask(),
+                selectedItem.getDate(),
+                selectedItem.getState(),
+                selectedItem.getUserEmail()
+        };
+
+        confirmActivity(taskdata);
+
+    }
     @Override
     public void onDeleteItemClick(int position) {
         Task selectedItem = mTasks.get(position);
         final String selectedKey = selectedItem.getTaskKey();
 
-        mDatabaseRef.child(selectedKey).removeValue();
-        Toast.makeText(ToDoList.this, "Task deleted", Toast.LENGTH_SHORT).show();
+        //dialog box
+        AlertDialog.Builder builder = new AlertDialog.Builder(ToDoList.this);
 
+        builder.setMessage("Do you want to delete this task?");
+        builder.setTitle("Delete Warning!");
+        //user needs select choice
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                mDatabaseRef.child(selectedKey).removeValue();
+                Toast.makeText(ToDoList.this, "Task deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        //create alert dialog
+        AlertDialog alertDialog = builder.create();
+
+        //show alert dialog
+        alertDialog.show();
 
     }
+
     protected void onDestroy() {
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);

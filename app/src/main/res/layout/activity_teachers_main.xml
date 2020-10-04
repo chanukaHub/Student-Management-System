@@ -9,66 +9,97 @@
 
 
     <ImageView
-        android:layout_width="167dp"
-        android:layout_height="162dp"
-        android:layout_above="@+id/button_zone"
+        android:id="@+id/imageView"
+        android:layout_width="335dp"
+        android:layout_height="165dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp"
-        android:layout_marginBottom="52dp"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/amy" />
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="35dp"
+        app:srcCompat="@drawable/pngegg" />
 
     <LinearLayout
         android:id="@+id/button_zone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_centerInParent="true">
+        android:layout_width="347dp"
+        android:layout_height="252dp"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
 
         <TableLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="247dp"
+
             android:layout_weight="1">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/openTeachersActivityBtn"
+                    android:layout_width="398dp"
+                    android:layout_height="79dp"
+                    android:layout_weight="1"
+                    android:background="#0B6D9A"
+                    android:text="View All"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="11dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/openUploadActivityBtn"
                     style="?android:attr/button"
-                    android:layout_width="339dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="395dp"
+                    android:layout_height="76dp"
                     android:layout_weight="1"
+                    android:background="#0B6D9A"
                     android:clickable="true"
                     android:text="Add New"
-                    android:textColor="#190E0E" />
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/openTeachersActivityBtn"
+                    android:id="@+id/teacherDashSetting"
                     style="?android:attr/button"
-                    android:layout_width="329dp"
-                    android:layout_height="73dp"
+                    android:layout_width="395dp"
+                    android:layout_height="76dp"
                     android:layout_weight="1"
-                    android:text="View All"
-                    android:textColor="#190E0E" />
+                    android:background="#0B6D9A"
+                    android:clickable="true"
+                    android:text="Settings"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
             </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
         </TableLayout>
 
     </LinearLayout>
+
 </RelativeLayout>

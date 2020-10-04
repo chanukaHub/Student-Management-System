@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
@@ -55,13 +55,13 @@
 
         <ImageButton
             android:id="@+id/confirm_task_ToDo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="247dp"
+            android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="193dp"
+            android:layout_marginStart="28dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="0dp"
 
             android:layout_toStartOf="@+id/update_task_ToDo"
             android:src="@drawable/ic_baseline_done_24" />

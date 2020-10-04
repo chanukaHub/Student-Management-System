@@ -5,6 +5,7 @@
     android:id="@+id/submit_subject_button"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroup"
     tools:context=".subjects.AddSubject">
 
     <androidx.appcompat.widget.Toolbar
@@ -58,17 +59,6 @@
         app:layout_constraintVertical_bias="0.886" />
 
     <TextView
-        android:id="@+id/subject_info_add"
-        android:layout_width="318dp"
-        android:layout_height="162dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.365"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-    <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,5 +108,17 @@
         app:layout_constraintHorizontal_bias="0.161"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subject_chapters_add" />
+
+    <EditText
+        android:id="@+id/subject_info_add"
+        android:layout_width="317dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

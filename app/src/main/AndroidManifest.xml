@@ -12,17 +12,14 @@
         android:theme="@style/AppTheme">
         <activity android:name=".students.StudentUpdate"></activity>
         <activity android:name=".students.StudentItems" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".students.StudentAdd" />
         <activity android:name=".students.StudentDetails" />
         <activity android:name=".finance.FinanceDashboard" />
         <activity android:name=".finance.UploadFinance" />
         <activity android:name=".todoList.UpdateToDo" />
+        <activity android:name=".todoList.ConfirmToDo" />
         <activity android:name=".finance.AllFinance" />
         <activity android:name=".UpdateDeleteAssignmentResult" />
         <activity android:name=".ManageSubjects" />
@@ -48,7 +45,11 @@
 
         </activity>
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data
