@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.adapter.ToDoAdapter;
@@ -39,6 +40,7 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
     private List<Task> mTasks;
 
     private ImageView addTaskImgToDo;
+    private TextView pendingText, finishedText, failedText;
 
 
     private void updateActivity(String[] data){
@@ -101,21 +103,39 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
                 int today_year = Integer.parseInt(todayParts[2]);
                 if (!Common.email.equals(Common.loggedOut)){
 
+                    int totalTasks = 0;
+                    int pending = 0;
+                    int finished = 0;
+                    int failed = 0;
+
+
+
                     for (DataSnapshot taskSnapshot : dataSnapshot.getChildren()) {
                         Task upload = taskSnapshot.getValue(Task.class);
+                        upload.setTaskKey(taskSnapshot.getKey());
+
+                        totalTasks++;
+
+                        if (upload.getState().equals(Common.TASK_FAILED)){
+                            failed++;
+                        }
+
+                        if (upload.getState().equals(Common.TASK_FINISHED)){
+                            finished++;
+                        }
+
+                        if (upload.getState().equals(Common.TASK_UNFINISHED)){
+                            pending++;
+                        }
+
                         if (upload.getState().equals(Common.TASK_UNFINISHED) && upload.getUserEmail().equals(Common.email)){
 
-                            upload.setTaskKey(taskSnapshot.getKey());
 
                             String taskDay = upload.getDate();
                             String[] taskdayParts = taskDay.split("/");
                             int taskday_day = Integer.parseInt(taskdayParts[0]);
                             int taskday_month = Integer.parseInt(taskdayParts[1]);
                             int taskday_year = Integer.parseInt(taskdayParts[2]);
-
-
-                            System.out.println(today);
-
 
                                 if (today_year > taskday_year){
                                     failedTask(upload);
@@ -128,7 +148,23 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
                                     }
 
                         }
+
                     }
+
+
+                    //calculate tasks
+                    float failedPcent, finishedPecent = 0;
+                    failedPcent = calcPecent(failed, totalTasks);
+                    finishedPecent = calcPecent(finished, totalTasks);
+
+                    pendingText = findViewById(R.id.num_of_pending);
+                    finishedText = findViewById(R.id.num_of_finished);
+                    failedText = findViewById(R.id.num_fo_failed);
+
+                    pendingText.setText(String.valueOf(pending));
+                    finishedText.setText(( (int) finishedPecent)+"%");
+                    failedText.setText(( (int) failedPcent)+"%");
+
 
                     mAdapter.notifyDataSetChanged();
                     mProgressBar.setVisibility(View.GONE);
@@ -254,6 +290,10 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
         Date date=new Date();
         String today= dateFormat.format(date);
         return today;
+    }
+
+    public float calcPecent (int number, int total){
+        return (number/(float) total) * 100;
     }
 
 }

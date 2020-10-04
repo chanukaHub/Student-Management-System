@@ -1,6 +1,7 @@
 package com.WizGuys.eStudent;
 
 import com.WizGuys.eStudent.students.StudentDetails;
+import com.WizGuys.eStudent.todoList.ToDoList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,10 +15,15 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     private StudentDetails studentDetails;
+    private ToDoList toDoList;
 
     @Before
     public void setUp(){
+
         studentDetails = new StudentDetails();
+
+        //ToDoList test object
+        toDoList = new ToDoList();
     }
 
     @Test
@@ -29,6 +35,13 @@ public class ExampleUnitTest {
     public void studentAvgMarks_isCorrect(){
         float result= studentDetails.getAvgMarks(65,63,60);
         assertEquals(62.666668,result,0.001);
+    }
+
+    //ToDoList test
+    @Test
+    public void calcPecent_idCorrect (){
+        float result = toDoList.calcPecent(20, 100);
+        assertEquals(20.000, result, 0.001);
     }
 
 
