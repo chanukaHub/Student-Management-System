@@ -1,12 +1,16 @@
 package com.WizGuys.eStudent.todoList;
 
 import android.app.AppComponentFactory;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.helperClass.Common;
@@ -60,8 +64,34 @@ public class FailedTaskToDo extends AppCompatActivity {
         mDatabaseRef.child(uploadId).setValue(upload);
         Toast.makeText(FailedTaskToDo.this, "Task "+ upload.getTask() +" failed.", Toast.LENGTH_SHORT).show();
 
+        failedNotification(upload);
+
         Intent intent = new Intent(FailedTaskToDo.this, ToDoList.class);
         startActivity(intent);
+
+    }
+
+    private void failedNotification(Task upload){
+        // notification task deleted
+        String message = "Task " + upload.getTask() + " deleted.";
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" + message);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                FailedTaskToDo.this
+        )
+                .setSmallIcon(R.drawable.ic_baseline_delete_24)
+                .setContentTitle("Task failed.")
+                .setContentText(message)
+                .setAutoCancel(false);
+
+        Intent intentNoti = new Intent(FailedTaskToDo.this, TaskFailedNotificationToDo.class);
+        intentNoti.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intentNoti.putExtra("message", message);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(FailedTaskToDo.this, 0, intentNoti, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(pendingIntent);
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(0, builder.build());
 
     }
 }
