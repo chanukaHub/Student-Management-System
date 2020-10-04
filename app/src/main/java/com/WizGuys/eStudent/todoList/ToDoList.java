@@ -23,7 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemClickListener{
@@ -57,6 +60,16 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
         intent.putExtra("EMAIL_KEY",data[4]);
         startActivity(intent);
     }
+
+    private void faildTaskUpdate(String[] data){
+        Intent intent = new Intent(ToDoList.this, FailedTaskToDo.class);
+        intent.putExtra("ID_KEY",data[0]);
+        intent.putExtra("NAME_KEY",data[1]);
+        intent.putExtra("DATE_KEY",data[2]);
+        intent.putExtra("STATE_KEY",data[3]);
+        intent.putExtra("EMAIL_KEY",data[4]);
+        startActivity(intent);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -78,13 +91,42 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mTasks.clear();
+
+                //get today
+
+                String today = getDateToday();
+                String[] todayParts = today.split("/");
+                int today_day = Integer.parseInt(todayParts[0]);
+                int today_month = Integer.parseInt(todayParts[1]);
+                int today_year = Integer.parseInt(todayParts[2]);
                 if (!Common.email.equals(Common.loggedOut)){
 
                     for (DataSnapshot taskSnapshot : dataSnapshot.getChildren()) {
                         Task upload = taskSnapshot.getValue(Task.class);
                         if (upload.getState().equals(Common.TASK_UNFINISHED) && upload.getUserEmail().equals(Common.email)){
+
                             upload.setTaskKey(taskSnapshot.getKey());
-                            mTasks.add(upload);
+
+                            String taskDay = upload.getDate();
+                            String[] taskdayParts = taskDay.split("/");
+                            int taskday_day = Integer.parseInt(taskdayParts[0]);
+                            int taskday_month = Integer.parseInt(taskdayParts[1]);
+                            int taskday_year = Integer.parseInt(taskdayParts[2]);
+
+
+                            System.out.println(today);
+
+
+                                if (today_year > taskday_year){
+                                    failedTask(upload);
+                                } else if (today_year == taskday_year && today_month > taskday_month) {
+                                    failedTask(upload);
+                                } else if (today_year == taskday_year && today_month == taskday_month && today_day > taskday_day){
+                                    failedTask(upload);
+                                } else if (today_day == taskday_day && today_month == taskday_month && today_year == taskday_year){
+                                        mTasks.add(upload);
+                                    }
+
                         }
                     }
 
@@ -189,9 +231,29 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
 
     }
 
+    private void failedTask (Task task){
+        final String selecteKey = task.getTaskKey();
+
+        String[] taskData = {
+                selecteKey,
+                task.getTask(),
+                task.getDate(),
+                task.getState(),
+                task.getUserEmail()
+        };
+
+        faildTaskUpdate(taskData);
+    }
+
     protected void onDestroy() {
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
+    }
+    private String getDateToday(){
+        DateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
+        Date date=new Date();
+        String today= dateFormat.format(date);
+        return today;
     }
 
 }

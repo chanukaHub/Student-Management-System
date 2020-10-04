@@ -133,7 +133,6 @@ public  class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.RecyclerViewH
             if (mListener != null) {
                 int position = getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
-                    System.out.println("%%%%%%%%%%%%%999999999999999999999999999999999999999999999999999999999999%%%%%%%%%"+item.getItemId());
                     switch (item.getItemId()) {
                         case 1:
                             mListener.onShowItemClick(position);

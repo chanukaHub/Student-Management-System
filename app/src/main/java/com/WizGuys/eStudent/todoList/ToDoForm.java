@@ -67,7 +67,7 @@ public class ToDoForm extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
                 month = month + 1;
-                String date = day + "/" +month + "/" + year;
+                String date = dayOfMonth + "/" +month + "/" + year;
 
                 taskDate.setText(date);
             }

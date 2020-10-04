@@ -27,14 +27,17 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <EditText
+    <TextView
         android:id="@+id/task_date"
         android:layout_width="265dp"
         android:layout_height="38dp"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:inputType="date"
         android:hint="Select Date"
+        android:inputType="date"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -102,9 +105,9 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311" />
+        app:layout_constraintVertical_bias="0.318" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
