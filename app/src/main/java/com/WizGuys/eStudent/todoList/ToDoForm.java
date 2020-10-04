@@ -3,11 +3,15 @@ package com.WizGuys.eStudent.todoList;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,11 +22,16 @@ import com.WizGuys.eStudent.model.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+
 public class ToDoForm extends AppCompatActivity {
 
     TextView taskData;
     TextView taskDate;
-    Button addTaskButton;
+
+    Button addTaskButton, selectDateButton;
+
+    DatePickerDialog.OnDateSetListener setListener;
 
     DatabaseReference reff;
     @Override
@@ -33,6 +42,37 @@ public class ToDoForm extends AppCompatActivity {
         taskData = findViewById(R.id.task_data_ToDo_add);
         taskDate = findViewById(R.id.task_date);
         addTaskButton = findViewById(R.id.add_task_img_ToDo);
+        selectDateButton = findViewById(R.id.textView4);
+
+        //date picker
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        selectDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        ToDoForm.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        setListener,year,month,day
+                );
+
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+            }
+        });
+
+        setListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                String date = day + "/" +month + "/" + year;
+
+                taskDate.setText(date);
+            }
+        };
+
 
         reff = FirebaseDatabase.getInstance().getReference().child(Common.TASK_TABLE);
 
