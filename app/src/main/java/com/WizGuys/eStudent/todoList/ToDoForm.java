@@ -22,7 +22,10 @@ import com.WizGuys.eStudent.model.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class ToDoForm extends AppCompatActivity {
 
@@ -93,46 +96,72 @@ public class ToDoForm extends AppCompatActivity {
                         Intent intent =new Intent(ToDoForm.this, Login.class);
                         startActivity(intent);
                     } else {
-                        reff.push().setValue(newTask);
 
-                        //success message
-                        Toast.makeText(ToDoForm.this, "Task added successfully.", Toast.LENGTH_LONG).show();
+                        String today = getDateToday();
+                        String taskDay = newTask.getDate();
+
+                        String[] todayParts = today.split("/");
+                        int todayDay = Integer.parseInt(todayParts[0]);
+                        int todayMonth = Integer.parseInt(todayParts[1]);
+                        int todayYear = Integer.parseInt(todayParts[2]);
+
+                        String[] taskDayParts = taskDay.split("/");
+                        int tskDay = Integer.parseInt(taskDayParts[0]);
+                        int tskMonth = Integer.parseInt(taskDayParts[1]);
+                        int tskYear = Integer.parseInt(taskDayParts[2]);
+
+                        if (todayYear <= tskYear && todayMonth <= tskMonth && todayDay <= tskDay){
+                            reff.push().setValue(newTask);
+
+                            //success message
+                            Toast.makeText(ToDoForm.this, "Task added successfully.", Toast.LENGTH_LONG).show();
+
+                            //dialog box
+                            AlertDialog.Builder builder = new AlertDialog.Builder(ToDoForm.this);
+
+                            builder.setMessage("Do you want to add another task?");
+                            builder.setTitle("Add another...");
+                            //user needs select choice
+                            builder.setCancelable(false);
+
+                            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    taskData.setText("");
+                                    taskDate.setText("");
+                                    dialogInterface.cancel();
+                                }
+                            });
+
+                            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent intent = new Intent(ToDoForm.this, ToDoList.class);
+                                    startActivity(intent);
+                                }
+                            });
+
+                            //create alert dialog
+                            AlertDialog alertDialog = builder.create();
+
+                            //show alert dialog
+                            alertDialog.show();
+                        } else {
+                            Toast.makeText(ToDoForm.this, "Invalid date.", Toast.LENGTH_LONG).show();
+                        }
 
 
-                        //dialog box
-                        AlertDialog.Builder builder = new AlertDialog.Builder(ToDoForm.this);
-
-                        builder.setMessage("Do you want to add another task?");
-                        builder.setTitle("Add another...");
-                        //user needs select choice
-                        builder.setCancelable(false);
-
-                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                taskData.setText("");
-                                taskDate.setText("");
-                                dialogInterface.cancel();
-                            }
-                        });
-
-                        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(ToDoForm.this, ToDoList.class);
-                                startActivity(intent);
-                            }
-                        });
-
-                        //create alert dialog
-                        AlertDialog alertDialog = builder.create();
-
-                        //show alert dialog
-                        alertDialog.show();
                     }
 
                 }
             }
         });
+    }
+
+    private String getDateToday(){
+        DateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
+        Date date=new Date();
+        String today= dateFormat.format(date);
+        return today;
     }
 }
