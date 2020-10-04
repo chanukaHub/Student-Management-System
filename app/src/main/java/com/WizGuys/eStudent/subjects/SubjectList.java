@@ -1,9 +1,11 @@
 package com.WizGuys.eStudent.subjects;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,13 +15,8 @@ import android.widget.Toast;
 
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.adapter.SubjectAdapter;
-import com.WizGuys.eStudent.adapter.ToDoAdapter;
 import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.model.Subject;
-import com.WizGuys.eStudent.model.Task;
-import com.WizGuys.eStudent.model.Teacher;
-import com.WizGuys.eStudent.todoList.ToDoList;
-import com.WizGuys.eStudent.todoList.UpdateToDo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -107,12 +104,12 @@ public class SubjectList extends AppCompatActivity implements SubjectAdapter.OnI
 
     @Override
     public void onShowItemClick(int position) {
-        Subject clickedTeacher=mSubjects.get(position);
-        final String selectedKey = clickedTeacher.getId();
-        String[] teacherData={selectedKey,clickedTeacher.getName(),
-                clickedTeacher.getChapters(),clickedTeacher.getInfo()
+        Subject subject=mSubjects.get(position);
+        final String selectedKey = subject.getId();
+        String[] subjectData={selectedKey,subject.getName(),
+                subject.getChapters(),subject.getInfo()
         };
-        updateActivity(teacherData);
+        updateActivity(subjectData);
     }
 
     @Override
@@ -120,7 +117,33 @@ public class SubjectList extends AppCompatActivity implements SubjectAdapter.OnI
         Subject selectedItem = mSubjects.get(position);
         final String selectedKey = selectedItem.getId();
 
-        mDatabaseRef.child(selectedKey).removeValue();
-        Toast.makeText(SubjectList.this, "Subject deleted", Toast.LENGTH_SHORT).show();
+        //dialog box
+        AlertDialog.Builder builder = new AlertDialog.Builder(SubjectList.this);
+
+        builder.setMessage("Do you really want to delete this subject?");
+        builder.setTitle("Delete warning!");
+        //user needs select choice
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                mDatabaseRef.child(selectedKey).removeValue();
+                Toast.makeText(SubjectList.this, "Subject deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        //create alert dialog
+        AlertDialog alertDialog = builder.create();
+
+        //show alert dialog
+        alertDialog.show();
     }
 }

@@ -64,6 +64,11 @@ public class AddSubject extends AppCompatActivity {
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+
+                            subjNameTextView.setText("");
+                            subjChapterTextView.setText("");
+                            subjInfoTextView.setText("");
+
                             dialogInterface.cancel();
                         }
                     });

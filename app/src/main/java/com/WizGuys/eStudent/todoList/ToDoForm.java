@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.WizGuys.eStudent.Login;
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.model.Task;
@@ -46,40 +47,50 @@ public class ToDoForm extends AppCompatActivity {
                 if (newTask.getTask().isEmpty() || newTask.getDate().isEmpty()){
                     Toast.makeText(ToDoForm.this, "Please fill the form.", Toast.LENGTH_LONG).show();
                 } else {
-                    reff.push().setValue(newTask);
 
-                    //success message
-                    Toast.makeText(ToDoForm.this, "Task added successfully.", Toast.LENGTH_LONG).show();
+                    if (Common.email.equals(Common.loggedOut)){
+                        Toast.makeText(ToDoForm.this, "Please log into your account before add task.", Toast.LENGTH_LONG).show();
+                        Intent intent =new Intent(ToDoForm.this, Login.class);
+                        startActivity(intent);
+                    } else {
+                        reff.push().setValue(newTask);
+
+                        //success message
+                        Toast.makeText(ToDoForm.this, "Task added successfully.", Toast.LENGTH_LONG).show();
 
 
-                    //dialog box
-                    AlertDialog.Builder builder = new AlertDialog.Builder(ToDoForm.this);
+                        //dialog box
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ToDoForm.this);
 
-                    builder.setMessage("Do you want to add another task?");
-                    builder.setTitle("Add another...");
-                    //user needs select choice
-                    builder.setCancelable(false);
+                        builder.setMessage("Do you want to add another task?");
+                        builder.setTitle("Add another...");
+                        //user needs select choice
+                        builder.setCancelable(false);
 
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                        }
-                    });
+                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                taskData.setText("");
+                                taskDate.setText("");
+                                dialogInterface.cancel();
+                            }
+                        });
 
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(ToDoForm.this, ToDoList.class);
-                            startActivity(intent);
-                        }
-                    });
+                        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(ToDoForm.this, ToDoList.class);
+                                startActivity(intent);
+                            }
+                        });
 
-                    //create alert dialog
-                    AlertDialog alertDialog = builder.create();
+                        //create alert dialog
+                        AlertDialog alertDialog = builder.create();
 
-                    //show alert dialog
-                    alertDialog.show();
+                        //show alert dialog
+                        alertDialog.show();
+                    }
+
                 }
             }
         });

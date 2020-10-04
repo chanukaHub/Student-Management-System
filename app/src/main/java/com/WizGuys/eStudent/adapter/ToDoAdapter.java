@@ -95,6 +95,18 @@ public  class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.RecyclerViewH
                     }
                 }
             });
+
+            confirmButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mListener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            mListener.onConfirmItemClick(position);
+                        }
+                    }
+                }
+            });
         }
 
         @Override
@@ -111,20 +123,26 @@ public  class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.RecyclerViewH
             menu.setHeaderTitle("Select Action");
             MenuItem showItem = menu.add( Menu.NONE, 1, 1, "Show");
             MenuItem deleteItem = menu.add(Menu.NONE, 2, 2, "Delete");
+            MenuItem confirmItem = menu.add(Menu.NONE,1,2,"Confirm");
             showItem.setOnMenuItemClickListener(this);
             deleteItem.setOnMenuItemClickListener(this);
+            confirmItem.setOnMenuItemClickListener(this);
         }
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             if (mListener != null) {
                 int position = getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
+                    System.out.println("%%%%%%%%%%%%%999999999999999999999999999999999999999999999999999999999999%%%%%%%%%"+item.getItemId());
                     switch (item.getItemId()) {
                         case 1:
                             mListener.onShowItemClick(position);
                             return true;
                         case 2:
                             mListener.onDeleteItemClick(position);
+                            return true;
+                        case 3:
+                            mListener.onConfirmItemClick(position);
                             return true;
                     }
                 }
@@ -136,6 +154,7 @@ public  class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.RecyclerViewH
         void onItemClick(int position);
         void onShowItemClick(int position);
         void onDeleteItemClick(int position);
+        void onConfirmItemClick(int position);
     }
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
