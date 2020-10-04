@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultDashboard"
+    android:background="@color/home_background">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        app:srcCompat="@drawable/result1" />
+
+    <LinearLayout
+        android:id="@+id/button_zone"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/openAddResultActivityBtn"
+                    android:layout_width="398dp"
+                    android:layout_height="79dp"
+                    android:layout_weight="1"
+                    android:background="#0B6D9A"
+                    android:text="Add Exam Result"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="11dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/openAddAssignResultActivityBtn"
+                    style="?android:attr/button"
+                    android:layout_width="395dp"
+                    android:layout_height="76dp"
+                    android:layout_weight="1"
+                    android:background="#0B6D9A"
+                    android:clickable="true"
+                    android:text="Add Assignment Marks"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </TableRow>
+
+
+
+            <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/openUpdateDeleteResultActivityBtn"
+                    style="?android:attr/button"
+                    android:layout_width="395dp"
+                    android:layout_height="76dp"
+                    android:layout_weight="1"
+                    android:background="#0B6D9A"
+                    android:clickable="true"
+                    android:text="Update/Delete Exam Result"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/openUpdateDeleteAssignResultActivityBtn"
+                    style="?android:attr/button"
+                    android:layout_width="395dp"
+                    android:layout_height="76dp"
+                    android:layout_weight="1"
+                    android:background="#0B6D9A"
+                    android:clickable="true"
+                    android:text="Upadte/Delete Assignment Marks"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
