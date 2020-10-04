@@ -73,5 +73,9 @@
     <string name="manageSubject">Mange Subjects</string>
     <string name="enterChapter">Enter Number of Chapters</string>
     <string name="enterSbjInfo">Enter Subject Description</string>
+    <string name="subjectDashboard">Subjects</string>
+    <string name="taskListPending">Pending tasks</string>
+    <string name="taskListFinished">Finished tasks</string>
+    <string name="taskListFailed">Failed tasks</string>
 
 </resources>

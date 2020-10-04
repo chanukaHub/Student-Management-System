@@ -12,6 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity android:name=".timetables.TimeTables"></activity>
+        <activity android:name=".timetables.TimeTablesDashboard" />
+
         <activity android:name=".students.StudentUpdate" />
         <activity android:name=".students.StudentItems" />
         <activity android:name=".students.StudentAdd" />

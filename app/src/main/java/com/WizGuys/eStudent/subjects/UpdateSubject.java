@@ -1,47 +1,27 @@
 package com.WizGuys.eStudent.subjects;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.model.Subject;
-import com.WizGuys.eStudent.model.Task;
-import com.WizGuys.eStudent.teachers.TeachersDashboard;
-import com.WizGuys.eStudent.todoList.UpdateToDo;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.squareup.picasso.Picasso;
 
 public class UpdateSubject extends AppCompatActivity {
 
-    private static final int PICK_IMAGE_REQUEST = 1;
-    private Button chooseImageBtn;
     private Button uploadBtn;
-    private EditText subjectNameET, chaptersET, infoET;
-    private ImageView chosenImageView;
-    private ProgressBar uploadProgressBar;
-    private Uri mImageUri;
-    private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
-    //////////////////////////////
     private FirebaseStorage mStorage;
-
-    TextView subNameTxt, subChapterTxt, subInfoTxt;
+    private TextView subNameTxt, subChapterTxt, subInfoTxt;
 
     private void initializeWidgets(){
         subNameTxt = findViewById(R.id.subject_name_add);
@@ -55,7 +35,6 @@ public class UpdateSubject extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_subject);
         initializeWidgets();
-        /////////////////////////////////////
 
         mStorage = FirebaseStorage.getInstance();
 
@@ -67,7 +46,7 @@ public class UpdateSubject extends AppCompatActivity {
         subInfoTxt = findViewById(R.id.subject_info_add);
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(Common.SUBJECTS_TABLE);
-        ////////////////////
+
         Intent i=this.getIntent();
         String id=i.getExtras().getString("ID_KEY");
         String nameSub=i.getExtras().getString("NAME_KEY");
@@ -96,11 +75,6 @@ public class UpdateSubject extends AppCompatActivity {
 
 
     private void updateUploadFile(final String selectedKey) {
-        Intent i=this.getIntent();
-
-        String nameSub1=i.getExtras().getString("STATE_KEY");
-        String chapter1=i.getExtras().getString("CHAPTER_KEY");
-        String info=i.getExtras().getString("INFO_KEY");
 
         Subject upload = new Subject(
                 subNameTxt.getText().toString().trim(),
@@ -115,17 +89,9 @@ public class UpdateSubject extends AppCompatActivity {
         subChapterTxt.setText("");
         subInfoTxt.setText("");
 
+        Intent intent = new Intent(UpdateSubject.this, SubjectList.class);
+        startActivity(intent);
+
     }
 
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null) {
-            mImageUri = data.getData();
-            Picasso.with(this).load(mImageUri).into(chosenImageView);
-        }
-    }
 }

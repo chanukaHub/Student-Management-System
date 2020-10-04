@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.WizGuys.eStudent.Login;
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.model.Subject;
@@ -47,40 +48,51 @@ public class AddSubject extends AppCompatActivity {
                 if (subName.isEmpty() || chapters.isEmpty() || subInfo.isEmpty()){
                     Toast.makeText(AddSubject.this, "Please fill the form.", Toast.LENGTH_LONG).show();
                 } else{
-                    reff = FirebaseDatabase.getInstance().getReference().child(Common.SUBJECTS_TABLE);
-                    reff.push().setValue(subject);
-                    Toast.makeText(AddSubject.this, "Subject added successfully.", Toast.LENGTH_LONG).show();
+                   if (!Common.email.equals(Common.loggedOut)){
+                       reff = FirebaseDatabase.getInstance().getReference().child(Common.SUBJECTS_TABLE);
+                       reff.push().setValue(subject);
+                       Toast.makeText(AddSubject.this, "Subject added successfully.", Toast.LENGTH_LONG).show();
 
 
 
-                    //dialog box
-                    AlertDialog.Builder builder = new AlertDialog.Builder(AddSubject.this);
+                       //dialog box
+                       AlertDialog.Builder builder = new AlertDialog.Builder(AddSubject.this);
 
-                    builder.setMessage("Do you want to add another subject?");
-                    builder.setTitle("Add another...");
-                    //user needs select choice
-                    builder.setCancelable(false);
+                       builder.setMessage("Do you want to add another subject?");
+                       builder.setTitle("Add another...");
+                       //user needs select choice
+                       builder.setCancelable(false);
 
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                        }
-                    });
+                       builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialogInterface, int i) {
 
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(AddSubject.this, SubjectList.class);
-                            startActivity(intent);
-                        }
-                    });
+                               subjNameTextView.setText("");
+                               subjChapterTextView.setText("");
+                               subjInfoTextView.setText("");
 
-                    //create alert dialog
-                    AlertDialog alertDialog = builder.create();
+                               dialogInterface.cancel();
+                           }
+                       });
 
-                    //show alert dialog
-                    alertDialog.show();
+                       builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialogInterface, int i) {
+                               Intent intent = new Intent(AddSubject.this, SubjectList.class);
+                               startActivity(intent);
+                           }
+                       });
+
+                       //create alert dialog
+                       AlertDialog alertDialog = builder.create();
+
+                       //show alert dialog
+                       alertDialog.show();
+                   } else {
+                       Toast.makeText(AddSubject.this, "Please log into your account.", Toast.LENGTH_LONG).show();
+                       Intent intent = new Intent(AddSubject.this, Login.class);
+                       startActivity(intent);
+                   }
                 }
             }
         });

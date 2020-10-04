@@ -50,15 +50,15 @@
                 android:textSize="18sp"></TextView>
 
             <EditText
-                android:id="@+id/indexEditText"
+                android:id="@+id/indexAssignEditText"
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:ems="10"
-                android:inputType="number"
-                android:text="101"/>
+                android:hint="index" />
 
             <Button
+                android:id="@+id/checkStudentAssignButton"
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="100dp"
                 android:layout_height="45dp"
@@ -98,9 +98,9 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
             <TextView
+                android:id="@+id/nameAssignTextView"
                 android:layout_column="1"
                 android:padding="10dp"
-                android:text="@string/result_student_name"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
         </TableRow>
@@ -114,9 +114,9 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
             <TextView
+                android:id="@+id/emailAssignTextView"
                 android:layout_column="1"
                 android:padding="10dp"
-                android:text="@string/result_student_email"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
         </TableRow>
@@ -153,7 +153,7 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"></TextView>
             <EditText
-                android:id="@+id/sub2_marks"
+                android:id="@+id/assign1MarksEditText"
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -174,7 +174,7 @@
                 android:textSize="18sp"></TextView>
 
             <EditText
-                android:id="@+id/sub3_marks"
+                android:id="@+id/assign2MarksEditText"
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
@@ -185,6 +185,7 @@
         </TableRow>
 
         <Button
+            android:id="@+id/submitAssignMarksButton"
             android:layout_width="100dp"
             android:layout_height="45dp"
             android:layout_marginLeft="100dp"

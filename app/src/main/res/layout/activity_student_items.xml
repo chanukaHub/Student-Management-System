@@ -17,7 +17,7 @@
         android:textAlignment="center"
         android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/button_background"
         tools:ignore="MissingConstraints" />
     <ProgressBar
         android:id="@+id/myStudentDataLoaderProgressBar"
@@ -44,7 +44,10 @@
             android:id="@+id/student_add_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add New Student">
+            android:text="Add New Student"
+            android:background="#0B6D9A"
+            android:textColor="#fff"
+            >
 
         </Button>
     </LinearLayout>

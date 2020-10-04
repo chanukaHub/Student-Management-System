@@ -27,8 +27,10 @@ import com.WizGuys.eStudent.helperClass.MostViewedAdpater;
 import com.WizGuys.eStudent.helperClass.helperResources.CategoriesHelperClass;
 import com.WizGuys.eStudent.helperClass.helperResources.FeaturedHelper;
 import com.WizGuys.eStudent.helperClass.helperResources.MostViewedHelperClass;
+import com.WizGuys.eStudent.students.StudentItems;
 import com.WizGuys.eStudent.subjects.SubjectList;
 import com.WizGuys.eStudent.teachers.TeachersDashboard;
+import com.WizGuys.eStudent.timetables.TimeTablesDashboard;
 import com.WizGuys.eStudent.todoList.ToDoList;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -52,7 +54,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     RelativeLayout todoButton,teachersDashboard;
     //subjectButton
-    RelativeLayout subjectButton;
+    RelativeLayout subjectButton,studentButton,resultButton;
 
 
     @SuppressLint("WrongViewCast")
@@ -78,6 +80,11 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         todoButton = findViewById(R.id.todoButton);
         teachersDashboard = findViewById(R.id.teachersDashboard);
 
+        //studentButton
+        studentButton =findViewById(R.id.studentButton);
+
+        //resultButton
+        resultButton = findViewById(R.id.resultButton);
 
         //subjectButton
         subjectButton = findViewById(R.id.subjectManager);
@@ -123,6 +130,22 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             public void onClick(View view) {
                 Intent intent = new Intent(Dashboard.this, SubjectList.class);
 
+                startActivity(intent);
+            }
+        });
+        studentButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Dashboard.this, StudentItems.class);
+                startActivity(intent);
+            }
+        });
+        resultButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Dashboard.this, ResultDashboard.class);
                 startActivity(intent);
             }
         });

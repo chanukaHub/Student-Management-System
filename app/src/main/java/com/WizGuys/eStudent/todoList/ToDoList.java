@@ -1,39 +1,33 @@
 package com.WizGuys.eStudent.todoList;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import com.WizGuys.eStudent.R;
-import com.WizGuys.eStudent.adapter.TeachersAdapter;
 import com.WizGuys.eStudent.adapter.ToDoAdapter;
 import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.model.Task;
-import com.WizGuys.eStudent.model.Teacher;
-import com.WizGuys.eStudent.teachers.Detail;
-import com.WizGuys.eStudent.teachers.Items;
-import com.WizGuys.eStudent.teachers.Update;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemClickListener{
@@ -46,10 +40,31 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
     private List<Task> mTasks;
 
     private ImageView addTaskImgToDo;
+    private TextView pendingText, finishedText, failedText;
 
 
     private void updateActivity(String[] data){
         Intent intent = new Intent(this, UpdateToDo.class);
+        intent.putExtra("ID_KEY",data[0]);
+        intent.putExtra("NAME_KEY",data[1]);
+        intent.putExtra("DATE_KEY",data[2]);
+        intent.putExtra("STATE_KEY",data[3]);
+        intent.putExtra("EMAIL_KEY",data[4]);
+        startActivity(intent);
+    }
+
+    private void confirmActivity(String[] data){
+        Intent intent = new Intent(ToDoList.this, ConfirmToDo.class);
+        intent.putExtra("ID_KEY",data[0]);
+        intent.putExtra("NAME_KEY",data[1]);
+        intent.putExtra("DATE_KEY",data[2]);
+        intent.putExtra("STATE_KEY",data[3]);
+        intent.putExtra("EMAIL_KEY",data[4]);
+        startActivity(intent);
+    }
+
+    private void faildTaskUpdate(String[] data){
+        Intent intent = new Intent(ToDoList.this, FailedTaskToDo.class);
         intent.putExtra("ID_KEY",data[0]);
         intent.putExtra("NAME_KEY",data[1]);
         intent.putExtra("DATE_KEY",data[2]);
@@ -78,13 +93,84 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mTasks.clear();
-                for (DataSnapshot taskSnapshot : dataSnapshot.getChildren()) {
-                    Task upload = taskSnapshot.getValue(Task.class);
-                    upload.setTaskKey(taskSnapshot.getKey());
-                    mTasks.add(upload);
+
+                //get today
+
+                String today = getDateToday();
+                String[] todayParts = today.split("/");
+                int today_day = Integer.parseInt(todayParts[0]);
+                int today_month = Integer.parseInt(todayParts[1]);
+                int today_year = Integer.parseInt(todayParts[2]);
+                if (!Common.email.equals(Common.loggedOut)){
+
+                    int totalTasks = 0;
+                    int pending = 0;
+                    int finished = 0;
+                    int failed = 0;
+
+
+
+                    for (DataSnapshot taskSnapshot : dataSnapshot.getChildren()) {
+                        Task upload = taskSnapshot.getValue(Task.class);
+                        upload.setTaskKey(taskSnapshot.getKey());
+
+                        totalTasks++;
+
+                        if (upload.getState().equals(Common.TASK_FAILED)){
+                            failed++;
+                        }
+
+                        if (upload.getState().equals(Common.TASK_FINISHED)){
+                            finished++;
+                        }
+
+                        if (upload.getState().equals(Common.TASK_UNFINISHED)){
+                            pending++;
+                        }
+
+                        if (upload.getState().equals(Common.TASK_UNFINISHED) && upload.getUserEmail().equals(Common.email)){
+
+
+                            String taskDay = upload.getDate();
+                            String[] taskdayParts = taskDay.split("/");
+                            int taskday_day = Integer.parseInt(taskdayParts[0]);
+                            int taskday_month = Integer.parseInt(taskdayParts[1]);
+                            int taskday_year = Integer.parseInt(taskdayParts[2]);
+
+                                if (today_year > taskday_year){
+                                    failedTask(upload);
+                                } else if (today_year == taskday_year && today_month > taskday_month) {
+                                    failedTask(upload);
+                                } else if (today_year == taskday_year && today_month == taskday_month && today_day > taskday_day){
+                                    failedTask(upload);
+                                } else if (today_day == taskday_day && today_month == taskday_month && today_year == taskday_year){
+                                        mTasks.add(upload);
+                                    }
+
+                        }
+
+                    }
+
+
+                    //calculate tasks
+                    float failedPcent, finishedPecent = 0;
+                    failedPcent = calcPecent(failed, totalTasks);
+                    finishedPecent = calcPecent(finished, totalTasks);
+
+                    pendingText = findViewById(R.id.num_of_pending);
+                    finishedText = findViewById(R.id.num_of_finished);
+                    failedText = findViewById(R.id.num_fo_failed);
+
+                    pendingText.setText(String.valueOf(pending));
+                    finishedText.setText(( (int) finishedPecent)+"%");
+                    failedText.setText(( (int) failedPcent)+"%");
+
+
+                    mAdapter.notifyDataSetChanged();
+                    mProgressBar.setVisibility(View.GONE);
+                } else {
+                    Toast.makeText(ToDoList.this, "Please log into your account.", Toast.LENGTH_SHORT).show();
                 }
-                mAdapter.notifyDataSetChanged();
-                mProgressBar.setVisibility(View.GONE);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -125,19 +211,89 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
 
         updateActivity(taskData);
     }
+
+    @Override
+    public void onConfirmItemClick(int position) {
+        Task selectedItem = mTasks.get(position);
+        final String selectedKey = selectedItem.getTaskKey();
+
+        //change state
+        selectedItem.setState(Common.TASK_FINISHED);
+
+        String[] taskdata = {
+                selectedKey,
+                selectedItem.getTask(),
+                selectedItem.getDate(),
+                selectedItem.getState(),
+                selectedItem.getUserEmail()
+        };
+
+        confirmActivity(taskdata);
+
+    }
     @Override
     public void onDeleteItemClick(int position) {
         Task selectedItem = mTasks.get(position);
         final String selectedKey = selectedItem.getTaskKey();
 
-        mDatabaseRef.child(selectedKey).removeValue();
-        Toast.makeText(ToDoList.this, "Task deleted", Toast.LENGTH_SHORT).show();
+        //dialog box
+        AlertDialog.Builder builder = new AlertDialog.Builder(ToDoList.this);
 
+        builder.setMessage("Do you want to delete this task?");
+        builder.setTitle("Delete Warning!");
+        //user needs select choice
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                mDatabaseRef.child(selectedKey).removeValue();
+                Toast.makeText(ToDoList.this, "Task deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        //create alert dialog
+        AlertDialog alertDialog = builder.create();
+
+        //show alert dialog
+        alertDialog.show();
 
     }
+
+    private void failedTask (Task task){
+        final String selecteKey = task.getTaskKey();
+
+        String[] taskData = {
+                selecteKey,
+                task.getTask(),
+                task.getDate(),
+                task.getState(),
+                task.getUserEmail()
+        };
+
+        faildTaskUpdate(taskData);
+    }
+
     protected void onDestroy() {
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
+    }
+    private String getDateToday(){
+        DateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
+        Date date=new Date();
+        String today= dateFormat.format(date);
+        return today;
+    }
+
+    public float calcPecent (int number, int total){
+        return (number/(float) total) * 100;
     }
 
 }

@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".students.StudentUpdate">
+    tools:context=".students.StudentUpdate"
+    android:background="@drawable/backgroup">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,68 +17,76 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:orientation="vertical"
-            android:layout_alignParentLeft="true">
+            android:layout_alignParentLeft="true"
+            >
 
             <ProgressBar
                 android:id="@+id/student_update_progress_bar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="31dp" />
-            <TextView
-                android:id="@+id/headerTextView"
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:text="Update Student"
-                android:textSize="20dp" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#ffffff"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                >
 
-            <EditText
-                android:id="@+id/updateStudentNameEditText"
-                android:layout_width="367dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:hint="Full Name"
-                android:inputType="text" />
+                <TextView
+                    android:id="@+id/headerTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="Update Student"
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"/>
 
-            <EditText
-                android:id="@+id/updateStudentIndexEditText"
-                android:layout_width="365dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:hint="Index"
-                android:inputType="text"
-                android:minLines="3" />
+                <EditText
+                    android:id="@+id/updateStudentNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Full Name"
+                    android:inputType="text" />
 
-            <EditText
-                android:id="@+id/updateStudentAddressEditText"
-                android:layout_width="365dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:hint="Address"
-                android:inputType="text"
-                android:minLines="3" />
-            <EditText
-                android:id="@+id/updateStudentContactEditText"
-                android:layout_width="365dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:hint="Contact"
-                android:inputType="text"
-                android:minLines="3" />
-            <EditText
-                android:id="@+id/updateStudentEmailEditText"
-                android:layout_width="365dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:hint="Email"
-                android:inputType="text"
-                android:minLines="3" />
+                <EditText
+                    android:id="@+id/updateStudentIndexEditText"
+                    android:layout_width="365dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Index"
+                    android:inputType="text"
+                    android:minLines="3" />
+
+                <EditText
+                    android:id="@+id/updateStudentAddressEditText"
+                    android:layout_width="365dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Address"
+                    android:inputType="text"
+                    android:minLines="3" />
+                <EditText
+                    android:id="@+id/updateStudentContactEditText"
+                    android:layout_width="365dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Contact"
+                    android:inputType="text"
+                    android:minLines="3" />
+                <EditText
+                    android:id="@+id/updateStudentEmailEditText"
+                    android:layout_width="365dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="text"
+                    android:minLines="3" />
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -88,8 +97,8 @@
                     android:id="@+id/button_choose_update_student_image"
                     android:layout_width="wrap_content"
                     android:layout_height="26dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginLeft="36dp"
                     android:background="#251142"
                     android:text="Choose"
                     android:textColor="#fff" />
@@ -102,13 +111,15 @@
 
             <Button
                 android:id="@+id/updateStudentBtn"
-                android:layout_width="333dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="#2C0367"
+                android:background="#0B6D9A"
                 android:gravity="center"
                 android:text="Update "
-                android:textColor="#fff" />
+                android:textColor="#fff"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

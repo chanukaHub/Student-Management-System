@@ -1,48 +1,44 @@
 package com.WizGuys.eStudent.todoList;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.WizGuys.eStudent.R;
-import com.WizGuys.eStudent.teachers.TeachersDashboard;
+import com.WizGuys.eStudent.helperClass.Common;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.squareup.picasso.Picasso;
 import com.WizGuys.eStudent.model.Task;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class UpdateToDo extends AppCompatActivity {
 
-    private static final int PICK_IMAGE_REQUEST = 1;
-    private Button chooseImageBtn;
-    private Button uploadBtn;
-    private EditText taskData, taskDate;
-    private ImageView chosenImageView;
-    private ProgressBar uploadProgressBar;
-    private Uri mImageUri;
-    private StorageReference mStorageRef;
+    private Button uploadBtn, selectDateButton;
+    private TextView taskData, taskDate;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
-    //////////////////////////////
     private FirebaseStorage mStorage;
-
+    DatePickerDialog.OnDateSetListener setListener;
     TextView task_data,task_date;
 
     private void initializeWidgets(){
         task_data = findViewById(R.id.task_data_ToDo_add);
         task_date= findViewById(R.id.task_date);
+        selectDateButton = findViewById(R.id.textView4);
     }
 
 
@@ -51,7 +47,6 @@ public class UpdateToDo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_form);
         initializeWidgets();
-        /////////////////////////////////////
 
         mStorage = FirebaseStorage.getInstance();
 
@@ -60,15 +55,45 @@ public class UpdateToDo extends AppCompatActivity {
         //ET Text
         taskData = findViewById(R.id.task_data_ToDo_add);
         taskDate = findViewById ( R.id.task_date);
+        selectDateButton = findViewById(R.id.textView4);
 
-                mDatabaseRef = FirebaseDatabase.getInstance().getReference("Task");
-        ////////////////////
+
+        //date picker
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        selectDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        UpdateToDo.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        setListener,year,month,day
+                );
+
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+            }
+        });
+
+        setListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                String date = dayOfMonth + "/" +month + "/" + year;
+
+                taskDate.setText(date);
+            }
+        };
+
+
+                mDatabaseRef = FirebaseDatabase.getInstance().getReference(Common.TASK_TABLE);
+
         Intent i=this.getIntent();
         String id=i.getExtras().getString("ID_KEY");
-        String task=i.getExtras().getString("NAME_KEY");
-        String dateToDo=i.getExtras().getString("DATE_KEY");
-        String state=i.getExtras().getString("STATE_KEY");
-        String email=i.getExtras().getString("EMAIL_KEY");
+        final String task=i.getExtras().getString("NAME_KEY");
+        final String dateToDo=i.getExtras().getString("DATE_KEY");
 
 
         taskData.setText(task);
@@ -83,7 +108,26 @@ public class UpdateToDo extends AppCompatActivity {
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
                     Toast.makeText(UpdateToDo.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
                 } else {
-                    updateUploadFile(selectedKey);
+
+                    String today = getDateToday();
+                    String taskDay = taskDate.getText().toString();
+
+                    String[] todayParts = today.split("/");
+                    int todayDay = Integer.parseInt(todayParts[0]);
+                    int todayMonth = Integer.parseInt(todayParts[1]);
+                    int todayYear = Integer.parseInt(todayParts[2]);
+
+                    String[] taskDayParts = taskDay.split("/");
+                    int tskDay = Integer.parseInt(taskDayParts[0]);
+                    int tskMonth = Integer.parseInt(taskDayParts[1]);
+                    int tskYear = Integer.parseInt(taskDayParts[2]);
+
+                    if (todayYear <= tskYear && todayMonth <= tskMonth && todayDay <= tskDay){
+                        updateUploadFile(selectedKey);
+                    } else {
+                        Toast.makeText(UpdateToDo.this, "Invalid date.", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
             }
         });
@@ -102,26 +146,23 @@ public class UpdateToDo extends AppCompatActivity {
 
         );
         String uploadId = selectedKey;
+
         mDatabaseRef.child(uploadId).setValue(upload);
         Toast.makeText(UpdateToDo.this, "Update Success", Toast.LENGTH_SHORT).show();
 
         taskData.setText("");
         taskDate.setText("");
 
-    }
-    private void openImagesActivity(){
-        Intent intent = new Intent(this, TeachersDashboard.class);
+        Intent intent = new Intent(UpdateToDo.this, ToDoList.class);
         startActivity(intent);
+
     }
 
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null) {
-            mImageUri = data.getData();
-            Picasso.with(this).load(mImageUri).into(chosenImageView);
-        }
+    private String getDateToday(){
+        DateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
+        Date date=new Date();
+        String today= dateFormat.format(date);
+        return today;
     }
+
 }

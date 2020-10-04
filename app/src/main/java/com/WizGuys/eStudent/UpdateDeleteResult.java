@@ -1,8 +1,10 @@
 package com.WizGuys.eStudent;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +33,11 @@ public class UpdateDeleteResult extends AppCompatActivity {
     private void clearControls(){
         txtEmail.setText("");
         txtName.setText("");
+        sub1.setText("");
+        sub2.setText("");
+        sub3.setText("");
+    }
+    private void clearMarksControls(){
         sub1.setText("");
         sub2.setText("");
         sub3.setText("");
@@ -133,26 +140,58 @@ public class UpdateDeleteResult extends AppCompatActivity {
         btnDeleteResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final DatabaseReference delRef =FirebaseDatabase.getInstance().getReference().child("Result");
-                delRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.hasChild(txtIndex.getText().toString())){
-                            dbRef= FirebaseDatabase.getInstance().getReference().child("Result").child(txtIndex.getText().toString());
-                            dbRef.removeValue();
-                            clearControls();
-                            Toast.makeText(getApplicationContext(),"Result Deleted Successfully",Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            Toast.makeText(getApplicationContext(),"No Result to delete",Toast.LENGTH_SHORT).show();
-                        }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                //dialog box
+                AlertDialog.Builder builder = new AlertDialog.Builder(UpdateDeleteResult.this);
 
+                builder.setMessage("Do you want to delete marks?");
+                builder.setTitle("Please Confirm");
+                //user needs select choice
+                builder.setCancelable(false);
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        final DatabaseReference delRef =FirebaseDatabase.getInstance().getReference().child("Result");
+                        delRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.hasChild(txtIndex.getText().toString())){
+                                    dbRef= FirebaseDatabase.getInstance().getReference().child("Result").child(txtIndex.getText().toString());
+                                    dbRef.removeValue();
+                                    clearMarksControls();
+                                    Toast.makeText(getApplicationContext(),"Result Deleted Successfully",Toast.LENGTH_SHORT).show();
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(),"No Result to delete",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                        dialogInterface.cancel();
                     }
                 });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+
+                //create alert dialog
+                AlertDialog alertDialog = builder.create();
+
+                //show alert dialog
+                alertDialog.show();
+
+
+
+
+
             }
         });//end delete
     }
