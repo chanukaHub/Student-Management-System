@@ -83,7 +83,7 @@ public class FailedTaskToDo extends AppCompatActivity {
                 .setContentText(message)
                 .setAutoCancel(false);
 
-        Intent intentNoti = new Intent(FailedTaskToDo.this, TaskFailedNotificationToDo.class);
+        Intent intentNoti = new Intent(FailedTaskToDo.this, ToDoList.class);
         intentNoti.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intentNoti.putExtra("message", message);
 

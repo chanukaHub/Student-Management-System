@@ -124,14 +124,14 @@
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_about" />
+                                android:src="@drawable/ic_baseline_done_24" />
                         </RelativeLayout>
 
                         <TextView
-                            android:gravity="center_horizontal"
-                            android:layout_height="wrap_content"
                             android:layout_width="match_parent"
-                            android:text="Profile"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/todo"
                             android:textAlignment="center" />
 
                     </LinearLayout>
@@ -182,14 +182,14 @@
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_person" />
+                                android:src="@drawable/ic_baseline_subject_24" />
                         </RelativeLayout>
 
                         <TextView
-                            android:gravity="center_horizontal"
-                            android:layout_height="wrap_content"
                             android:layout_width="match_parent"
-                            android:text="Profile"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/subjectDashboard"
                             android:textAlignment="center" />
 
                     </LinearLayout>
