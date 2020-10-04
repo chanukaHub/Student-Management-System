@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add New Student"
-            android:background="@color/button_background"
+            android:background="#0B6D9A"
             android:textColor="#fff"
             >
 

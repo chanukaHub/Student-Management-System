@@ -1,8 +1,10 @@
 package com.WizGuys.eStudent;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,8 @@ import com.WizGuys.eStudent.model.Assignment;
 import com.WizGuys.eStudent.model.Result;
 import com.WizGuys.eStudent.model.Student;
 import com.WizGuys.eStudent.students.StudentItems;
+import com.WizGuys.eStudent.todoList.ToDoForm;
+import com.WizGuys.eStudent.todoList.ToDoList;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +37,9 @@ public class UpdateDeleteAssignmentResult extends AppCompatActivity {
     private void clearControls(){
         txtEmail.setText("");
         txtName.setText("");
+        assign1.setText("");
+        assign2.setText("");
+    }private void clearMarksControls(){
         assign1.setText("");
         assign2.setText("");
     }
@@ -132,26 +139,56 @@ public class UpdateDeleteAssignmentResult extends AppCompatActivity {
         btnDeleteResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final DatabaseReference delRef =FirebaseDatabase.getInstance().getReference().child("Assignment");
-                delRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.hasChild(txtIndex.getText().toString())){
-                            dbRef= FirebaseDatabase.getInstance().getReference().child("Assignment").child(txtIndex.getText().toString());
-                            dbRef.removeValue();
-                            clearControls();
-                            Toast.makeText(getApplicationContext(),"Result Deleted Successfully",Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            Toast.makeText(getApplicationContext(),"No Result to delete",Toast.LENGTH_SHORT).show();
-                        }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                //dialog box
+                AlertDialog.Builder builder = new AlertDialog.Builder(UpdateDeleteAssignmentResult.this);
 
+                builder.setMessage("Do you want to delete marks?");
+                builder.setTitle("Please Confirm");
+                //user needs select choice
+                builder.setCancelable(false);
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        final DatabaseReference delRef =FirebaseDatabase.getInstance().getReference().child("Assignment");
+                        delRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.hasChild(txtIndex.getText().toString())){
+                                    dbRef= FirebaseDatabase.getInstance().getReference().child("Assignment").child(txtIndex.getText().toString());
+                                    dbRef.removeValue();
+                                    clearMarksControls();
+                                    Toast.makeText(getApplicationContext(),"Result Deleted Successfully",Toast.LENGTH_SHORT).show();
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(),"No Result to delete",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                        dialogInterface.cancel();
                     }
                 });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+
+                //create alert dialog
+                AlertDialog alertDialog = builder.create();
+
+                //show alert dialog
+                alertDialog.show();
+
+
+
             }
         });//end delete
     }

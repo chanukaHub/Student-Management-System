@@ -10,9 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ResultDashboard"></activity>
         <activity android:name=".students.StudentUpdate" />
-        <activity android:name=".students.StudentItems"/>
+        <activity android:name=".students.StudentItems" />
         <activity android:name=".students.StudentAdd" />
         <activity android:name=".students.StudentDetails" />
         <activity android:name=".finance.FinanceDashboard" />
@@ -24,16 +24,13 @@
         <activity android:name=".UpdateDeleteAssignmentResult" />
         <activity android:name=".ManageSubjects" />
         <activity android:name=".subjects.UpdateSubject" />
-
         <activity
             android:name=".subjects.AddSubject"
             android:parentActivityName=".subjects.SubjectList" />
         <activity android:name=".subjects.SubjectList" />
-
         <activity
             android:name=".todoList.ToDoForm"
-            android:parentActivityName=".todoList.ToDoList"/>
-
+            android:parentActivityName=".todoList.ToDoList" />
         <activity android:name=".todoList.ToDoList" />
         <activity android:name=".notice.Notice" />
         <activity android:name=".ShowResult" />
@@ -47,13 +44,13 @@
         <activity android:name=".teachers.Detail" />
         <activity android:name=".teachers.Update" />
         <activity android:name=".teachers.Items" />
-        <activity android:name=".teachers.TeachersDashboard"/>
+        <activity android:name=".teachers.TeachersDashboard" />
         <activity android:name=".MainActivity">
-                <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                        <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data
