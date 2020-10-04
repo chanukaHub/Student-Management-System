@@ -30,7 +30,13 @@
         <activity android:name=".todoList.ToDoList" />
         <activity android:name=".notice.Notice" />
         <activity android:name=".ShowResult" />
-        <activity android:name=".AddAssignmentResult" />
+        <activity android:name=".AddAssignmentResult" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".UpdateDeleteResult" />
         <activity android:name=".AddResult" />
 
@@ -45,11 +51,7 @@
 
         </activity>
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data

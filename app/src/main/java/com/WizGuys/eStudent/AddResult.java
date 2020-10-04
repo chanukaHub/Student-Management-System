@@ -26,7 +26,6 @@ public class AddResult extends AppCompatActivity {
     TextView txtName,txtEmail;
     Button btnCheckStudent,btnSubmitResult;
     DatabaseReference dbRef;
-    Student std;
     Result result;
 
     @Override
@@ -43,7 +42,6 @@ public class AddResult extends AppCompatActivity {
         sub2=findViewById(R.id.sub2_marks);
         sub3=findViewById(R.id.sub3_marks);
 
-        //std =new Student();
         result =new Result();
 
         btnCheckStudent.setOnClickListener(new View.OnClickListener() {
