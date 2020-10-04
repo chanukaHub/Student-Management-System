@@ -20,6 +20,7 @@
         <activity android:name=".finance.UploadFinance" />
         <activity android:name=".todoList.UpdateToDo" />
         <activity android:name=".todoList.ConfirmToDo" />
+        <activity android:name=".todoList.FailedTaskToDo" />
         <activity android:name=".finance.AllFinance" />
         <activity android:name=".UpdateDeleteAssignmentResult" />
         <activity android:name=".ManageSubjects" />
