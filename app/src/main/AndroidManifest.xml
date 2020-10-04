@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".todoList.TaskFailedNotificationToDo"></activity>
         <activity android:name=".students.StudentUpdate" />
         <activity android:name=".students.StudentItems"></activity>
         <activity android:name=".students.StudentAdd" />
@@ -24,9 +23,16 @@
         <activity android:name=".UpdateDeleteAssignmentResult" />
         <activity android:name=".ManageSubjects" />
         <activity android:name=".subjects.UpdateSubject" />
-        <activity android:name=".subjects.AddSubject" />
+
+        <activity
+            android:name=".subjects.AddSubject"
+            android:parentActivityName=".subjects.SubjectList" />
         <activity android:name=".subjects.SubjectList" />
-        <activity android:name=".todoList.ToDoForm" />
+
+        <activity
+            android:name=".todoList.ToDoForm"
+            android:parentActivityName=".todoList.ToDoList"/>
+
         <activity android:name=".todoList.ToDoList" />
         <activity android:name=".notice.Notice" />
         <activity android:name=".ShowResult" />
