@@ -72,7 +72,6 @@ public class TimeUpdate extends AppCompatActivity {
         timedate = findViewById(R.id.timedate);
         timeGrade = findViewById(R.id.timeGrade2);
 
-        
 
 
                 uploadProgressBar = findViewById(R.id.progress_bar);
@@ -123,7 +122,7 @@ public class TimeUpdate extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
     private void updateUploadFile(final String selectedKey) {
-
+        if (mImageUri != null) {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(mImageUri));
             uploadProgressBar.setVisibility(View.VISIBLE);
@@ -175,7 +174,9 @@ public class TimeUpdate extends AppCompatActivity {
                             uploadProgressBar.setProgress((int) progress);
                         }
                     });
-
+        } else {
+            Toast.makeText(this, "You haven't Selected Any file selected", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
