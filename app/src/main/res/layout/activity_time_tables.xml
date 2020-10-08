@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroup"
-    tools:context=".timeTables.TimeTables">
+    tools:context=".timetables.TimeTables">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -100,7 +100,7 @@
                 android:inputType="text"
                 android:minLines="3" />
             <EditText
-                android:id="@+id/timeGrade"
+                android:id="@+id/timeGrade2"
                 android:layout_width="325dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -21,7 +20,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.WizGuys.eStudent.finance.FinanceDashboard;
-import com.WizGuys.eStudent.finance.UploadFinance;
 import com.WizGuys.eStudent.helperClass.CategoriesAdapter;
 import com.WizGuys.eStudent.helperClass.Common;
 import com.WizGuys.eStudent.helperClass.FeaturedAdapter;
@@ -32,6 +30,7 @@ import com.WizGuys.eStudent.helperClass.helperResources.MostViewedHelperClass;
 import com.WizGuys.eStudent.students.StudentItems;
 import com.WizGuys.eStudent.subjects.SubjectList;
 import com.WizGuys.eStudent.teachers.TeachersDashboard;
+import com.WizGuys.eStudent.timetables.TimeTablesDashboard;
 import com.WizGuys.eStudent.todoList.ToDoList;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -171,7 +170,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     private void animateNavigationDrawer() {
 
         drawerLayout.setScrimColor(getResources().getColor(
-             R.color.colorYellow
+                R.color.colorYellow
         ));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
 
@@ -233,8 +232,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         ArrayList<FeaturedHelper> featuredHelperArrayList = new ArrayList<>();
-        featuredHelperArrayList.add(new FeaturedHelper(R.drawable.images, "mcDonal", "666666666666666666666666666666666666"));
-        featuredHelperArrayList.add(new FeaturedHelper(R.drawable.capture1, "gfdgf", "666666666666666666666666666666666666"));
+        featuredHelperArrayList.add(new FeaturedHelper(R.drawable.q1, "Mansa", "CEO at e-Students System"));
+        featuredHelperArrayList.add(new FeaturedHelper(R.drawable.q2, "Alisa", "Co-founder"));
         featuredHelperArrayList.add(new FeaturedHelper(R.drawable.capture4, "545345", "666666666666666666666666666666666666"));
         adapter = new FeaturedAdapter(featuredHelperArrayList);
         recyclerView.setAdapter(adapter);
@@ -252,7 +251,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(intent);
                 break;
             case R.id.nav_message3:
-                Intent intent1 = new Intent(Dashboard.this, MainActivity.class);
+                Intent intent1 = new Intent(Dashboard.this, TimeTablesDashboard.class);
                 startActivity(intent1);
                 break;
             case R.id.nav_share:
@@ -260,6 +259,9 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(intent3);
                 Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
                 break;
+
+
+
         }
         return true;
     }

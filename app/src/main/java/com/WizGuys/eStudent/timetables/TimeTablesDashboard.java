@@ -28,7 +28,7 @@ public class TimeTablesDashboard extends AppCompatActivity {
         viewAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent3 = new Intent(TimeTablesDashboard.this, TimeTables.class);
+                Intent intent3 = new Intent(TimeTablesDashboard.this, TimeTablesItems.class);
                 startActivity(intent3);
             }
         });
