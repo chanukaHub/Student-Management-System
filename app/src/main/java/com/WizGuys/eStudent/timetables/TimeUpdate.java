@@ -71,10 +71,12 @@ public class TimeUpdate extends AppCompatActivity {
         time2_4 = findViewById(R.id.time2_4);
         timedate = findViewById(R.id.timedate);
         timeGrade = findViewById(R.id.timeGrade2);
-        /*ED*/
+
+        
 
 
-        uploadProgressBar = findViewById(R.id.progress_bar);
+                uploadProgressBar = findViewById(R.id.progress_bar);
+
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("save_timeTable");
         ////////////////////
@@ -121,7 +123,7 @@ public class TimeUpdate extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
     private void updateUploadFile(final String selectedKey) {
-        if (mImageUri != null) {
+
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(mImageUri));
             uploadProgressBar.setVisibility(View.VISIBLE);
@@ -173,9 +175,7 @@ public class TimeUpdate extends AppCompatActivity {
                             uploadProgressBar.setProgress((int) progress);
                         }
                     });
-        } else {
-            Toast.makeText(this, "You haven't Selected Any file selected", Toast.LENGTH_SHORT).show();
-        }
+
     }
 
 

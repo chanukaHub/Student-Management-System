@@ -124,8 +124,10 @@ public class TimeTablesItems extends AppCompatActivity implements TimeTableAdapt
         final String selectedKey = selectedItem.getId();
 
 
-                mDatabaseRef.child(selectedKey).removeValue();
-                Toast.makeText(TimeTablesItems.this, "Item deleted", Toast.LENGTH_SHORT).show();
+
+        mDatabaseRef.child(selectedKey).removeValue();
+        Toast.makeText(TimeTablesItems.this, "Item deleted", Toast.LENGTH_SHORT).show();
+
 
 
     }

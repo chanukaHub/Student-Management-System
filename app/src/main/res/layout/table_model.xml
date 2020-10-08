@@ -27,24 +27,26 @@
                 android:layout_height="wrap_content">
 
 
-                    <TextView
-                        android:id="@+id/timeGrade"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:text="Time Grade"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#D61139" />
+
+                <TextView
+                    android:id="@+id/timeGrade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Time Grade"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#D61139" />
 
 
-                    <TextView
-                        android:id="@+id/timeDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:text="Time Table Date"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textStyle="italic" />
+                <TextView
+                    android:id="@+id/timeDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Time Table Date"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="italic" />
+
 
 
 

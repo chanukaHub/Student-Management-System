@@ -170,7 +170,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     private void animateNavigationDrawer() {
 
         drawerLayout.setScrimColor(getResources().getColor(
-             R.color.colorYellow
+                R.color.colorYellow
         ));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
 

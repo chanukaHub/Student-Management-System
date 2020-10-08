@@ -43,8 +43,10 @@ public  class TimeTableAdapter extends RecyclerView.Adapter<TimeTableAdapter.Rec
 
         TimeTable currentTask = tasks.get(position);
 
-            holder.timeDate.setText("Date "+currentTask.getGrade());
-            holder.timeGrade.setText("Grade "+currentTask.getDate());
+
+        holder.timeDate.setText("Date "+currentTask.getGrade());
+        holder.timeGrade.setText("Grade "+currentTask.getDate());
+
 
 
     }
