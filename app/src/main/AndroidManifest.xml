@@ -14,7 +14,15 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".timetables.TimeTables"></activity>
-        <activity android:name=".timetables.TimeTablesDashboard" />
+        <activity android:name=".timetables.TimeTablesItems"></activity>
+        <activity android:name=".timetables.TimeTablesDashboard" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".timetables.TimeUpdate" />
 
         <activity android:name=".students.StudentUpdate" />
         <activity android:name=".students.StudentItems" />
@@ -39,18 +47,17 @@
         <activity android:name=".AddResult" />
         <activity android:name=".Register" />
         <activity android:name=".Login" />
-        <activity android:name=".Dashboard" />
+        <activity android:name=".Dashboard" >
+
+
+        </activity>
         <activity android:name=".teachers.Upload" />
         <activity android:name=".teachers.Detail" />
         <activity android:name=".teachers.Update" />
         <activity android:name=".teachers.Items" />
         <activity android:name=".teachers.TeachersDashboard" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data

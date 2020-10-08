@@ -40,7 +40,7 @@ public class TimeTables  extends AppCompatActivity {
         time12_2 = findViewById ( R.id.time12_2 );
         time2_4 = findViewById(R.id.time2_4);
         timedate = findViewById(R.id.timedate);
-        timeGrade = findViewById(R.id.timeGrade);
+        timeGrade = findViewById(R.id.timeGrade2);
 
 
 

@@ -232,8 +232,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         ArrayList<FeaturedHelper> featuredHelperArrayList = new ArrayList<>();
-        featuredHelperArrayList.add(new FeaturedHelper(R.drawable.images, "mcDonal", "666666666666666666666666666666666666"));
-        featuredHelperArrayList.add(new FeaturedHelper(R.drawable.capture1, "gfdgf", "666666666666666666666666666666666666"));
+        featuredHelperArrayList.add(new FeaturedHelper(R.drawable.q1, "Mansa", "CEO at e-Students System"));
+        featuredHelperArrayList.add(new FeaturedHelper(R.drawable.q2, "Alisa", "Co-founder"));
         featuredHelperArrayList.add(new FeaturedHelper(R.drawable.capture4, "545345", "666666666666666666666666666666666666"));
         adapter = new FeaturedAdapter(featuredHelperArrayList);
         recyclerView.setAdapter(adapter);

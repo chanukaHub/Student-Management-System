@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroup"
-    tools:context=".timeTables.TimeTablesDashboard">
+    tools:context=".timetables.TimeTablesDashboard">
 
 
     <LinearLayout
@@ -31,7 +31,7 @@
                     android:layout_height="79dp"
                     android:layout_weight="1"
                     android:background="#0B6D9A"
-                    android:text="View All"
+                    android:text="SAVE DATA"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp" />
             </TableRow>
@@ -70,7 +70,7 @@
                     android:layout_weight="1"
                     android:background="#0B6D9A"
                     android:clickable="true"
-                    android:text="Save Table"
+                    android:text="VIEW ALL"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp" />
             </TableRow>

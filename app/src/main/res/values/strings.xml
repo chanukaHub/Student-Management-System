@@ -77,5 +77,6 @@
     <string name="taskListPending">Pending tasks</string>
     <string name="taskListFinished">Finished tasks</string>
     <string name="taskListFailed">Failed tasks</string>
+    <string name="mailspringitp_gmail_com">mailspringitp@gmail.com</string>
 
 </resources>
