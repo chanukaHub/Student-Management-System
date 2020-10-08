@@ -71,10 +71,12 @@ public class TimeUpdate extends AppCompatActivity {
         time2_4 = findViewById(R.id.time2_4);
         timedate = findViewById(R.id.timedate);
         timeGrade = findViewById(R.id.timeGrade2);
-        
 
 
-                uploadProgressBar = findViewById(R.id.progress_bar);
+
+
+        uploadProgressBar = findViewById(R.id.progress_bar);
+
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("save_timeTable");
         ////////////////////
@@ -115,67 +117,34 @@ public class TimeUpdate extends AppCompatActivity {
         });
     }
 
-    private String getFileExtension(Uri uri) {
-        ContentResolver cR = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cR.getType(uri));
-    }
+
     private void updateUploadFile(final String selectedKey) {
-        if (mImageUri != null) {
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
-                    + "." + getFileExtension(mImageUri));
-            uploadProgressBar.setVisibility(View.VISIBLE);
-            uploadProgressBar.setIndeterminate(true);
-            mUploadTask = fileReference.putFile(mImageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    uploadProgressBar.setVisibility(View.VISIBLE);
-                                    uploadProgressBar.setIndeterminate(false);
-                                    uploadProgressBar.setProgress(0);
-                                }
-                            }, 500);
-                            Toast.makeText(TimeUpdate.this, "Teacher Update successful", Toast.LENGTH_LONG).show();
 
-                            Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
-                            while (!urlTask.isSuccessful());
-                            String downloadUrl = String.valueOf(urlTask.getResult());
+        uploadProgressBar.setVisibility(View.VISIBLE);
+        uploadProgressBar.setIndeterminate(true);
 
-                            TimeTable upload = new TimeTable(
-                                    timeGrade.getText().toString().trim(),
-                                    timedate.getText ().toString (),
-                                    time8_10.getText().toString(),
-                                    time10_12.getText().toString(),
-                                    time12_2.getText().toString(),
-                                    time2_4.getText().toString());
 
-                            String uploadId = selectedKey;
-                            mDatabaseRef.child(uploadId).setValue(upload);
-                            uploadProgressBar.setVisibility(View.INVISIBLE);
 
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            uploadProgressBar.setVisibility(View.INVISIBLE);
-                            Toast.makeText(TimeUpdate.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                            uploadProgressBar.setProgress((int) progress);
-                        }
-                    });
-        } else {
-            Toast.makeText(this, "You haven't Selected Any file selected", Toast.LENGTH_SHORT).show();
-        }
+        TimeTable upload = new TimeTable(
+                timeGrade.getText().toString().trim(),
+                timedate.getText ().toString (),
+                time8_10.getText().toString(),
+                time10_12.getText().toString(),
+                time12_2.getText().toString(),
+                time2_4.getText().toString());
+
+        String uploadId = selectedKey;
+        mDatabaseRef.child(uploadId).setValue(upload);
+        uploadProgressBar.setVisibility(View.INVISIBLE);
+
+        timeGrade.setText("");
+        timedate.setText("");
+        time8_10.setText("");
+        time10_12.setText("");
+        time2_4.setText("");
+        time12_2.setText("");
+        Toast.makeText(TimeUpdate.this, "Update Success", Toast.LENGTH_SHORT).show();
+
     }
 
 
