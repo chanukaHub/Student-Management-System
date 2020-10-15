@@ -93,15 +93,7 @@ public  class FinanceAdapter extends RecyclerView.Adapter<FinanceAdapter.Recycle
             });
         }
 
-        @Override
-        public void onClick(View v) {
-            if (mListener != null) {
-                int position = getAdapterPosition();
-                if (position != RecyclerView.NO_POSITION) {
-                     mListener.onItemClick(position);
-                }
-            }
-        }
+
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.setHeaderTitle("Select Action");
@@ -127,9 +119,14 @@ public  class FinanceAdapter extends RecyclerView.Adapter<FinanceAdapter.Recycle
             }
             return false;
         }
+
+        @Override
+        public void onClick(View v) {
+
+        }
     }
     public interface OnItemClickListener {
-        void onItemClick(int position);
+
         void onShowItemClick(int position);
         void onDeleteItemClick(int position);
     }

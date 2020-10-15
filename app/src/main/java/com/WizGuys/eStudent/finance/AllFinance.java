@@ -41,31 +41,6 @@ public class AllFinance extends AppCompatActivity implements FinanceAdapter.OnIt
     private ValueEventListener mDBListener;
     private List<Finance> mFinance;
 
-    private void openDetailActivity(String[] data){
-        Intent intent = new Intent(this, Detail.class);
-        intent.putExtra("NAME_KEY",data[0]);
-        intent.putExtra("EMAIL_KEY",data[1]);
-        intent.putExtra("AMOUNT_KEY",data[2]);
-        intent.putExtra("BALANCE_KEY",data[3]);
-        intent.putExtra("DU_DATE_KEY",data[4]);
-        intent.putExtra("DATE_KEY",data[5]);
-        intent.putExtra("DESCRIPTION_KEY",data[6]);
-        startActivity(intent);
-    }
-
-    private void updateActivity(String[] data){
-        Intent intent = new Intent(this, UpdateFinance.class);
-        intent.putExtra("ID_KEY",data[0]);
-        intent.putExtra("NAME_KEY",data[1]);
-        intent.putExtra("EMAIL_KEY",data[2]);
-        intent.putExtra("AMOUNT_KEY",data[3]);
-        intent.putExtra("BALANCE_KEY",data[4]);
-        intent.putExtra("DU_DATE_KEY",data[5]);
-        intent.putExtra("DATE_KEY",data[6]);
-        intent.putExtra("DESCRIPTION_KEY",data[7]);
-
-        startActivity(intent);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -102,6 +77,21 @@ public class AllFinance extends AppCompatActivity implements FinanceAdapter.OnIt
         });
     }
 
+
+    private void updateActivity(String[] data){
+        Intent intent = new Intent(this, UpdateFinance.class);
+        intent.putExtra("ID_KEY",data[0]);
+        intent.putExtra("NAME_KEY",data[1]);
+        intent.putExtra("EMAIL_KEY",data[2]);
+        intent.putExtra("AMOUNT_KEY",data[3]);
+        intent.putExtra("BALANCE_KEY",data[4]);
+        intent.putExtra("DU_DATE_KEY",data[5]);
+        intent.putExtra("DATE_KEY",data[6]);
+        intent.putExtra("DESCRIPTION_KEY",data[7]);
+
+        startActivity(intent);
+    }
+
     @Override
     public void onDeleteItemClick(int position) {
         Finance selectedItem = mFinance.get(position);
@@ -115,10 +105,6 @@ public class AllFinance extends AppCompatActivity implements FinanceAdapter.OnIt
         mDatabaseRef.removeEventListener(mDBListener);
     }
 
-    @Override
-    public void onItemClick(int position) {
-
-    }
 
     @Override
     public void onShowItemClick(int position) {

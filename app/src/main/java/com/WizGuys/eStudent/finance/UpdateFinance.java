@@ -16,32 +16,24 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.WizGuys.eStudent.R;
-import com.WizGuys.eStudent.adapter.FinanceAdapter;
 import com.WizGuys.eStudent.model.Finance;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
-
 
 public class UpdateFinance extends AppCompatActivity  {
 
     private static final int PICK_IMAGE_REQUEST = 1;
-    private Button chooseImageBtn;
-    private FinanceAdapter.OnItemClickListener mListener;
     private Button uploadBtn;
     private EditText finName, finEmail, finAmountReceived,
             finBalance, finBalanceToPayDate,
             date, finDescription;
 
     private ProgressBar uploadProgressBar;
-    private Uri mImageUri;
-    private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
-    private StorageTask mUploadTask;
+
     //////////////////////////////
     private FirebaseStorage mStorage;
 
@@ -103,11 +95,8 @@ public class UpdateFinance extends AppCompatActivity  {
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(UpdateFinance.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
-                } else {
                     updateUploadFile(selectedKey);
-                }
+
             }
         });
     }

@@ -30,7 +30,7 @@ public class UploadFinance extends AppCompatActivity {
             date, finDescription;
 
     private DatabaseReference mDatabaseRef;
-    private StorageTask mUploadTask;
+
 
 
     @Override
@@ -54,11 +54,7 @@ public class UploadFinance extends AppCompatActivity {
         uploadBtnFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(UploadFinance.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
-                } else {
                     uploadFile();
-                }
             }
         });
     }
