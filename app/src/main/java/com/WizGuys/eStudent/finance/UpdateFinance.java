@@ -35,18 +35,13 @@ public class UpdateFinance extends AppCompatActivity  {
 
     TextView nameDetailTextView,descriptionDetailTextView;
     ImageView teacherDetailImageView;
-    private void initializeWidgets(){
-        nameDetailTextView= findViewById(R.id.nameEditText);
-        descriptionDetailTextView= findViewById(R.id.techDescription);
-        teacherDetailImageView=findViewById(R.id.chosenImageView);
-    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_payment);
-        initializeWidgets();
+
         /////////////////////////////////////
 
 

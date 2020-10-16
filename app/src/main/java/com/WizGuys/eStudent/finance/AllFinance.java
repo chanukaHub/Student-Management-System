@@ -99,11 +99,7 @@ public class AllFinance extends AppCompatActivity implements FinanceAdapter.OnIt
         mDatabaseRef.child(selectedKey).removeValue();
         Toast.makeText(AllFinance.this, "Task deleted", Toast.LENGTH_SHORT).show();
     }
-    protected void onDestroy() {
-        super.onDestroy();
-        mDatabaseRef.removeEventListener(mDBListener);
-    }
-
+ 
 
     @Override
     public void onShowItemClick(int position) {
