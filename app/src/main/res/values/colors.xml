@@ -3,11 +3,15 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="colorYellow">#B7BD91</color>
+
+
+
+    <color name="colorYellow">#D6EAF8</color>
+
 
     <!-- body and background color-->
     <color name="home_background">#f2f5f8</color>
-    <color name="header_background">#D0D5E1</color>
+    <color name="header_background">#FDFEFE</color>
     <color name="tool_bar_background">#210463</color>
     <color name="button_background">#BAC2C6 </color>
 

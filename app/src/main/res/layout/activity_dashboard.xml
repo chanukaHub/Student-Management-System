@@ -12,7 +12,7 @@
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#9D76D5"
+        android:background="#E5E8E8"
         android:theme="@style/navigationTheme"
         android:layout_gravity = "start"
         app:headerLayout="@layout/header"
@@ -22,7 +22,7 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#D8D8D8"
+        android:background="#EBF5FB"
         android:orientation="vertical">
 
 
@@ -44,7 +44,6 @@
                 android:layout_height="40dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@color/button_background"
                 android:padding="5dp"
                 android:src="@drawable/ic_power" />
         </RelativeLayout>
@@ -69,6 +68,7 @@
                         android:layout_centerHorizontal="true"
                         android:fontFamily="@font/abril_fatface"
                         android:text="e-Student"
+                        android:textColor="#2874A6"
                         android:textSize="24sp" />
 
                     <RelativeLayout
@@ -79,7 +79,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="40dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@color/button_background"
+                        android:background="#FDFEFE"
                         android:elevation="8dp">
 
                         <TextView
@@ -137,7 +137,6 @@
                     </LinearLayout>
 
 
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -159,9 +158,9 @@
                         </RelativeLayout>
 
                         <TextView
-                            android:gravity="center_horizontal"
-                            android:layout_height="wrap_content"
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
                             android:text="Teachers"
                             android:textAlignment="center" />
 
@@ -202,29 +201,31 @@
                         android:orientation="vertical">
 
                         <RelativeLayout
+                            android:id="@+id/timetableBtn"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:elevation="8dp"
+                            android:layout_margin="10dp"
                             android:background="@color/header_background"
-                            android:layout_margin="10dp">
+                            android:elevation="8dp">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/ic_mail"
-                                android:layout_centerInParent="true" />
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ic_time_tables" />
                         </RelativeLayout>
 
                         <TextView
-                            android:gravity="center_horizontal"
-                            android:layout_height="wrap_content"
                             android:layout_width="match_parent"
-                            android:text="Notice"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="TimeTable"
                             android:textAlignment="center" />
 
                     </LinearLayout>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -261,7 +262,6 @@
                     </LinearLayout>
 
 
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -283,9 +283,9 @@
                         </RelativeLayout>
 
                         <TextView
-                            android:gravity="center_horizontal"
-                            android:layout_height="wrap_content"
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
                             android:text="Result"
                             android:textAlignment="center" />
 
@@ -297,7 +297,7 @@
                         android:orientation="vertical">
 
                         <RelativeLayout
-                            android:id="@+id/null1"
+                            android:id="@+id/financeBtn"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:layout_margin="10dp"
@@ -308,14 +308,14 @@
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_baseline_subject_24" />
+                                android:src="@drawable/ic_baseline_monetization_on_24" />
                         </RelativeLayout>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
-                            android:text="@string/subjectDashboard"
+                            android:text="Finance"
                             android:textAlignment="center" />
 
                     </LinearLayout>
@@ -328,21 +328,21 @@
                         <RelativeLayout
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:elevation="8dp"
+                            android:layout_margin="10dp"
                             android:background="@color/header_background"
-                            android:layout_margin="10dp">
+                            android:elevation="8dp">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/ic_mail"
-                                android:layout_centerInParent="true" />
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ic_mail" />
                         </RelativeLayout>
 
                         <TextView
-                            android:gravity="center_horizontal"
-                            android:layout_height="wrap_content"
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
                             android:text="Notice"
                             android:textAlignment="center" />
 
@@ -353,44 +353,19 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
-                    android:background="#2F5ECF"
-                    android:layout_marginLeft="20dp">
+                    android:background="#2874A6">
 
-                    <LinearLayout
-                        android:id="@+id/featured_background"
-                        android:layout_width="170dp"
-                        android:layout_height="280dp"
-                        android:background="#1276A3"
-                        android:layout_margin="10dp"
-                        android:orientation="vertical">
-
-                        <TextView
-
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="50dp"
-                            android:layout_width="wrap_content"
-                            android:lineHeight="24sp"
-                            android:text="e-Student"
-                            android:textAllCaps="true"
-                            android:textColor="#FFFFFF"
-                            android:textSize="25sp" />
-
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_width="wrap_content"
-                            android:text="Admin panal" />
-
-                    </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/featured_recycler"
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
-                        android:layout_toRightOf="@id/featured_background"
-                        android:background="@color/cardview_dark_background" />
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#2874A6" />
 
                 </RelativeLayout>
 
@@ -398,8 +373,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:padding="20dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -408,56 +383,22 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="most Viewed locations"
-                            android:textColor="#37A11818"
                             android:fontFamily="@font/abril_fatface"
-                            android:textAllCaps="true" />
+                            android:text="Notifications"
+                            android:textAllCaps="true"
+                            android:textColor="#2874A6" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="View All"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true" />
+                            android:layout_centerVertical="true"
+                            android:text="View All" />
                     </RelativeLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
 
                         android:id="@+id/most_viewed_recycler"
-                        android:layout_width="match_parent"
-                        android:layout_height="133dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:padding="20dp"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="most Viewed locations"
-                            android:textColor="#1DB8AA"
-                            android:fontFamily="@font/abril_fatface"
-                            android:textAllCaps="true" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="View All"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true" />
-                    </RelativeLayout>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/categories_recycler"
                         android:layout_width="match_parent"
                         android:layout_height="133dp" />
 
