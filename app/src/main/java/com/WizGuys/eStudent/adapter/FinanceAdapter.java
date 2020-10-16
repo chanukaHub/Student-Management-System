@@ -121,12 +121,9 @@ public  class FinanceAdapter extends RecyclerView.Adapter<FinanceAdapter.Recycle
         }
 
         @Override
-        public void onClick(View v) {
-
-        }
+        public void onClick(View v) {}
     }
     public interface OnItemClickListener {
-
         void onShowItemClick(int position);
         void onDeleteItemClick(int position);
     }

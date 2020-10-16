@@ -1,7 +1,7 @@
 package com.WizGuys.eStudent.finance;
 
 import android.content.Intent;
-import android.net.Uri;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -12,15 +12,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.model.Finance;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
 
 
 public class UpdateFinance extends AppCompatActivity  {
@@ -35,7 +31,7 @@ public class UpdateFinance extends AppCompatActivity  {
     private DatabaseReference mDatabaseRef;
 
     //////////////////////////////
-    private FirebaseStorage mStorage;
+
 
     TextView nameDetailTextView,descriptionDetailTextView;
     ImageView teacherDetailImageView;
@@ -53,7 +49,7 @@ public class UpdateFinance extends AppCompatActivity  {
         initializeWidgets();
         /////////////////////////////////////
 
-        mStorage = FirebaseStorage.getInstance();
+
         uploadBtn = findViewById(R.id.uploadBtnFin);
         finName = findViewById(R.id.finName);
         finEmail = findViewById ( R.id.finEmail );
@@ -62,7 +58,7 @@ public class UpdateFinance extends AppCompatActivity  {
         finBalanceToPayDate = findViewById(R.id.finBalanceToPayDate);
         date = findViewById(R.id.findate);
         finDescription = findViewById ( R.id.finDescription );
-        /*ED*/
+
 
         uploadProgressBar = findViewById(R.id.progress_bar);
 
@@ -131,6 +127,14 @@ public class UpdateFinance extends AppCompatActivity  {
                             String uploadId = selectedKey;
                             mDatabaseRef.child(uploadId).setValue(upload);
                             uploadProgressBar.setVisibility(View.INVISIBLE);
+
+        finName.setText("");
+        finEmail.setText("");
+        finAmountReceived.setText("");
+        finBalance.setText("");
+        finBalanceToPayDate.setText("");
+        date.setText("");
+        finDescription.setText("");
 
     }
 

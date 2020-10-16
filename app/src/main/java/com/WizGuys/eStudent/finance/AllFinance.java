@@ -36,7 +36,6 @@ public class AllFinance extends AppCompatActivity implements FinanceAdapter.OnIt
     private RecyclerView mRecyclerView;
     private FinanceAdapter mAdapter;
     private ProgressBar mProgressBar;
-    private FirebaseStorage mStorage;
     private DatabaseReference mDatabaseRef;
     private ValueEventListener mDBListener;
     private List<Finance> mFinance;
@@ -55,7 +54,6 @@ public class AllFinance extends AppCompatActivity implements FinanceAdapter.OnIt
         mAdapter = new FinanceAdapter (AllFinance.this, mFinance);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(AllFinance.this);
-        mStorage = FirebaseStorage.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("finance_uploads");
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -65,6 +63,7 @@ public class AllFinance extends AppCompatActivity implements FinanceAdapter.OnIt
                     Finance upload = finance.getValue(Finance.class);
                     upload.setKey(finance.getKey());
                     mFinance.add(upload);
+
                 }
                 mAdapter.notifyDataSetChanged();
                 mProgressBar.setVisibility(View.GONE);
