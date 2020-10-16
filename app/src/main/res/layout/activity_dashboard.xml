@@ -12,7 +12,7 @@
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
+        android:background="#9D76D5"
         android:theme="@style/navigationTheme"
         android:layout_gravity = "start"
         app:headerLayout="@layout/header"
@@ -360,7 +360,7 @@
                         android:id="@+id/featured_background"
                         android:layout_width="170dp"
                         android:layout_height="280dp"
-                        android:background="@color/tool_bar_background"
+                        android:background="#1276A3"
                         android:layout_margin="10dp"
                         android:orientation="vertical">
 
@@ -373,14 +373,14 @@
                             android:lineHeight="24sp"
                             android:text="e-Student"
                             android:textAllCaps="true"
-                            android:textColor="@color/colorAccent"
+                            android:textColor="#FFFFFF"
                             android:textSize="25sp" />
 
                         <TextView
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:layout_width="wrap_content"
-                            android:text="feakj ghgfhfhgh hghgh" />
+                            android:text="Admin panal" />
 
                     </LinearLayout>
 

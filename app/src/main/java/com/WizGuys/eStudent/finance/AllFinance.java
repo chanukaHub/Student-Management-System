@@ -14,9 +14,11 @@ import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.adapter.FinanceAdapter;
 import com.WizGuys.eStudent.adapter.TeachersAdapter;
 import com.WizGuys.eStudent.model.Finance;
+import com.WizGuys.eStudent.model.Task;
 import com.WizGuys.eStudent.model.Teacher;
 import com.WizGuys.eStudent.teachers.Detail;
 import com.WizGuys.eStudent.teachers.Update;
+import com.WizGuys.eStudent.todoList.ToDoList;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,32 +41,6 @@ public class AllFinance extends AppCompatActivity implements FinanceAdapter.OnIt
     private ValueEventListener mDBListener;
     private List<Finance> mFinance;
 
-    private void openDetailActivity(String[] data){
-        Intent intent = new Intent(this, Detail.class);
-        intent.putExtra("NAME_KEY",data[0]);
-        intent.putExtra("DESCRIPTION_KEY",data[1]);
-        intent.putExtra("IMAGE_KEY",data[2]);
-        intent.putExtra("ADDRESS_KEY",data[3]);
-        intent.putExtra("CONTACT_KEY",data[4]);
-        intent.putExtra("EMAIL_KEY",data[5]);
-        intent.putExtra("QUALIFICATION_KEY",data[6]);
-        intent.putExtra("SALARY_KEY",data[7]);
-        startActivity(intent);
-    }
-
-    private void updateActivity(String[] data){
-        Intent intent = new Intent(this, Update.class);
-        intent.putExtra("ID_KEY",data[0]);
-        intent.putExtra("NAME_KEY",data[1]);
-        intent.putExtra("DESCRIPTION_KEY",data[2]);
-        intent.putExtra("IMAGE_KEY",data[3]);
-        intent.putExtra("ADDRESS_KEY",data[4]);
-        intent.putExtra("CONTACT_KEY",data[5]);
-        intent.putExtra("EMAIL_KEY",data[6]);
-        intent.putExtra("QUALIFICATION_KEY",data[7]);
-        intent.putExtra("SALARY_KEY",data[8]);
-        startActivity(intent);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -100,60 +76,48 @@ public class AllFinance extends AppCompatActivity implements FinanceAdapter.OnIt
             }
         });
     }
-/*    public void onItemClick(int position) {
-        Finance finance=mFinance.get(position);
-        String[] teacherData={clickedTeacher.getName(),
-                clickedTeacher.getDescription(),
-                clickedTeacher.getImageURL(),
-                clickedTeacher.getAddress(),clickedTeacher.getContact(),
-                clickedTeacher.getEmail(),clickedTeacher.getQualification(),
-                clickedTeacher.getSalary()
-        };
 
-        openDetailActivity(teacherData);
-    }*/
-  /*  @Override
-    public void onShowItemClick(int position) {
-        Finance finance=mFinance.get(position);
-        final String selectedKey = finance.getKey();
-        String[] teacherData={selectedKey,finance.getName(),
-                clickedTeacher.getDescription(),clickedTeacher.getImageURL(),
-                clickedTeacher.getAddress(),clickedTeacher.getContact(),
-                clickedTeacher.getEmail(),clickedTeacher.getQualification(),
-                clickedTeacher.getSalary()
-        };
-        updateActivity(teacherData);
-    }*/
-   /* @Override
+
+    private void updateActivity(String[] data){
+        Intent intent = new Intent(this, UpdateFinance.class);
+        intent.putExtra("ID_KEY",data[0]);
+        intent.putExtra("NAME_KEY",data[1]);
+        intent.putExtra("EMAIL_KEY",data[2]);
+        intent.putExtra("AMOUNT_KEY",data[3]);
+        intent.putExtra("BALANCE_KEY",data[4]);
+        intent.putExtra("DU_DATE_KEY",data[5]);
+        intent.putExtra("DATE_KEY",data[6]);
+        intent.putExtra("DESCRIPTION_KEY",data[7]);
+
+        startActivity(intent);
+    }
+
+    @Override
     public void onDeleteItemClick(int position) {
         Finance selectedItem = mFinance.get(position);
         final String selectedKey = selectedItem.getKey();
-        StorageReference imageRef = mStorage.getReferenceFromUrl(selectedItem.getImageURL());
-        imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                mDatabaseRef.child(selectedKey).removeValue();
-                Toast.makeText(AllFinance.this, "Item deleted", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }*/
+
+        mDatabaseRef.child(selectedKey).removeValue();
+        Toast.makeText(AllFinance.this, "Task deleted", Toast.LENGTH_SHORT).show();
+    }
     protected void onDestroy() {
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
     }
 
-    @Override
-    public void onItemClick(int position) {
-
-    }
 
     @Override
     public void onShowItemClick(int position) {
 
+        Finance clickedTeacher=mFinance.get(position);
+        final String selectedKey = clickedTeacher.getKey();
+        String[] teacherData={selectedKey,clickedTeacher.getName(),
+                clickedTeacher.getEmail(),clickedTeacher.getAmount(),
+                clickedTeacher.getBalance(),clickedTeacher.getDueDate(),
+                clickedTeacher.getDate(),clickedTeacher.getDescription()
+        };
+        updateActivity(teacherData);
     }
 
-    @Override
-    public void onDeleteItemClick(int position) {
 
-    }
 }

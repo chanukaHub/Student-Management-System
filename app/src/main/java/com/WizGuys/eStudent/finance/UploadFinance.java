@@ -23,18 +23,14 @@ import com.squareup.picasso.Picasso;
 
 
 public class UploadFinance extends AppCompatActivity {
-    private static final int PICK_IMAGE_REQUEST = 1;
 
     private Button uploadBtnFin;
     private EditText finName, finEmail, finAmountReceived,
             finBalance, finBalanceToPayDate,
             date, finDescription;
-    private ImageView chosenImageView;
 
-    private Uri mImageUri;
-    private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
-    private StorageTask mUploadTask;
+
 
 
     @Override
@@ -52,17 +48,13 @@ public class UploadFinance extends AppCompatActivity {
         date = findViewById(R.id.findate);
         finDescription = findViewById ( R.id.finDescription );
 
-        mStorageRef = FirebaseStorage.getInstance().getReference("finance_uploads");
+
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("finance_uploads");
 
         uploadBtnFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(UploadFinance.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
-                } else {
                     uploadFile();
-                }
             }
         });
     }
@@ -84,9 +76,12 @@ public class UploadFinance extends AppCompatActivity {
 
         Toast.makeText(UploadFinance.this, "Upload Success", Toast.LENGTH_SHORT).show();
 
-        finName.setText("");finEmail.setText("");
-        finAmountReceived.setText("");finBalance.setText("");
-        finBalanceToPayDate.setText("");date.setText("");
+        finName.setText("");
+        finEmail.setText("");
+        finAmountReceived.setText("");
+        finBalance.setText("");
+        finBalanceToPayDate.setText("");
+        date.setText("");
         finDescription.setText("");
     }
 

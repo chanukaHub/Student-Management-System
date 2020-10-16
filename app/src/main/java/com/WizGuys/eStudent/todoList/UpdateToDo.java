@@ -20,7 +20,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageTask;
 import com.WizGuys.eStudent.model.Task;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class UpdateToDo extends AppCompatActivity {
 
@@ -89,8 +92,8 @@ public class UpdateToDo extends AppCompatActivity {
 
         Intent i=this.getIntent();
         String id=i.getExtras().getString("ID_KEY");
-        String task=i.getExtras().getString("NAME_KEY");
-        String dateToDo=i.getExtras().getString("DATE_KEY");
+        final String task=i.getExtras().getString("NAME_KEY");
+        final String dateToDo=i.getExtras().getString("DATE_KEY");
 
 
         taskData.setText(task);
@@ -105,7 +108,26 @@ public class UpdateToDo extends AppCompatActivity {
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
                     Toast.makeText(UpdateToDo.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
                 } else {
-                    updateUploadFile(selectedKey);
+
+                    String today = getDateToday();
+                    String taskDay = taskDate.getText().toString();
+
+                    String[] todayParts = today.split("/");
+                    int todayDay = Integer.parseInt(todayParts[0]);
+                    int todayMonth = Integer.parseInt(todayParts[1]);
+                    int todayYear = Integer.parseInt(todayParts[2]);
+
+                    String[] taskDayParts = taskDay.split("/");
+                    int tskDay = Integer.parseInt(taskDayParts[0]);
+                    int tskMonth = Integer.parseInt(taskDayParts[1]);
+                    int tskYear = Integer.parseInt(taskDayParts[2]);
+
+                    if (todayYear <= tskYear && todayMonth <= tskMonth && todayDay <= tskDay){
+                        updateUploadFile(selectedKey);
+                    } else {
+                        Toast.makeText(UpdateToDo.this, "Invalid date.", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
             }
         });
@@ -134,6 +156,13 @@ public class UpdateToDo extends AppCompatActivity {
         Intent intent = new Intent(UpdateToDo.this, ToDoList.class);
         startActivity(intent);
 
+    }
+
+    private String getDateToday(){
+        DateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
+        Date date=new Date();
+        String today= dateFormat.format(date);
+        return today;
     }
 
 }

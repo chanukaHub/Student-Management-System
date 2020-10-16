@@ -74,7 +74,6 @@ public class FailedTaskToDo extends AppCompatActivity {
     private void failedNotification(Task upload){
         // notification task deleted
         String message = "Task " + upload.getTask() + " deleted.";
-        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" + message);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(
                 FailedTaskToDo.this
         )

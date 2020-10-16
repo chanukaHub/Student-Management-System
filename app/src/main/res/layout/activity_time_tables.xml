@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroup"
+    tools:context=".timetables.TimeTables">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
+            android:layout_alignParentLeft="true">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="31dp" />
+            <TextView
+                android:id="@+id/headerTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:text="Add Time Table"
+                android:textSize="20dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="136dp">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="128dp"
+                    android:layout_height="133dp"
+                    app:srcCompat="@drawable/icon"
+                    tools:layout_editor_absoluteX="140dp"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/time8_10"
+                android:layout_width="325dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:hint="8.00 - 10.00"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/time10_12"
+                android:layout_width="325dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:hint="10.00 - 12.00"
+                android:inputType="text"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/time12_2"
+                android:layout_width="325dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:hint="12.00 - 2.00"
+                android:inputType="text"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/time2_4"
+                android:layout_width="325dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:hint="2.00 - 4.00"
+                android:inputType="text"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/timedate"
+                android:layout_width="325dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:hint="Date"
+                android:inputType="text"
+                android:minLines="3" />
+            <EditText
+                android:id="@+id/timeGrade2"
+                android:layout_width="325dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:hint="Grade"
+                android:inputType="text"
+                android:minLines="3" />
+
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="28dp" />
+
+            <Button
+                android:id="@+id/timeSavebtn"
+                android:layout_width="255dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/amaranth_bold"
+
+                android:background="#0B6D9A"
+                android:gravity="center"
+                android:text="Upload"
+                android:textColor="#fff" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

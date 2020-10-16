@@ -3,13 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp">
 
     <TextView
         android:id="@+id/name_subject_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:paddingLeft="2dp"
         android:text="TextView"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -24,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:paddingLeft="2dp"
         android:text="TextView"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -36,12 +39,13 @@
         android:id="@+id/info_subject_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
+        android:paddingLeft="2dp"
         android:text="TextView"
         android:textColor="@android:color/black"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chapter_subject_list" />
 

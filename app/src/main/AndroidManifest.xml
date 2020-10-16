@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.WizGuys.eStudent">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".helperClass.firebase.FireBase"
         android:allowBackup="true"
@@ -10,27 +12,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResultDashboard"></activity>
+
+        <activity android:name=".timetables.TimeTables"></activity>
+        <activity android:name=".timetables.TimeTablesItems"></activity>
+        <activity android:name=".timetables.TimeTablesDashboard" >
+
+        </activity>
+        <activity android:name=".timetables.TimeUpdate" />
+
         <activity android:name=".students.StudentUpdate" />
         <activity android:name=".students.StudentItems" />
         <activity android:name=".students.StudentAdd" />
         <activity android:name=".students.StudentDetails" />
         <activity android:name=".finance.FinanceDashboard" />
         <activity android:name=".finance.UploadFinance" />
+        <activity android:name=".finance.UpdateFinance" />
         <activity android:name=".todoList.UpdateToDo" />
-        <activity android:name=".todoList.ConfirmToDo" />
-        <activity android:name=".todoList.FailedTaskToDo" />
         <activity android:name=".finance.AllFinance" />
         <activity android:name=".UpdateDeleteAssignmentResult" />
         <activity android:name=".ManageSubjects" />
         <activity android:name=".subjects.UpdateSubject" />
-        <activity
-            android:name=".subjects.AddSubject"
-            android:parentActivityName=".subjects.SubjectList" />
+        <activity android:name=".subjects.AddSubject" />
         <activity android:name=".subjects.SubjectList" />
-        <activity
-            android:name=".todoList.ToDoForm"
-            android:parentActivityName=".todoList.ToDoList" />
+        <activity android:name=".todoList.ToDoForm" />
         <activity android:name=".todoList.ToDoList" />
         <activity android:name=".notice.Notice" />
         <activity android:name=".ShowResult" />
@@ -39,7 +43,10 @@
         <activity android:name=".AddResult" />
         <activity android:name=".Register" />
         <activity android:name=".Login" />
-        <activity android:name=".Dashboard" />
+        <activity android:name=".Dashboard" >
+
+
+        </activity>
         <activity android:name=".teachers.Upload" />
         <activity android:name=".teachers.Detail" />
         <activity android:name=".teachers.Update" />
