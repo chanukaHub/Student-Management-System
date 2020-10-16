@@ -76,7 +76,7 @@
                     android:layout_width="365dp"
                     android:layout_height="wrap_content"
                     android:hint="Contact"
-                    android:inputType="text"
+                    android:inputType="phone"
                     android:minLines="3" />
                 <EditText
                     android:id="@+id/updateStudentEmailEditText"

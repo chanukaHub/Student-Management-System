@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.model.Student;
-import com.WizGuys.eStudent.teachers.TeachersDashboard;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -81,9 +80,9 @@ public class StudentUpdate extends AppCompatActivity {
         String id=i.getExtras().getString("ID_KEY");
         String index=i.getExtras().getString("INDEX_KEY");
         String name=i.getExtras().getString("NAME_KEY");
-        String email=i.getExtras().getString("CONTACT_KEY");
+        String email=i.getExtras().getString("EMAIL_KEY");
         String address=i.getExtras().getString("ADDRESS_KEY");
-        String contact=i.getExtras().getString("EMAIL_KEY");
+        String contact=i.getExtras().getString("CONTACT_KEY");
         String imageURL=i.getExtras().getString("IMAGE_KEY");
 
         nameDetailTextView.setText(name);
