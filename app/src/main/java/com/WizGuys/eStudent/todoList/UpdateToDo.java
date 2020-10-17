@@ -65,6 +65,7 @@ public class UpdateToDo extends AppCompatActivity {
         backImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("**********************************************************");
                 Intent intent = new Intent(UpdateToDo.this, ToDoList.class);
                 startActivity(intent);
             }
