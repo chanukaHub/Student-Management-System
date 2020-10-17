@@ -1,127 +1,145 @@
 package com.WizGuys.eStudent.finance;
 
 import android.content.Intent;
-import android.net.Uri;
+
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.WizGuys.eStudent.R;
-import com.WizGuys.eStudent.model.Task;
-import com.WizGuys.eStudent.teachers.TeachersDashboard;
+import com.WizGuys.eStudent.model.Finance;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
-import com.squareup.picasso.Picasso;
 
-public class UpdateFinance extends AppCompatActivity {
+
+public class UpdateFinance extends AppCompatActivity  {
 
     private static final int PICK_IMAGE_REQUEST = 1;
-    private Button chooseImageBtn;
     private Button uploadBtn;
-    private EditText taskData, taskDate;
-    private ImageView chosenImageView;
+    private EditText finName, finEmail, finAmountReceived,
+            finBalance, finBalanceToPayDate,
+            date, finDescription;
+
     private ProgressBar uploadProgressBar;
-    private Uri mImageUri;
-    private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
-    private StorageTask mUploadTask;
+
     //////////////////////////////
-    private FirebaseStorage mStorage;
 
-    TextView task_data,task_date;
 
-    private void initializeWidgets(){
-      //  task_data = findViewById(R.id.task_data);
-        task_date= findViewById(R.id.task_date);
-    }
+    TextView nameDetailTextView,descriptionDetailTextView;
+    ImageView teacherDetailImageView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_to_do_form);
-        initializeWidgets();
+        setContentView(R.layout.activity_add_payment);
+
         /////////////////////////////////////
 
-        mStorage = FirebaseStorage.getInstance();
 
-     //   uploadBtn = findViewById(R.id.task_add);
+        uploadBtn = findViewById(R.id.uploadBtnFin);
+        finName = findViewById(R.id.finName);
+        finEmail = findViewById ( R.id.finEmail );
+        finAmountReceived = findViewById ( R.id.finAmountReceived );
+        finBalance = findViewById(R.id.finBalance);
+        finBalanceToPayDate = findViewById(R.id.finBalanceToPayDate);
+        date = findViewById(R.id.findate);
+        finDescription = findViewById ( R.id.finDescription );
 
-        //ET Text
-       // taskData = findViewById(R.id.task_data);
-        taskDate = findViewById ( R.id.task_date);
 
-                mDatabaseRef = FirebaseDatabase.getInstance().getReference("Task");
+        uploadProgressBar = findViewById(R.id.progress_bar);
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("finance_uploads");
         ////////////////////
         Intent i=this.getIntent();
         String id=i.getExtras().getString("ID_KEY");
-        String task=i.getExtras().getString("NAME_KEY");
-        String dateToDo=i.getExtras().getString("DATE_KEY");
-        String state=i.getExtras().getString("STATE_KEY");
+        String name=i.getExtras().getString("NAME_KEY");
         String email=i.getExtras().getString("EMAIL_KEY");
+        String amount=i.getExtras().getString("AMOUNT_KEY");
+        String balance=i.getExtras().getString("BALANCE_KEY");
+        String duDate=i.getExtras().getString("DU_DATE_KEY");
+        String dateval=i.getExtras().getString("DATE_KEY");
+        String description=i.getExtras().getString("DESCRIPTION_KEY");
 
 
-        taskData.setText(task);
-        taskDate.setText(dateToDo);
+
+        finName.setText(name);
+        finEmail.setText(email);
+        finAmountReceived.setText(amount);
+        finBalance.setText(balance);
+        finBalanceToPayDate.setText(duDate);
+        date.setText(dateval);
+        finDescription.setText(description);
 
 
         final String selectedKey  = id;
 
+
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(UpdateFinance.this, "An Upload is Still in Progress", Toast.LENGTH_SHORT).show();
-                } else {
                     updateUploadFile(selectedKey);
-                }
+
             }
         });
     }
 
 
     private void updateUploadFile(final String selectedKey) {
-        Intent i=this.getIntent();
-
-        String state=i.getExtras().getString("STATE_KEY");
-        String email=i.getExtras().getString("EMAIL_KEY");
-        Task upload = new Task(
-                taskData.getText().toString().trim(),
-                taskDate.getText().toString(),email,state
 
 
-        );
-        String uploadId = selectedKey;
-        mDatabaseRef.child(uploadId).setValue(upload);
-        Toast.makeText(UpdateFinance.this, "Update Success", Toast.LENGTH_SHORT).show();
+            uploadProgressBar.setVisibility(View.VISIBLE);
+            uploadProgressBar.setIndeterminate(true);
 
-        taskData.setText("");
-        taskDate.setText("");
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    uploadProgressBar.setVisibility(View.VISIBLE);
+                                    uploadProgressBar.setIndeterminate(false);
+                                    uploadProgressBar.setProgress(0);
+                                }
+                            }, 500);
+                            Toast.makeText(UpdateFinance.this, "Finance Update successful", Toast.LENGTH_LONG).show();
+
+
+                            Finance upload = new Finance(finName.getText().toString().trim(),
+
+                                    finEmail.getText ().toString (),
+                                    finAmountReceived.getText().toString(),
+                                    finBalance.getText().toString(),
+                                    finBalanceToPayDate.getText().toString(),
+                                    date.getText().toString(),
+                                    finDescription.getText().toString());
+                            String uploadId = selectedKey;
+                            mDatabaseRef.child(uploadId).setValue(upload);
+                            uploadProgressBar.setVisibility(View.INVISIBLE);
+
+        finName.setText("");
+        finEmail.setText("");
+        finAmountReceived.setText("");
+        finBalance.setText("");
+        finBalanceToPayDate.setText("");
+        date.setText("");
+        finDescription.setText("");
 
     }
-    private void openImagesActivity(){
-        Intent intent = new Intent(this, TeachersDashboard.class);
-        startActivity(intent);
-    }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null) {
-            mImageUri = data.getData();
-            Picasso.with(this).load(mImageUri).into(chosenImageView);
-        }
+
     }
+
+
+
+
 }

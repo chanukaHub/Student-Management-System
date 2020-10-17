@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroup"
+    tools:context=".timetables.TimeTablesDashboard">
+
+
+    <LinearLayout
+        android:id="@+id/button_zone"
+        android:layout_width="347dp"
+        android:layout_height="252dp"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="247dp"
+
+            android:layout_weight="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/timeaddTimeTable"
+                    android:layout_width="398dp"
+                    android:layout_height="79dp"
+                    android:layout_weight="1"
+                    android:background="#0B6D9A"
+                    android:text="SAVE DATA"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="11dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/timeviewAll"
+                    style="?android:attr/button"
+                    android:layout_width="395dp"
+                    android:layout_height="76dp"
+                    android:layout_weight="1"
+                    android:background="#0B6D9A"
+                    android:clickable="true"
+                    android:text="VIEW ALL"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="190dp"
+        android:layout_height="171dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="27dp"
+        android:src="@drawable/icon" />
+
+</RelativeLayout>

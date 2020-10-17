@@ -73,14 +73,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Contact"
-                android:inputType="text"
+                android:inputType="phone"
                 android:minLines="3" />
             <EditText
                 android:id="@+id/studentEmailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
-                android:inputType="text"
+                android:inputType="textWebEmailAddress"
                 android:minLines="3" />
 
             <LinearLayout
