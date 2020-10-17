@@ -34,7 +34,8 @@
                         android:padding="5dp"
                         android:text="Student Index"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#D61139" />
+                        android:textColor="#000000"
+                        android:textSize="20dp"/>
 
 
                     <TextView
@@ -53,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:minLines="2"
                         android:padding="5dp"
-                        android:text="Description"
+                        android:text="email"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="italic" />
 

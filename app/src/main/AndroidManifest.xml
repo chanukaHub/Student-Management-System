@@ -43,6 +43,7 @@
         <activity android:name=".AddResult" />
         <activity android:name=".Register" />
         <activity android:name=".Login" />
+        <activity android:name=".ResultDashboard"/>
         <activity android:name=".Dashboard" >
 
 
