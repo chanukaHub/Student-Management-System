@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.WizGuys.eStudent.Dashboard;
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.adapter.ToDoAdapter;
 import com.WizGuys.eStudent.helperClass.Common;
@@ -38,6 +40,7 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
     private DatabaseReference mDatabaseRef;
     private ValueEventListener mDBListener;
     private List<Task> mTasks;
+    private ImageView backImg;
 
     private ImageView addTaskImgToDo;
     private TextView pendingText, finishedText, failedText;
@@ -82,6 +85,16 @@ public class ToDoList extends AppCompatActivity implements ToDoAdapter.OnItemCli
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mProgressBar = findViewById(R.id.progressbar_ToDo);
         mProgressBar.setVisibility(View.VISIBLE);
+        backImg = findViewById(R.id.back_ToDoList_form);
+
+        //set back button
+        backImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ToDoList.this, Dashboard.class);
+                startActivity(intent);
+            }
+        });
 
         mTasks = new ArrayList<> ();
         mAdapter = new ToDoAdapter (ToDoList.this, mTasks);

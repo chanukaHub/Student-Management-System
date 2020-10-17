@@ -28,6 +28,7 @@
         <activity android:name=".finance.UploadFinance" />
         <activity android:name=".finance.UpdateFinance" />
         <activity android:name=".todoList.UpdateToDo" />
+        <activity android:name=".todoList.ConfirmToDo" />
         <activity android:name=".finance.AllFinance" />
         <activity android:name=".UpdateDeleteAssignmentResult" />
         <activity android:name=".ManageSubjects" />
@@ -35,7 +36,7 @@
         <activity android:name=".subjects.AddSubject" />
         <activity android:name=".subjects.SubjectList" />
         <activity android:name=".todoList.ToDoForm" />
-        <activity android:name=".todoList.ToDoList" />
+        <activity android:name=".todoList.ToDoList"  />
         <activity android:name=".notice.Notice" />
         <activity android:name=".ShowResult" />
         <activity android:name=".AddAssignmentResult" />

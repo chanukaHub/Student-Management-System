@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.WizGuys.eStudent.R;
@@ -22,6 +23,7 @@ public class UpdateSubject extends AppCompatActivity {
     private StorageTask mUploadTask;
     private FirebaseStorage mStorage;
     private TextView subNameTxt, subChapterTxt, subInfoTxt;
+    private ImageView backImg;
 
     private void initializeWidgets(){
         subNameTxt = findViewById(R.id.subject_name_add);
@@ -44,6 +46,16 @@ public class UpdateSubject extends AppCompatActivity {
         subNameTxt = findViewById(R.id.subject_name_add);
         subChapterTxt = findViewById ( R.id.subject_chapters_add);
         subInfoTxt = findViewById(R.id.subject_info_add);
+
+        backImg = findViewById(R.id.back_Subject_form);
+
+        backImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UpdateSubject.this, SubjectList.class);
+                startActivity(intent);
+            }
+        });
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(Common.SUBJECTS_TABLE);
 

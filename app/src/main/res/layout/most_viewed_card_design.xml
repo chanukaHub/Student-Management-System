@@ -60,7 +60,7 @@
             android:layout_toEndOf="@+id/mv_image"
             android:layout_toRightOf="@id/mv_image"
             android:padding="10dp"
-            android:text="asbkd asudhlasn saudnas jasdjasl hisajdl asjdlnas" />
+            />
 
 
     </RelativeLayout>

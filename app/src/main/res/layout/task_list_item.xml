@@ -49,20 +49,20 @@
     <RelativeLayout
         android:layout_width="match_parent"
 
-        android:layout_height="46dp"
+        android:layout_height="40dp"
 
         android:layout_weight="1"
         android:background="@color/header_background">
 
         <ImageButton
             android:id="@+id/confirm_task_ToDo"
-            android:layout_width="113dp"
-            android:layout_height="wrap_content"
+            android:layout_width="172dp"
+            android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="155dp"
+            android:layout_marginStart="103dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="0dp"
 
             android:layout_toStartOf="@+id/update_task_ToDo"
             android:src="@drawable/ic_baseline_done_24" />
@@ -71,10 +71,10 @@
             android:id="@+id/update_task_ToDo"
 
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="17dp"
-            android:layout_marginBottom="3dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="0dp"
 
             android:layout_toStartOf="@+id/delete_task_ToDo"
             android:src="@drawable/ic_baseline_update_24" />
@@ -83,11 +83,11 @@
             android:id="@+id/delete_task_ToDo"
 
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="2dp"
+            android:layout_marginBottom="0dp"
             android:contentDescription="TODO"
             android:src="@drawable/ic_baseline_delete_24" />
 

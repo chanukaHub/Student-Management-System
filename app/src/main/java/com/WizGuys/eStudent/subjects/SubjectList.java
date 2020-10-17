@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.WizGuys.eStudent.Dashboard;
 import com.WizGuys.eStudent.R;
 import com.WizGuys.eStudent.adapter.SubjectAdapter;
 import com.WizGuys.eStudent.helperClass.Common;
@@ -35,6 +36,7 @@ public class SubjectList extends AppCompatActivity implements SubjectAdapter.OnI
     private DatabaseReference mDatabaseRef;
     private ValueEventListener mDBListener;
     private List<Subject> mSubjects;
+    private ImageView backImg;
 
     private ImageView addTaskImgToDo;
 
@@ -59,6 +61,16 @@ public class SubjectList extends AppCompatActivity implements SubjectAdapter.OnI
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mProgressBar = findViewById(R.id.progressBarSubj);
         mProgressBar.setVisibility(View.VISIBLE);
+        backImg = findViewById(R.id.back_SubjectList);
+
+        //set back button
+        backImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SubjectList.this, Dashboard.class);
+                startActivity(intent);
+            }
+        });
 
         mSubjects = new ArrayList<>();
         mAdapter = new SubjectAdapter(SubjectList.this, mSubjects);

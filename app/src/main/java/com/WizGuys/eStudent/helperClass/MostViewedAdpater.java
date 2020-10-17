@@ -37,6 +37,7 @@ public class MostViewedAdpater extends RecyclerView.Adapter<MostViewedAdpater.Mo
         ImageView imageView;
         TextView textView;
         TextView mv_desc;
+
         public MostViewedViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.mv_image);

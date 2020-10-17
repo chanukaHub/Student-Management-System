@@ -21,8 +21,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AddSubject extends AppCompatActivity {
 
-    TextView subjNameTextView, subjChapterTextView, subjInfoTextView;
-    Button addSubjButton;
+    private TextView subjNameTextView, subjChapterTextView, subjInfoTextView;
+    private Button addSubjButton;
+    private ImageView backImg;
 
     DatabaseReference reff;
     @Override
@@ -33,7 +34,16 @@ public class AddSubject extends AppCompatActivity {
         subjNameTextView = findViewById(R.id.subject_name_add);
         subjChapterTextView = findViewById(R.id.subject_chapters_add);
         subjInfoTextView = findViewById(R.id.subject_info_add);
+        backImg = findViewById(R.id.back_Subject_form);
 
+        //set back button
+        backImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddSubject.this, SubjectList.class);
+                startActivity(intent);
+            }
+        });
         addSubjButton = findViewById(R.id.add_subject_Subject_Manager);
 
         addSubjButton.setOnClickListener(new View.OnClickListener() {
