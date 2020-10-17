@@ -17,9 +17,7 @@ import com.WizGuys.eStudent.model.Student;
 import com.WizGuys.eStudent.students.StudentItems;
 import com.squareup.picasso.Picasso;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.RecyclerViewHolder> {
@@ -107,27 +105,11 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.Recycler
         }
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-            menu.setHeaderTitle("Select Action");
-            MenuItem showItem = menu.add( Menu.NONE, 1, 1, "Show");
-            MenuItem deleteItem = menu.add(Menu.NONE, 2, 2, "Delete");
-            showItem.setOnMenuItemClickListener(this);
-            deleteItem.setOnMenuItemClickListener(this);
+
         }
         @Override
         public boolean onMenuItemClick(MenuItem item) {
-            if (mListener != null) {
-                int position = getAdapterPosition();
-                if (position != RecyclerView.NO_POSITION) {
-                    switch (item.getItemId()) {
-                        case 1:
-                            mListener.onShowItemClick(position);
-                            return true;
-                        case 2:
-                            mListener.onDeleteItemClick(position);
-                            return true;
-                    }
-                }
-            }
+
             return false;
         }
     }
@@ -139,10 +121,5 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.Recycler
     public void setOnItemClickListener(StudentAdapter.OnItemClickListener listener) {
         mListener = listener;
     }
-    private String getDateToday(){
-        DateFormat dateFormat=new SimpleDateFormat("yyyy/MM/dd");
-        Date date=new Date();
-        String today= dateFormat.format(date);
-        return today;
-    }
+
 }

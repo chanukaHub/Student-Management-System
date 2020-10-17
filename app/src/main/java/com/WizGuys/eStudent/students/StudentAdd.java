@@ -121,7 +121,7 @@ public class StudentAdd extends AppCompatActivity {
                                     uploadProgressBar.setProgress(0);
                                 }
                             }, 500);
-                            Toast.makeText(StudentAdd.this, "Student Add successful", Toast.LENGTH_LONG).show();
+
 
                             Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                             while (!urlTask.isSuccessful());
@@ -135,6 +135,7 @@ public class StudentAdd extends AppCompatActivity {
                                     downloadUrl);
                             //String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(indexEditText.getText().toString().trim()).setValue(student);
+                            Toast.makeText(StudentAdd.this, "Student Add successful", Toast.LENGTH_LONG).show();
                             uploadProgressBar.setVisibility(View.INVISIBLE);
                             openImagesActivity ();
                         }
