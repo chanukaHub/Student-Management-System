@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +34,8 @@ public class UpdateToDo extends AppCompatActivity {
     private StorageTask mUploadTask;
     private FirebaseStorage mStorage;
     DatePickerDialog.OnDateSetListener setListener;
-    TextView task_data,task_date;
+    private TextView task_data,task_date;
+    private ImageView backImg;
 
     private void initializeWidgets(){
         task_data = findViewById(R.id.task_data_ToDo_add);
@@ -56,6 +58,17 @@ public class UpdateToDo extends AppCompatActivity {
         taskData = findViewById(R.id.task_data_ToDo_add);
         taskDate = findViewById ( R.id.task_date);
         selectDateButton = findViewById(R.id.textView4);
+
+        backImg = findViewById(R.id.back_ToDo_form);
+
+        //set back button
+        backImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UpdateToDo.this, ToDoList.class);
+                startActivity(intent);
+            }
+        });
 
 
         //date picker

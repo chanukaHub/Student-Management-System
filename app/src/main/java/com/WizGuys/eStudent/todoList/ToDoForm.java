@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,8 @@ public class ToDoForm extends AppCompatActivity {
 
     Button addTaskButton, selectDateButton;
 
+    ImageView imgBack;
+
     DatePickerDialog.OnDateSetListener setListener;
 
     DatabaseReference reff;
@@ -46,6 +49,16 @@ public class ToDoForm extends AppCompatActivity {
         taskDate = findViewById(R.id.task_date);
         addTaskButton = findViewById(R.id.add_task_img_ToDo);
         selectDateButton = findViewById(R.id.textView4);
+        imgBack = findViewById(R.id.back_ToDo_form);
+
+        //set back button
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ToDoForm.this, ToDoList.class);
+                startActivity(intent);
+            }
+        });
 
         //date picker
         Calendar calendar = Calendar.getInstance();

@@ -35,7 +35,7 @@
         <activity android:name=".subjects.AddSubject" />
         <activity android:name=".subjects.SubjectList" />
         <activity android:name=".todoList.ToDoForm" />
-        <activity android:name=".todoList.ToDoList" />
+        <activity android:name=".todoList.ToDoList"  />
         <activity android:name=".notice.Notice" />
         <activity android:name=".ShowResult" />
         <activity android:name=".AddAssignmentResult" />
